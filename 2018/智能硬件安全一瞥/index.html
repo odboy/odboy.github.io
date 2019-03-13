@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="智能硬件安全算是一个相对较新的领域，既有传统的安全问题(云服务器安全、APP安全、通讯安全等)，又有属于电子产品范畴的安全。简单看看其涉及到的知识领域，评估下自己如何在该领域循序渐进。">
+<meta name="keywords" content="IoT,硬件安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能硬件安全一瞥">
+<meta property="og:url" content="https://oddboy.cn/2018/智能硬件安全一瞥/index.html">
+<meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
+<meta property="og:description" content="智能硬件安全算是一个相对较新的领域，既有传统的安全问题(云服务器安全、APP安全、通讯安全等)，又有属于电子产品范畴的安全。简单看看其涉及到的知识领域，评估下自己如何在该领域循序渐进。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://oddboy.cn/2018/智能硬件安全一瞥/智能硬件安全一瞥/image01.png">
+<meta property="og:image" content="https://oddboy.cn/2018/智能硬件安全一瞥/智能硬件安全一瞥/RaspberryPi3.jpg">
+<meta property="og:image" content="https://oddboy.cn/2018/智能硬件安全一瞥/智能硬件安全一瞥/image02.png">
+<meta property="og:updated_time" content="2019-03-13T06:36:07.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="智能硬件安全一瞥">
+<meta name="twitter:description" content="智能硬件安全算是一个相对较新的领域，既有传统的安全问题(云服务器安全、APP安全、通讯安全等)，又有属于电子产品范畴的安全。简单看看其涉及到的知识领域，评估下自己如何在该领域循序渐进。">
+<meta name="twitter:image" content="https://oddboy.cn/2018/智能硬件安全一瞥/智能硬件安全一瞥/image01.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://oddboy.cn/2018/智能硬件安全一瞥/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>智能硬件安全一瞥 | Mr.Bingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr.Bingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">The world is a narrow bridge, and the most important thing is not to be afraid.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://oddboy.cn/2018/智能硬件安全一瞥/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Bingo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Bingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">智能硬件安全一瞥
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-22 11:14:42" itemprop="dateCreated datePublished" datetime="2018-01-22T11:14:42+08:00">2018-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 14:36:07" itemprop="dateModified" datetime="2019-03-13T14:36:07+08:00">2019-03-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>  智能硬件安全算是一个相对较新的领域，既有传统的安全问题(云服务器安全、APP安全、通讯安全等)，又有属于电子产品范畴的安全。简单看看其涉及到的知识领域，评估下自己如何在该领域循序渐进。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="智能硬件安全概览"><a href="#智能硬件安全概览" class="headerlink" title="智能硬件安全概览"></a>智能硬件安全概览</h2><p>随着万物互联的物联网思维发酵，原本自成系统的硬件设备及其自有网络（Bluetooth、Zigbee、Can总线等）接入到互联网中，打破原本隔离的状态，成为了今天大家熟知的智能硬件。使其在得到互联网加持的同时，也相应的需要面对互联网中的安全威胁。例如：关注度比较高的车联网安全，很多问题便是由于原本封闭安全的can总线网络接入到互联网之后带来的。</p>
+<p>目前的智能硬件，其一般情况下部署架构均如图所示，个别情况可能缺少云端或者APP端。<br><img src="智能硬件安全一瞥/image01.png" alt></p>
+<p>所以，谈论智能硬件安全，其实三端点(终端设备+云端+APP) + 三条线(三者之间的通讯)所涉及的安全问题。</p>
+<h2 id="点·终端设备安全"><a href="#点·终端设备安全" class="headerlink" title="点·终端设备安全"></a>点·终端设备安全</h2><p>你以为硬件设备都长什么样呢? 如下便是扒光外壳后硬件本来的样子，其实这就是赫赫大名的树莓派。<br><img src="智能硬件安全一瞥/RaspberryPi3.jpg" alt></p>
+<ul>
+<li>接口安全</li>
+</ul>
+<p>有些硬件可能为了维修方便，都留有编程口（JTAG、ISP的等）、数据通信口（USB、SPI、CAN、UART等有线通信及WIFI、Zigbee、Bluetooth等无线通信）。这些接口未做相应的防护，导致终端直接面临安全风险。</p>
+<ul>
+<li>固件安全</li>
+</ul>
+<p>固件（运行在硬件上的程序代码）安全主要关注点应该是固件的保密性措施。固件被盗被逆向，那么自家产品的复制品很快也就出来了。对于长开发周期的电子行业来讲，这是比较沉重的打击。</p>
+<p>一般的，有三种获取固件的方式：</p>
+<blockquote>
+<p>   <strong>官网链接下载</strong><br>   <strong>捕获升级包</strong><br>   <strong>直接用调试器从硬件读取</strong></p>
+</blockquote>
+<ul>
+<li>IC芯片破解</li>
+</ul>
+<p>这部分与固件安全有一定的交集，但相对于上一点有所区别，较多的依赖芯片厂商，硬件厂商需要认真评估芯片的安全性，并考虑做一些额外处理（如清除芯片型号、充分使用芯片安全特性等）</p>
+<blockquote>
+<p>  【芯片漏洞】<br>  如利用单片机时序漏洞使单片机停留在解密状态；空白区域插入代码，将片内程序读取并传送出来。</p>
+</blockquote>
+<blockquote>
+<p>  【探针技术】<br>  直接破开芯片外壳，暴露内部连接，然后观察、操控、干扰芯片。</p>
+</blockquote>
+<blockquote>
+<p>   【过错产生技术】<br>  使用异常工作条件来使处理器出错，然后提供额外的访问来进行攻击。使用最广泛的过错产生攻击手段包括电压冲击和时钟冲击。电源和时钟瞬态跳变可以在某些处理器中影响单条指令的解码和执行。</p>
+</blockquote>
+<blockquote>
+<p>   【紫外线攻击】<br>  紫外线攻击也称为UV攻击方法，就是利用紫外线照射芯片，让加密的芯片变成了不加密的芯片，然后用编程器直接读出程序。这种方法适合OTP的芯片。</p>
+</blockquote>
+<blockquote>
+<p>   【其它方法】<br>  如熔丝恢复、修改加密线路、电子探针等。</p>
+</blockquote>
+<ul>
+<li>固件漏洞</li>
+</ul>
+<p>关于固件漏洞，大家应该相对更加耳熟能详的，经常爆出的路由器漏洞便属于此类。</p>
+<ul>
+<li>固件篡改 &amp; 降级攻击</li>
+</ul>
+<p>如果固件代码被攻击者篡改，重新烧录或伪装为升级服务器，终端便沦为肉鸡。降级攻击主要是将固件降级到存在漏洞的版本，以便攻击者进行利用。</p>
+<ul>
+<li>数据存储不安全</li>
+</ul>
+<p>硬件终端的丢失与失窃是非常正常的事，然而这些终端中却往往有用户非常敏感的个人数据。如果终端设备未对数据进行加密存储，那么用户信息、会话令牌，甚至明文口令都可能被直接读取。</p>
+<h2 id="点·APP安全"><a href="#点·APP安全" class="headerlink" title="点·APP安全"></a>点·APP安全</h2><ul>
+<li>应用反编译</li>
+</ul>
+<p>大多数APP客户端安全问题都源于APP被反编译，虽然没有百分百杜绝反编译的措施，但堆高破解门槛还是需要考虑的。</p>
+<ul>
+<li><p>组件类漏洞</p>
+<blockquote>
+<p>   Activity公开组件暴露<br>   Broadcast Receiver组件调用漏洞<br>   Service组件任意调用漏洞</p>
+</blockquote>
+</li>
+<li><p>敏感信息泄露</p>
+<blockquote>
+<p>   硬编码敏感信息泄露漏洞<br>   外部存储设备信息泄露漏洞<br>   PendingIntent包含隐式Intent信息泄露漏洞</p>
+</blockquote>
+</li>
+<li><p>其它</p>
+<blockquote>
+<p>   本地拒绝服务漏洞<br>   Android App allowBackup安全漏洞<br>   运行其它可执行程序漏洞</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="点·云端安全"><a href="#点·云端安全" class="headerlink" title="点·云端安全"></a>点·云端安全</h2><p>也就是服务端主机的安全。这是白帽子聚集最多，也是最成熟的信息安全领域。</p>
+<ul>
+<li><p>基础架构类安全问题<br>主机漏洞、中间件漏洞、协议漏洞、数据库漏洞等等。。。</p>
+</li>
+<li><p>登录体系类安全问题<br>账号注册/登录漏洞、弱口令、验证码安全等等。。。</p>
+</li>
+<li><p>权限认证类安全问题<br>未授权访问、越权访问、支付漏洞等等。。。</p>
+</li>
+<li><p>输入输出类安全问题<br>SQL注入、XSS、XXE、反序列化、文件上传、文件包含、CSRF、弱口令等等。。。</p>
+</li>
+</ul>
+<h2 id="线·APP-Cloud"><a href="#线·APP-Cloud" class="headerlink" title="线·APP - Cloud"></a>线·APP - Cloud</h2><p>这部分的安全问题，在移动端测试中经常关注到，大部分也就是云端安全的问题。</p>
+<h2 id="线·IoT-Cloud"><a href="#线·IoT-Cloud" class="headerlink" title="线·IoT - Cloud"></a>线·IoT - Cloud</h2><p>这部分通信与APP-Cloud直接的通信的主要区别在于，终端到服务器直接的数据传递多以API接口为主，通信协议使用的相对多一些，如XMPP、MQTT、COAP、RESTful HTTP等，这些通信协议的安全性还有待考验。</p>
+<p>同时，由于传统的嵌入式开发工程师在安全开发方便的经验相对缺失，以及已有程序未考虑现有应用环境带来的安全问题。</p>
+<ul>
+<li><p>数据传输未加密<br>在智能硬件的使用过程中，网络环境可能不断变化，极有可能连接上被人嗅探、监控的网络。所以传输的数据必须是加密的。</p>
+</li>
+<li><p>秘钥保护措施不当<br>有些智能硬件考虑到了加密传输，但却使用对称加密方式。如果秘钥存放不当，那么加密传输也就变得毫无意义。</p>
+</li>
+<li><p>业务漏洞<br>从传统的单机应用接入到云端之后，功能变得更多更复杂的同时，权限的管理也变得复杂，如果服务端未做充分的验证工作，将存在较多问题。</p>
+</li>
+<li><p>身份认证措施不当<br>每个硬件都有自己的一个身份标识，如果该身份标识未能安全的运用于身份认证，那么将很容易引起越权类漏洞。如：以硬件Mac地址或产品序列号作为会话认证标志的情况。</p>
+</li>
+<li><p>越权漏洞<br>服务端和终端上权限管控不当导致越权漏洞，如免费使用服务、越权控制别人的设备等等。</p>
+</li>
+</ul>
+<h2 id="线·IoT-APP"><a href="#线·IoT-APP" class="headerlink" title="线·IoT - APP"></a>线·IoT - APP</h2><p>很多情况下也是因为新的应用环境导致的认知不足所致。</p>
+<ul>
+<li><p>身份认证措施不当<br>移动端与终端的绑定需要的认证信息必须自个安全的进行存储，如有必要考虑其他认证措施同时使用。避免硬件被别人控制。</p>
+</li>
+<li><p>未授权访问<br>某些智能硬件的服务对同一局域网其它设备开放性的访问。这显然也是不安全的，毕竟WiFi密码并不安全。</p>
+</li>
+<li><p>数据传输未加密<br>同“IOT - Cloud”</p>
+</li>
+</ul>
+<h2 id="技能图"><a href="#技能图" class="headerlink" title="技能图"></a>技能图</h2><p>按照个人的粗浅理解，简单绘制了智能硬件安全白帽子的成长路线图。抛砖引玉，大咖们轻拍！<br><img src="智能硬件安全一瞥/image02.png" alt></p>
+<hr>
+<p>【参考资料】</p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5lZWZvY3VzLmNvbS9pY3BvamllL2Jsb2cvMTctMDIvNDA1NDk2X2QyNDc1Lmh0bWw=" title="http://www.eefocus.com/icpojie/blog/17-02/405496_d2475.html">http://www.eefocus.com/icpojie/blog/17-02/405496_d2475.html<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL2Jsb2cua25vd25zZWMuY29tL0tub3duc2VjX1JEX0NoZWNrbGlzdC8=" title="http://blog.knownsec.com/Knownsec_RD_Checklist/">http://blog.knownsec.com/Knownsec_RD_Checklist/<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yMjI3MzE0Nw==" title="https://zhuanlan.zhihu.com/p/22273147">https://zhuanlan.zhihu.com/p/22273147<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3d3dy5mcmVlYnVmLmNvbS9hcnRpY2xlcy90ZXJtaW5hbC8xMTcyNjIuaHRtbA==" title="http://www.freebuf.com/articles/terminal/117262.html">http://www.freebuf.com/articles/terminal/117262.html<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IoT/" rel="tag"># IoT</a>
+          
+            <a href="/tags/硬件安全/" rel="tag"># 硬件安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/Mac搭建STM32编译及调试工具-含led-demo/" rel="next" title="Mac搭建STM32编译及调试工具(含led-demo)">
+                <i class="fa fa-chevron-left"></i> Mac搭建STM32编译及调试工具(含led-demo)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/OpenBSD-PF-Packet-Filter-学习/" rel="prev" title="OpenBSD PF(Packet Filter)学习">
+                OpenBSD PF(Packet Filter)学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Bingo</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="GitHub &rarr; https://github.com/odboy"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingo@oddboy.cn" title="E-Mail &rarr; mailto:bingo@oddboy.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9PZGRCb3lDTg==" title="Twitter &rarr; https://twitter.com/OddBoyCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MDE3Mzc5ODQ0" title="Weibo &rarr; https://weibo.com/u/5017379844"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#智能硬件安全概览"><span class="nav-number">1.</span> <span class="nav-text">智能硬件安全概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点·终端设备安全"><span class="nav-number">2.</span> <span class="nav-text">点·终端设备安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点·APP安全"><span class="nav-number">3.</span> <span class="nav-text">点·APP安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点·云端安全"><span class="nav-number">4.</span> <span class="nav-text">点·云端安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线·APP-Cloud"><span class="nav-number">5.</span> <span class="nav-text">线·APP - Cloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线·IoT-Cloud"><span class="nav-number">6.</span> <span class="nav-text">线·IoT - Cloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线·IoT-APP"><span class="nav-number">7.</span> <span class="nav-text">线·IoT - APP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技能图"><span class="nav-number">8.</span> <span class="nav-text">技能图</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Bingo</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

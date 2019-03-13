@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="叨逼叨原本以为iPhone X会被疯抢，所谓八仙过海各显神通，我就想着用自己的野路子看看凑效不？ 经过几天的流程梳理，代码编写及优化，在27号前夕以iPhone 8作为测试，效果是灰常的好！">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPhoneX抢购Python脚本">
+<meta property="og:url" content="https://oddboy.cn/2017/iPhoneX抢购Python脚本/index.html">
+<meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
+<meta property="og:description" content="叨逼叨原本以为iPhone X会被疯抢，所谓八仙过海各显神通，我就想着用自己的野路子看看凑效不？ 经过几天的流程梳理，代码编写及优化，在27号前夕以iPhone 8作为测试，效果是灰常的好！">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://oddboy.cn/2017/iPhoneX抢购Python脚本/iPhoneX抢购Python脚本/image01.jpg">
+<meta property="og:image" content="https://oddboy.cn/2017/iPhoneX抢购Python脚本/iPhoneX抢购Python脚本/image02.png">
+<meta property="og:image" content="https://oddboy.cn/2017/iPhoneX抢购Python脚本/iPhoneX抢购Python脚本/image03.png">
+<meta property="og:updated_time" content="2019-03-13T06:36:07.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPhoneX抢购Python脚本">
+<meta name="twitter:description" content="叨逼叨原本以为iPhone X会被疯抢，所谓八仙过海各显神通，我就想着用自己的野路子看看凑效不？ 经过几天的流程梳理，代码编写及优化，在27号前夕以iPhone 8作为测试，效果是灰常的好！">
+<meta name="twitter:image" content="https://oddboy.cn/2017/iPhoneX抢购Python脚本/iPhoneX抢购Python脚本/image01.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://oddboy.cn/2017/iPhoneX抢购Python脚本/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iPhoneX抢购Python脚本 | Mr.Bingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr.Bingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">The world is a narrow bridge, and the most important thing is not to be afraid.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://oddboy.cn/2017/iPhoneX抢购Python脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Bingo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Bingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iPhoneX抢购Python脚本
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-10-31 15:34:19" itemprop="dateCreated datePublished" datetime="2017-10-31T15:34:19+08:00">2017-10-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 14:36:07" itemprop="dateModified" datetime="2019-03-13T14:36:07+08:00">2019-03-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="叨逼叨"><a href="#叨逼叨" class="headerlink" title="叨逼叨"></a>叨逼叨</h2><p>原本以为iPhone X会被疯抢，所谓八仙过海各显神通，我就想着用自己的野路子看看凑效不？</p>
+<p>经过几天的流程梳理，代码编写及优化，在27号前夕以iPhone 8作为测试，效果是灰常的好！<br><a id="more"></a><br><img src="iPhoneX抢购Python脚本/image01.jpg" alt></p>
+<p>批量下单(iphone8/8p),跑了40个订单,每个订单一条线程，20秒左右全部订单成功，邮箱也瞬间收到几十封邮件：</p>
+<p><img src="iPhoneX抢购Python脚本/image02.png" alt></p>
+<h2 id="失落的转折"><a href="#失落的转折" class="headerlink" title="失落的转折"></a>失落的转折</h2><p>27日早上开始，苹果官网下单功能维护，直到下午三点功能才正常。 不过，在购物车跳转到支付页面的相关参数被改动了。所以，gg了！</p>
+<p><img src="iPhoneX抢购Python脚本/image03.png" alt></p>
+<h2 id="记录总结一下-付出总会有收获"><a href="#记录总结一下-付出总会有收获" class="headerlink" title="记录总结一下 | 付出总会有收获"></a>记录总结一下 | 付出总会有收获</h2><p>几天过去了，今天回过头来稍微整理下，记录下来，好歹也付出过不是？</p>
+<p>今天再次查看苹果网站，之前修改的参数点现在又修改回去了。不过在最后的下订单环节应该有增加了一些防护，所以我的脚本还是不能用。</p>
+<hr>
+<ul>
+<li>python可以直接读取json文件转换为dict.非常好用！</li>
+<li><p>用datetime库来判断时间点：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tmp= datetime.datetime(<span class="number">2017</span>,<span class="number">10</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">58</span>).timestamp()-time.timezone - datetime.datetime.now().timestamp()</span><br><span class="line"><span class="keyword">if</span> tmp&gt;<span class="number">0</span>:  <span class="comment"># UTC时间！   </span></span><br><span class="line">    print(orderIdentify+<span class="string">"🤕\tiphone X 尚未起售！ == %d minutes =="</span>%(tmp/<span class="number">60</span>))</span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用requests.session类来处理多步骤的请求，可以自动处理cookie问题，自动重试功能也非常赞！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">session=requests.session()      <span class="comment"># session会话可以自动保存和处理cookie</span></span><br><span class="line">session.proxies=proxies</span><br><span class="line">session.verify=<span class="literal">False</span></span><br><span class="line">session.timeout=<span class="number">30</span>          <span class="comment"># 此处设置timeout无用</span></span><br><span class="line">session.headers=&#123;<span class="string">'User-Agent'</span>:userAgent&#125;</span><br><span class="line"><span class="comment"># https://stackoverflow.com/questions/15431044/can-i-set-max-retries-for-requests-request/</span></span><br><span class="line">session.mount(<span class="string">'https://'</span>, requests.adapters.HTTPAdapter(max_retries=retryTime<span class="number">-1</span>))     <span class="comment"># 实际会重试 max_retries +1 次   所以将retry次数先减1</span></span><br><span class="line">session.mount(<span class="string">'http://'</span>, requests.adapters.HTTPAdapter(max_retries=retryTime<span class="number">-1</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也许直接使用浏览器模拟器是更好的选择（如mechanize selenium），虽然“重”了些，但简单易处理。</p>
+</li>
+</ul>
+<h2 id="上代码-感兴趣的拿走不谢"><a href="#上代码-感兴趣的拿走不谢" class="headerlink" title="上代码 | 感兴趣的拿走不谢"></a>上代码 | 感兴趣的拿走不谢</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Author : Mr.Bingo</span></span><br><span class="line"><span class="comment"># Version : 2.0</span></span><br><span class="line"><span class="comment"># Description : </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> datetime,time</span><br><span class="line"><span class="keyword">from</span> requests.packages.urllib3.exceptions <span class="keyword">import</span> InsecureRequestWarning</span><br><span class="line"></span><br><span class="line">requests.packages.urllib3.disable_warnings(InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#orderPath= os.path.join(os.path.split(os.path.abspath(__file__))[0],u'order')     # json文件格式订单</span></span><br><span class="line">orderFile= os.path.join(os.path.split(os.path.abspath(__file__))[<span class="number">0</span>],<span class="string">'order.txt'</span>)    <span class="comment"># txt订单格式</span></span><br><span class="line"><span class="comment">#   lastName | firstName | phone | email | state | city | district | street | payment | product | color | capacity | quantity</span></span><br><span class="line"><span class="comment">#   邓 | 六 | 15000555000 | test3@oddboy.cn | 北京 | 北京 | 海淀区 | XXX路17号 | Alipay | iphone8 | glod | 256gb | 2</span></span><br><span class="line">orderResult = os.path.join(os.path.split(os.path.abspath(__file__))[<span class="number">0</span>],<span class="string">'order-Result.csv'</span>)  <span class="comment"># 成功订单</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># orderSuccess = os.path.join(os.path.split(os.path.abspath(__file__))[0],'order-Success.txt')  # 成功订单</span></span><br><span class="line"><span class="comment"># orderFail = os.path.join(os.path.split(os.path.abspath(__file__))[0],'order-Fail.txt')  # 失败订单</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">iPhoneBuyer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># 初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.dispData=[]    <span class="comment"># list</span></span><br><span class="line">        self.threadLock = threading.Lock()  <span class="comment"># 进程锁，主要用于写文件！</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 多线程情况下美化，格式化输出消息。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">display</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 开启多线程 一个订单一个线程</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_Threads</span><span class="params">(self)</span>:</span></span><br><span class="line">        thread_arr=[]       <span class="comment"># 线程列表</span></span><br><span class="line">        threading.Thread(target=self.display)     </span><br><span class="line"></span><br><span class="line">        <span class="comment"># json文件格式订单读取</span></span><br><span class="line">        <span class="comment"># logging.info("\r[info] Order Path : %s "%orderPath[:80])</span></span><br><span class="line">        <span class="comment"># for dirpath,dirname,files in os.walk(orderPath):</span></span><br><span class="line">        <span class="comment">#     print(files)</span></span><br><span class="line">        <span class="comment">#     for f in files:</span></span><br><span class="line">        <span class="comment">#         if re.match(r'^order.*\.json$',f):</span></span><br><span class="line">        <span class="comment">#             f=os.path.join(orderPath,f)</span></span><br><span class="line">        <span class="comment">#             logging.info(f)</span></span><br><span class="line">        <span class="comment">#             with open(f,encoding='utf-8') as fp:</span></span><br><span class="line">        <span class="comment">#                 order=json.load(fp)</span></span><br><span class="line">        <span class="comment">#                 order['fileFullName']= f</span></span><br><span class="line">        <span class="comment">#                 logging.debug(order)</span></span><br><span class="line">        <span class="comment">#                 print("\n&gt; order's phone :: "+order['phone'])</span></span><br><span class="line">        <span class="comment">#                 #pdb.set_trace()</span></span><br><span class="line">        <span class="comment">#                 t=threading.Thread(target=self.buy,args=(order,))</span></span><br><span class="line">        <span class="comment">#                 thread_arr.append(t)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(orderFile):</span><br><span class="line">            print(<span class="string">"没有订单文件！！！"</span>)</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">with</span> open(orderFile,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">            raw_orders = fp.readlines()</span><br><span class="line">            tmp = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">for</span> raw_order <span class="keyword">in</span> raw_orders:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> tmp:</span><br><span class="line">                    tmp =<span class="literal">True</span></span><br><span class="line">                    <span class="keyword">continue</span>    <span class="comment"># 跳过order.txt文件的第一行</span></span><br><span class="line">              </span><br><span class="line">                raw_order = str(raw_order).replace(<span class="string">' '</span>,<span class="string">''</span>)  <span class="comment"># 删除所有空格</span></span><br><span class="line">                logging.debug(raw_order)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> re.match(<span class="string">r'^((.*?\|)&#123;13&#125;)'</span>,raw_order):      <span class="comment"># 简单检查订单格式</span></span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                l = raw_order.split(<span class="string">"|"</span>)</span><br><span class="line">                order=&#123;&#125;</span><br><span class="line">                order[<span class="string">'lastName'</span>] = l[<span class="number">0</span>]</span><br><span class="line">                order[<span class="string">'firstName'</span>] = l[<span class="number">1</span>]</span><br><span class="line">                order[<span class="string">'phone'</span>] = l[<span class="number">2</span>]</span><br><span class="line">                order[<span class="string">'email'</span>] = l[<span class="number">3</span>]</span><br><span class="line">                order[<span class="string">'state'</span>] = l[<span class="number">4</span>]</span><br><span class="line">                order[<span class="string">'city'</span>] = l[<span class="number">5</span>]</span><br><span class="line">                order[<span class="string">'district'</span>] = l[<span class="number">6</span>]</span><br><span class="line">                order[<span class="string">'street'</span>] = l[<span class="number">7</span>]</span><br><span class="line">                order[<span class="string">'payment'</span>] = l[<span class="number">8</span>]</span><br><span class="line">                order[<span class="string">'product'</span>] = l[<span class="number">9</span>]</span><br><span class="line">                order[<span class="string">'color'</span>] = l[<span class="number">10</span>]</span><br><span class="line">                order[<span class="string">'capacity'</span>] = l[<span class="number">11</span>]</span><br><span class="line">                order[<span class="string">'quantity'</span>] = l[<span class="number">12</span>]</span><br><span class="line">                logging.debug(order)</span><br><span class="line">                t=threading.Thread(target=self.buy,args=(order,))</span><br><span class="line">                thread_arr.append(t)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(len(thread_arr)):</span><br><span class="line">            thread_arr[t].start()       <span class="comment"># 启动线程。         </span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(len(thread_arr)):</span><br><span class="line">            thread_arr[t].join()        <span class="comment"># 收拢</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理购买</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buy</span><span class="params">(self,order)</span>:</span></span><br><span class="line">        retryTime = <span class="number">5</span>       <span class="comment"># 请求失败后重试次数</span></span><br><span class="line">        retryTimeout = <span class="number">30</span>     <span class="comment"># 全局超时时间</span></span><br><span class="line">        orderIdentify = order[<span class="string">'lastName'</span>]+order[<span class="string">'firstName'</span>]+<span class="string">"&lt;"</span>+order[<span class="string">'product'</span>]+<span class="string">"/"</span>+ order[<span class="string">'color'</span>]+<span class="string">"/"</span>+order[<span class="string">'capacity'</span>]+<span class="string">"&gt; || "</span></span><br><span class="line">        <span class="comment"># n = 0         # 测试代码</span></span><br><span class="line">        <span class="comment"># while n &lt; 5:</span></span><br><span class="line">        <span class="comment">#     print(threading.current_thread().name)</span></span><br><span class="line">        <span class="comment">#     n = n + 1</span></span><br><span class="line">        <span class="comment">#     time.sleep(1)</span></span><br><span class="line">        <span class="comment"># return </span></span><br><span class="line">        userAgent=<span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN) AppleWebKit/533+ (KHTML, like Gecko)"</span>   <span class="comment"># aywysya可能需要与此值匹配。</span></span><br><span class="line">        cookies=&#123;&#125;</span><br><span class="line">        proxies=&#123;</span><br><span class="line">            <span class="string">"http"</span>: <span class="string">"http://127.0.0.1:8080"</span>,     <span class="comment"># 本地监听</span></span><br><span class="line">            <span class="string">"https"</span>: <span class="string">"https://127.0.0.1:8080"</span></span><br><span class="line">        &#125;</span><br><span class="line">        print(<span class="string">'order :: '</span>+order[<span class="string">'lastName'</span>]+order[<span class="string">'firstName'</span>]+<span class="string">"\t"</span>+order[<span class="string">'email'</span>]+<span class="string">"\t%15s\t%15s\t%15s"</span>%(order[<span class="string">'product'</span>],order[<span class="string">'capacity'</span>],order[<span class="string">'color'</span>]) )</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line">        <span class="keyword">if</span> order[<span class="string">'product'</span>]==<span class="string">"iphone8"</span> <span class="keyword">or</span> order[<span class="string">'product'</span>]==<span class="string">'iphone8plus'</span>:</span><br><span class="line">            url=<span class="string">"https://www.apple.com/cn/shop/buy-iphone/iphone-8"</span></span><br><span class="line">        <span class="keyword">elif</span> order[<span class="string">'product'</span>]==<span class="string">'iphonex'</span>:</span><br><span class="line">            <span class="comment">#if datetime.datetime.now().timestamp() &lt; datetime.datetime(2017,10,27,15,0).timestamp():    #从时间判断是否起售</span></span><br><span class="line">            tmp= datetime.datetime(<span class="number">2017</span>,<span class="number">10</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">58</span>).timestamp()-time.timezone - datetime.datetime.now().timestamp()</span><br><span class="line">            <span class="keyword">if</span> tmp&gt;<span class="number">0</span>:  <span class="comment"># UTC时间！   </span></span><br><span class="line">                print(orderIdentify+<span class="string">"🤕\tiphone X 尚未起售！ == %d minutes =="</span>%(tmp/<span class="number">60</span>))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                url=<span class="string">"https://www.apple.com/cn/shop/buy-iphone/iphone-x"</span></span><br><span class="line"></span><br><span class="line">        session=requests.session()      <span class="comment"># session会话可以自动保存和处理cookie</span></span><br><span class="line">        session.proxies=proxies</span><br><span class="line">        session.verify=<span class="literal">False</span></span><br><span class="line">        session.timeout=<span class="number">30</span>          <span class="comment"># 此处设置timeout无用</span></span><br><span class="line">        session.headers=&#123;<span class="string">'User-Agent'</span>:userAgent&#125;</span><br><span class="line">        <span class="comment"># https://stackoverflow.com/questions/15431044/can-i-set-max-retries-for-requests-request/</span></span><br><span class="line">        session.mount(<span class="string">'https://'</span>, requests.adapters.HTTPAdapter(max_retries=retryTime<span class="number">-1</span>))     <span class="comment"># 实际会重试 max_retries +1 次   所以将retry次数先减1</span></span><br><span class="line">        session.mount(<span class="string">'http://'</span>, requests.adapters.HTTPAdapter(max_retries=retryTime<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># logging.debug("GET请求 :: %s"%url)</span></span><br><span class="line">        <span class="comment">#r = session.get(url,timeout=reqTimeout)</span></span><br><span class="line">        <span class="comment"># logging.info("获得cookie :: %s"%print(r.cookies)[:80])</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 在products.json中遍历对应产品,PS:从网页获取比较麻烦。</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(os.path.join(os.path.split(os.path.abspath(__file__))[<span class="number">0</span>],<span class="string">"products.json"</span>)):</span><br><span class="line">            print(<span class="string">"\n\t\tproducts.json文件不存在！\n"</span>)</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br><span class="line">        currentProduct=&#123;&#125;</span><br><span class="line">        <span class="keyword">with</span> open(os.path.join(os.path.split(os.path.abspath(__file__))[<span class="number">0</span>],<span class="string">"products.json"</span>),encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> productFileHandle:    </span><br><span class="line">            products = json.load(productFileHandle)</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> products:</span><br><span class="line">                <span class="comment">#pdb.set_trace()</span></span><br><span class="line">                <span class="keyword">if</span> p[<span class="string">'productLocatorFamily'</span>]==order[<span class="string">'product'</span>] <span class="keyword">and</span> p[<span class="string">'dimensionCapacity'</span>]==order[<span class="string">'capacity'</span>] <span class="keyword">and</span> p[<span class="string">'dimensionColor'</span>]==order[<span class="string">'color'</span>]:</span><br><span class="line">                    logging.debug(<span class="string">"产品型号 : %s\t%s"</span>%(p[<span class="string">'partNumber'</span>],p[<span class="string">'seoUrlToken'</span>])[:<span class="number">80</span>])</span><br><span class="line">                    currentProduct=p</span><br><span class="line">                    <span class="keyword">break</span>   <span class="comment"># 找到相应产品，退出for循环</span></span><br><span class="line">            <span class="keyword">if</span> len(currentProduct) == <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">"未找到相应产品\t%s\t%s\t%s"</span>%(order[<span class="string">'product'</span>],order[<span class="string">'capacity'</span>],order[<span class="string">'color'</span>]) )</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="comment"># close products.json</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#if True:</span></span><br><span class="line">            <span class="comment"># 验证是否启售</span></span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 重试方式，但太复杂，且用修饰器也并不好实现。</span></span><br><span class="line">                <span class="comment"># n = 0</span></span><br><span class="line">                <span class="comment"># while n&lt;retryTime:</span></span><br><span class="line">                <span class="comment">#     try:</span></span><br><span class="line">                <span class="comment">#         r=session.get("https://www.apple.com/cn/shop/delivery-message?parts.0="+currentProduct['partNumber'],timeout=reqTimeout)</span></span><br><span class="line">                <span class="comment">#         n = n + 10000       # 请求成功，跳出循环</span></span><br><span class="line">                <span class="comment">#     except Exception as e:</span></span><br><span class="line">                <span class="comment">#         n = n + 1</span></span><br><span class="line">                <span class="comment">#         if n&gt;=retryTime:</span></span><br><span class="line">                <span class="comment">#         print("重试次数过多！！！ &lt;退出&gt;")</span></span><br><span class="line">                <span class="comment">#         return</span></span><br><span class="line">                <span class="comment"># end while</span></span><br><span class="line">                order[<span class="string">'remark'</span>]=<span class="string">'出师未捷 :: '</span>+<span class="string">"https://www.apple.com/cn/shop/delivery-message?parts.0="</span>+currentProduct[<span class="string">'partNumber'</span>]</span><br><span class="line">                logging.debug(<span class="string">"\n%s\n"</span>%currentProduct)</span><br><span class="line">                r=session.get(<span class="string">"https://www.apple.com/cn/shop/delivery-message?parts.0="</span>+currentProduct[<span class="string">'partNumber'</span>],timeout=retryTimeout)</span><br><span class="line">                logging.debug(r.text)</span><br><span class="line">                deliveryMsg = json.loads(r.text,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">                <span class="comment">#print(orderIdentify+"%s  %s"%(deliveryMsg['body']['content']['deliveryMessage'][currentProduct['partNumber']]['orderByDeliveryBy'],deliveryMsg['body']['content']['deliveryMessage'][currentProduct['partNumber']]['deliveryOptionMessages']))</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="string">'未发售'</span> <span class="keyword">in</span> deliveryMsg[<span class="string">'body'</span>][<span class="string">'content'</span>][<span class="string">'deliveryMessage'</span>][currentProduct[<span class="string">'partNumber'</span>]][<span class="string">'deliveryOptionMessages'</span>][<span class="number">0</span>] :</span><br><span class="line">                    print(orderIdentify+currentProduct[<span class="string">'seoUrlToken'</span>]+<span class="string">" || 暂未发售"</span>)</span><br><span class="line">                    time.sleep(<span class="number">3</span>)   <span class="comment"># 隔三秒钟</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    print(orderIdentify+deliveryMsg[<span class="string">'body'</span>][<span class="string">'content'</span>][<span class="string">'deliveryMessage'</span>][currentProduct[<span class="string">'partNumber'</span>]][<span class="string">'orderByDeliveryBy'</span>]+deliveryMsg[<span class="string">'body'</span>][<span class="string">'content'</span>][<span class="string">'deliveryMessage'</span>][currentProduct[<span class="string">'partNumber'</span>]][<span class="string">'deliveryOptionMessages'</span>][<span class="number">0</span>])</span><br><span class="line">                    <span class="keyword">break</span>       <span class="comment"># 起售！！！   跳出while死循环</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 添加购物车</span></span><br><span class="line">            addCartUrl=url+<span class="string">"/"</span>+currentProduct[<span class="string">'seoUrlToken'</span>]+<span class="string">"?product="</span>+currentProduct[<span class="string">'partNumber'</span>]    \</span><br><span class="line">                        +<span class="string">"&amp;purchaseOption=fullPrice"</span>                                    \</span><br><span class="line">                        +<span class="string">"&amp;step=select"</span>                                                 \</span><br><span class="line">                        +<span class="string">"&amp;dimensionCapacity="</span>+currentProduct[<span class="string">'dimensionCapacity'</span>]      \</span><br><span class="line">                        +<span class="string">"&amp;dimensionColor="</span>+currentProduct[<span class="string">'dimensionColor'</span>]            \</span><br><span class="line">                        +<span class="string">"&amp;part="</span>+currentProduct[<span class="string">'part'</span>]                                \</span><br><span class="line">                        +<span class="string">"&amp;complete=true"</span>                                               \</span><br><span class="line">                        +<span class="string">"&amp;dimensionScreensize="</span>+currentProduct[<span class="string">'dimensionScreensize'</span>]  \</span><br><span class="line">                        +<span class="string">"&amp;add-to-cart=add-to-cart"</span></span><br><span class="line">            print(orderIdentify+<span class="string">"添加到购物车[GET] :: %s"</span>%addCartUrl[:<span class="number">80</span>])</span><br><span class="line">            r = session.get(addCartUrl,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#pdb.set_trace()</span></span><br><span class="line">            <span class="comment"># 访问购物车</span></span><br><span class="line">            shopBagUrl=<span class="string">"https://www.apple.com/cn/shop/bag"</span></span><br><span class="line">            print(orderIdentify+<span class="string">"访问购物车[GET] :: %s"</span>%shopBagUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]访问购物车 :: %s"</span>%shopBagUrl</span><br><span class="line">            r = session.get(shopBagUrl,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            token=re.search(<span class="string">r'\"x-aos-stk\":\"(.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># requests.utils.add_dict_to_cookiejar(session.cookies,&#123;"x-aos-stk":token&#125;)   # 此语句是将token添加到cookie.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 修改数量  可修改为2      此处cookie中需要携带x-aos-stk，应该类似于token的作用。    # 应该可以省略！！！！！ 在结账步骤可一同实现。</span></span><br><span class="line">            <span class="comment"># tmp=re.search(r'"updateQuantity":&#123;"url":"(/cn/shop/bagx\?_a=updateQuantity&amp;_m=(shoppingCart.items.item-.*?))"',r.text)</span></span><br><span class="line">            <span class="comment"># updateQuantityUrl="https://www.apple.com"+tmp.group(1)</span></span><br><span class="line">            <span class="comment"># if order['quantity']=='2':</span></span><br><span class="line">            <span class="comment">#     r= session.post(updateQuantityUrl,data=&#123;tmp.group(2)+".quantity":"2"&#125;,headers=&#123;"x-aos-stk":token&#125;,timeout=reqTimeout)</span></span><br><span class="line">                </span><br><span class="line">            <span class="comment">#     #pdb.set_trace()</span></span><br><span class="line">            <span class="comment">#     print()</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 结账</span></span><br><span class="line">            tmp=re.search(<span class="string">r'\"updateQuantity\":&#123;\"url\":\"(/cn/shop/bagx\?_a=updateQuantity&amp;_m=(shoppingCart.items.item-.*?))\"'</span>,r.text)</span><br><span class="line">            checkoutUrl=<span class="string">"https://www.apple.com/cn/shop/bagx/checkout_now?_a=checkout&amp;_m=shoppingCart"</span></span><br><span class="line">            print(orderIdentify+<span class="string">"结账[POST] :: %s"</span>%checkoutUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]结账[POST] :: %s"</span>%checkoutUrl</span><br><span class="line">            r= session.post(checkoutUrl,data=&#123;tmp.group(<span class="number">2</span>)+<span class="string">".quantity"</span>:order[<span class="string">'quantity'</span>],<span class="string">'shoppingCart.actions.fcscounter'</span>:<span class="string">'NaN'</span>,<span class="string">'shoppingCart.actions.fcsdata'</span>:<span class="string">''</span>&#125;,headers=&#123;<span class="string">"x-aos-stk"</span>:token&#125;,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#pdb.set_trace()</span></span><br><span class="line">            signinUrl=json.loads(r.text,encoding=<span class="string">'utf-8'</span>)[<span class="string">'head'</span>][<span class="string">'data'</span>][<span class="string">'url'</span>]</span><br><span class="line">            print(orderIdentify+<span class="string">"登录页面[GET] :: %s"</span>%signinUrl[:<span class="number">80</span>])</span><br><span class="line"></span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]登录页面[GET] :: %s"</span>%signinUrl</span><br><span class="line">            r=session.get(signinUrl,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            guestBuyData=re.search(<span class="string">r'\"signInGuest\":\&#123;\"form\":\"login\._forms\.guestCheckoutForm\",\"url\":\"/cn/shop/sentryx/sign_in\?(_a=login\.guestSign.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            tmp = re.findall(<span class="string">r'(.*?=.*?)&amp;'</span>,guestBuyData+<span class="string">"&amp;"</span>)</span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> tmp:</span><br><span class="line">                data[i.split(<span class="string">"="</span>,maxsplit=<span class="number">1</span>)[<span class="number">0</span>]]=i.split(<span class="string">"="</span>,maxsplit=<span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 两个复杂参数，硬编码！  </span></span><br><span class="line">            data[<span class="string">'aywysya'</span>]=<span class="string">'78a44j1d7lY5BNvcKyAdMUDFBpBeA0fUm7qKFz0XnjYrJFW73AuyPBB2SCVMvsD7z5meTuCUMz_WgpMVQdgGgeVjrkRGjftckcKyAd65hz74WySXvO3wa3wL6tqAhbrmQkLNbfyz.sU7zl998tp7ppeZLz77qZoOSix5ezdstlYrMxy0kyMpwoNLTK9Ly9nOVlQtb_GGEOpBSKxUC56MnGWpwoNSUC53ZXnN87gq1aWuxXVvHe9FjpidPNs0ojpVMZ90L5H6fqUdHz15tTma1eWNieLqDxpHrk0ugN.xL438IXkb9CxN4t1VKWZWudUd.z9euVrAqJkJgghmeugN.VHBQLz4mvmfTT9oaSumKkpjlRiwerbXh8bUudQUhkY5BSmmY5BNkOdhs7GY6Mk.BY8'</span></span><br><span class="line">            data[<span class="string">'fdcBrowserData'</span>]=<span class="string">'%257B%2522U%2522%253A%2522Mozilla%252F5.0%2520(Windows%253B%2520U%253B%2520Windows%2520NT%25206.1%253B%2520zh-CN)%2520AppleWebKit%252F533%252B%2520(KHTML%252C%2520like%2520Gecko)%2522%252C%2522L%2522%253A%2522zh-CN%2522%252C%2522Z%2522%253A%2522GMT%252B08%253A00%2522%252C%2522V%2522%253A%25221.0%2522%257D'</span></span><br><span class="line">            tmpUrl = re.search(<span class="string">r'(https:\/\/secure.?\.store\.apple\.com)\/cn\/shop\/'</span>,r.text).group(<span class="number">1</span>)+<span class="string">'/cn/shop/sentryx/sign_in'</span></span><br><span class="line">            logging.debug(<span class="string">"访客结账[POST] :: %s"</span>%tmpUrl)</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]访客结账[POST] :: %s"</span>%tmpUrl</span><br><span class="line">            r = session.post(tmpUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            pltn = json.loads(r.text,encoding=<span class="string">'utf-8'</span>)[<span class="string">'head'</span>][<span class="string">'data'</span>][<span class="string">'args'</span>][<span class="string">'pltn'</span>]</span><br><span class="line">            checkoutStartUrl = json.loads(r.text,encoding=<span class="string">'utf-8'</span>)[<span class="string">'head'</span>][<span class="string">'data'</span>][<span class="string">'url'</span>]</span><br><span class="line"></span><br><span class="line">            logging.debug(<span class="string">"结账跳转-1 [POST] :: %s"</span>%checkoutStartUrl)</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]结账跳转-1 [POST] :: %s"</span>%checkoutStartUrl</span><br><span class="line">            r = session.post(checkoutStartUrl,data=&#123;<span class="string">'pltn'</span>:pltn&#125;,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            checkoutUrl = re.search(<span class="string">r'&lt;form method=\"POST\" name=\"redirector\" action=\"(https://.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'pltn'</span>] = re.search(<span class="string">r'&lt;input name="pltn" type="\w*?" value="(.*?)"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'v'</span>] = re.search(<span class="string">r'&lt;input name="v" type="\w*?" value="(.*?)"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'&lt;input name="sessionID" type="\w*?" value="(.*?)"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            logging.debug(<span class="string">"结账跳转-2 [POST] :: %s"</span>%checkoutUrl)</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]结账跳转-2 [POST] :: %s"</span>%checkoutUrl</span><br><span class="line">            r = session.post(checkoutUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 送货选项 --&gt; 送货地址</span></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'sessionID'</span>]=re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># data['A8']=re.search(r',"deliveryLocationType":"(.*?)","_forms":&#123;"main":&#123;"fields":\[&#123;"id":"(cart-item-.*?deliveryLocationType)",',r.text).group(1)</span></span><br><span class="line">            <span class="comment"># data['cartItem']=re.search(r',"deliveryLocationType":"(.*?)","_forms":&#123;"main":&#123;"fields":\[&#123;"id":"(cart-item-.*?deliveryLocationType)",',r.text).group(2)</span></span><br><span class="line">            <span class="comment">#data[re.search(r'\"id\":\"(cart-item-.*?deliveryLocationType)\",',r.text).group(1)]='A8'   # 2017-10-26发现该正则表达式存在匹配问题,匹配了超长的字符串</span></span><br><span class="line">            data[re.search(<span class="string">r'(cart-item-([0-9A-z]+-)&#123;5&#125;delivery-deliveryLocationType)'</span>,r.text).group(<span class="number">1</span>)]=<span class="string">'A8'</span></span><br><span class="line">            </span><br><span class="line">            data[<span class="string">'_a'</span>]=<span class="string">'cart.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>]=<span class="string">'co'</span></span><br><span class="line">            data[<span class="string">'_m'</span>]=<span class="string">'cart'</span></span><br><span class="line">            <span class="comment"># 有多台secure主机，需要从页面取值。</span></span><br><span class="line">            checkoutxUrl = re.search(<span class="string">r'(https:\/\/secure.?\.store\.apple\.com)\/cn\/shop\/'</span>,r.text).group(<span class="number">1</span>)+<span class="string">'/cn/shop/checkoutx'</span></span><br><span class="line">            print(orderIdentify+<span class="string">"送货选项 --&gt; 送货地址[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]送货选项 --&gt; 送货地址[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 送货地址 --&gt; 付款</span></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'shipping-user-lastName'</span>] = order[<span class="string">'lastName'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-firstName'</span>] = order[<span class="string">'firstName'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-daytimePhoneAreaCode'</span>] = <span class="string">'0'</span></span><br><span class="line">            data[<span class="string">'shipping-user-daytimePhone'</span>] = order[<span class="string">'phone'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-state'</span>] = order[<span class="string">'state'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-city'</span>] = order[<span class="string">'city'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-district'</span>] = order[<span class="string">'district'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-street'</span>] = order[<span class="string">'street'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-street2'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'shipping-user-postalCode'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'shipping-user-emailAddress'</span>] = order[<span class="string">'email'</span>]</span><br><span class="line">            data[<span class="string">'shipping-user-mobilePhone'</span>] = order[<span class="string">'phone'</span>]</span><br><span class="line">            data[<span class="string">'state'</span>] = order[<span class="string">'state'</span>]</span><br><span class="line">            data[<span class="string">'keyPath'</span>] = <span class="string">'shipping.address'</span></span><br><span class="line">            data[<span class="string">'city'</span>] = order[<span class="string">'city'</span>]</span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'ship.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"送货地址 --&gt; 付款[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]送货地址 --&gt; 付款[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 付款 --&gt; 发票</span></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'undefined'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'bankOption'</span>] = <span class="string">'Alipay'</span></span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'bill.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"付款 --&gt; 发票[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]付款 --&gt; 发票[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 发票 --&gt; 账户</span></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceEmailAddress-emailAddress'</span>] = order[<span class="string">'email'</span>]</span><br><span class="line">            data[<span class="string">'invoice-fapiao-invoiceHeader'</span>] = order[<span class="string">'lastName'</span>]+order[<span class="string">'firstName'</span>]</span><br><span class="line">            data[<span class="string">'invoice-fapiao-taxPayerId'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'invoice-form-options-selection'</span>] = <span class="string">'personal'</span></span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-lastName'</span>] = order[<span class="string">'lastName'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-firstName'</span>] = order[<span class="string">'firstName'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-daytimePhoneAreaCode'</span>] = <span class="string">'0'</span></span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-daytimePhone'</span>] = order[<span class="string">'phone'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-companyName'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-state'</span>] = order[<span class="string">'state'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-city'</span>] = order[<span class="string">'city'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-district'</span>] = order[<span class="string">'district'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-street'</span>] = order[<span class="string">'street'</span>]</span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-street2'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'invoice-user-invoiceDeliveryAddress-postalCode'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'state'</span>] = order[<span class="string">'state'</span>]</span><br><span class="line">            data[<span class="string">'keyPath'</span>] = <span class="string">'invoice.invoiceDeliveryAddress'</span></span><br><span class="line">            data[<span class="string">'city'</span>] = order[<span class="string">'city'</span>]</span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'invoice.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"发票 --&gt; 账户[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]发票 --&gt; 账户[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 账户 --&gt; 条款与条件</span></span><br><span class="line">            data = &#123;&#125;</span><br><span class="line">            data[<span class="string">'account-appleId'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'account-password'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'account-passwordAgain'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'account-commsPref'</span>] = <span class="string">'false'</span></span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'acct.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"账户 --&gt; 条款与条件[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]账户 --&gt; 条款与条件[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            <span class="comment"># 同意 条款与条件</span></span><br><span class="line">            data = &#123;&#125;</span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'accept'</span>] = <span class="string">'true'</span></span><br><span class="line">            data[<span class="string">'acceptAppleTnc'</span>] = <span class="string">'false'</span></span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'terms.cont'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"同意 条款与条件[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[失败]同意 条款与条件[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 下订单</span></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'aywysya'</span>] = <span class="string">'F8a44j1d7lY5BNvcKyAdMUDFBpBeA0fUm7qKFz0XnjYrJFW73AuyPBB2SCVMvsD7z5meTuCUMz_WgpMVQdgGgeVjrkRGjftckcKyAd65hz74WySXvO3wa3wL6tqAhbrmQkLNbfyz.sU7zl998tp7ppeZLz77qZoOSix5ezdstlYrMxy0kyMpwoNLTK9Ly8nOVlQtb_GGEOpBSKxUC56MnGWpwoNSUC53ZXnN87gq1aWux_5ukV_AAUfSHolk2dUf.j7J1gBZEMgzH_y3Cmx_B4K1lSJhgSv_KU.6elV2pNJF_DA1RcrpVMZ90L5H6e0z1_yc4p0iMgdVdOOQ_KpNk0.ZNqhyA_r_LwwKdBvpZfWfUXtStKjE4PIDzpHqzQW5BNv__5BNlVnIQkFY5DjV.4v2'</span></span><br><span class="line">            data[<span class="string">'sessionID'</span>] = re.search(<span class="string">r'\&#123;\"name\":\"sessionID\",\"value\":\"(.*?)\"\&#125;'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            data[<span class="string">'promo-code'</span>] = <span class="string">''</span></span><br><span class="line">            data[<span class="string">'_a'</span>] = <span class="string">'po'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>] = <span class="string">'co'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            print(orderIdentify+<span class="string">"下订单[POST] :: %s"</span>%checkoutxUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[存疑]下订单[POST] :: %s"</span>%checkoutxUrl</span><br><span class="line">            r = session.post(checkoutxUrl,data=data,timeout=retryTimeout*<span class="number">2</span>)       <span class="comment"># 此处timeout时间加倍</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 订单状态</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">#checkoutStatusUrl = re.search(r'(https:\/\/.*?\.apple\.com)',checkoutxUrl).group(1)+json.loads(r.text,encoding='utf-8')['head']['data']['url']  </span></span><br><span class="line">            checkoutStatusUrl = re.search(<span class="string">r'(https:\/\/.*?\.apple\.com)'</span>,r.url).group(<span class="number">1</span>)+re.search(<span class="string">r'\"url\":\"(.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[存疑]订单状态-0 :: %s"</span>%tmpUrl</span><br><span class="line">            r = session.get(checkoutStatusUrl,timeout=retryTimeout)</span><br><span class="line"></span><br><span class="line">            data=&#123;&#125;</span><br><span class="line">            data[<span class="string">'_a'</span>]=<span class="string">'status'</span></span><br><span class="line">            data[<span class="string">'_fid'</span>]=<span class="string">'co'</span></span><br><span class="line">            data[<span class="string">'_m'</span>]=<span class="string">'commo'</span></span><br><span class="line">            tmpUrl = re.search(<span class="string">r'(https:\/\/secure.?\.store\.apple\.com)\/cn\/shop\/'</span>,r.text).group(<span class="number">1</span>)+<span class="string">'/cn/shop/checkoutx/status'</span></span><br><span class="line"></span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[存疑]订单状态-1 :: %s"</span>%tmpUrl</span><br><span class="line">        </span><br><span class="line">            r = session.post(tmpUrl,data=data,timeout=retryTimeout)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#tmpUrl = json.loads(r.text,encoding='utf-8')['head']['data']['url']   # 错误</span></span><br><span class="line">            tmpUrl = re.search(<span class="string">r'(https:\/\/.*?\.apple\.com)'</span>,r.url).group(<span class="number">1</span>)+re.search(<span class="string">r'\"url\":\"(.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            print(orderIdentify+<span class="string">"订单状态 :: %s"</span>%tmpUrl[:<span class="number">80</span>])</span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[存疑]订单状态-2 :: %s"</span>%tmpUrl</span><br><span class="line">            r = session.get(tmpUrl,timeout=retryTimeout)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># tmpUrl=json.loads(r.text,encoding='utf-8')['head']['data']['url'] #报错</span></span><br><span class="line">            tmpUrl = re.search(<span class="string">r'(https:\/\/.*?\.apple\.com)'</span>,r.url).group(<span class="number">1</span>)+re.search(<span class="string">r'\"url\":\"(.*?)\"'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">"[存疑]谢谢 :: %s"</span>%tmpUrl</span><br><span class="line">            r = session.get(tmpUrl,timeout=retryTimeout)</span><br><span class="line">            </span><br><span class="line">            orderID = re.search(<span class="string">r',\"orderNumber\":\"(.*?)\",'</span>,r.text).group(<span class="number">1</span>)</span><br><span class="line">            order[<span class="string">'orderID'</span>] = orderID</span><br><span class="line">            order[<span class="string">'orderUrl'</span>]=<span class="string">"https://store.apple.com/xc/cn/vieworder/"</span>+orderID+<span class="string">"/"</span>+order[<span class="string">'email'</span>]+<span class="string">"/"</span></span><br><span class="line">            order[<span class="string">'remark'</span>]=<span class="string">'成功'</span></span><br><span class="line">            </span><br><span class="line">            msg=order[<span class="string">'lastName'</span>]+		\</span><br><span class="line">            order[<span class="string">'firstName'</span>]+<span class="string">"\t"</span>+		\</span><br><span class="line">            order[<span class="string">'product'</span>]+<span class="string">"\t"</span>+		\</span><br><span class="line">            order[<span class="string">'color'</span>]+<span class="string">"\t"</span>+		    \</span><br><span class="line">            order[<span class="string">'capacity'</span>]+<span class="string">"\t"</span>+		\</span><br><span class="line">            order[<span class="string">'orderUrl'</span>]</span><br><span class="line">            print(<span class="string">" 🍻🍻🍻🍻🍻 \t\t%s"</span>%msg)</span><br><span class="line">            self.orderResult(order,<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            order[<span class="string">'orderID'</span>] = <span class="string">''</span></span><br><span class="line">            order[<span class="string">'orderUrl'</span>] = <span class="string">''</span></span><br><span class="line">            self.orderResult(order,<span class="literal">False</span>)  <span class="comment"># 购买失败！</span></span><br><span class="line">        <span class="comment"># json订单格式使用！</span></span><br><span class="line">        <span class="comment"># tmp = order['fileFullName']</span></span><br><span class="line">        <span class="comment"># filePath,fileName = os.path.split(tmp)</span></span><br><span class="line">        <span class="comment"># newFileName= "done_"+order['lastName']+order['firstName']+"_"+orderID+"_"+order['email']+fileName</span></span><br><span class="line">        <span class="comment"># logging.info("修改订单文件 :: %s --&gt; %s"%(fileName,newFileName)[:80])</span></span><br><span class="line">        <span class="comment"># os.rename(tmp,os.path.join(filePath,newFileName))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">orderResult</span><span class="params">(self,order,success)</span>:</span></span><br><span class="line">        msg=order[<span class="string">'lastName'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'firstName'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'phone'</span>]+<span class="string">","</span>+		    \</span><br><span class="line">            order[<span class="string">'email'</span>]+<span class="string">","</span>+		    \</span><br><span class="line">            order[<span class="string">'state'</span>]+<span class="string">","</span>+		    \</span><br><span class="line">            order[<span class="string">'city'</span>]+<span class="string">","</span>+		    \</span><br><span class="line">            order[<span class="string">'district'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'street'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'payment'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'product'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'color'</span>]+<span class="string">","</span>+		    \</span><br><span class="line">            order[<span class="string">'capacity'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'quantity'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'orderID'</span>]+<span class="string">","</span>+		\</span><br><span class="line">            order[<span class="string">'orderUrl'</span>]+<span class="string">","</span>+      \</span><br><span class="line">            order[<span class="string">'remark'</span>]+<span class="string">"\n"</span></span><br><span class="line">        self.threadLock.acquire()</span><br><span class="line">        <span class="keyword">with</span> open(orderResult,<span class="string">'a+'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">            fp.writelines(msg)</span><br><span class="line">        self.threadLock.release()</span><br><span class="line"><span class="comment"># 参数处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    headCharPic=<span class="string">"\r        .--.\n       |o_o |    ------------------ \n       |:_/ |   &lt; Author: Mr.Bingo &gt;\n      //   \ \   ------------------ \n     (|     | ) &lt;    oddboy.cn     &gt;\n    /'\_   _/`\  ------------------\n    \___)=(___/\n"</span></span><br><span class="line">    print(headCharPic)</span><br><span class="line">    <span class="comment"># Creating a parser</span></span><br><span class="line">    buyer=iPhoneBuyer()</span><br><span class="line">    buyer.run_Threads()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/SMTP命令行及Python发送邮件/" rel="next" title="SMTP命令行及Python发送邮件">
+                <i class="fa fa-chevron-left"></i> SMTP命令行及Python发送邮件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/WEB日志分析思路与方法/" rel="prev" title="WEB日志分析思路与方法">
+                WEB日志分析思路与方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Bingo</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="GitHub &rarr; https://github.com/odboy"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingo@oddboy.cn" title="E-Mail &rarr; mailto:bingo@oddboy.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9PZGRCb3lDTg==" title="Twitter &rarr; https://twitter.com/OddBoyCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MDE3Mzc5ODQ0" title="Weibo &rarr; https://weibo.com/u/5017379844"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#叨逼叨"><span class="nav-number">1.</span> <span class="nav-text">叨逼叨</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#失落的转折"><span class="nav-number">2.</span> <span class="nav-text">失落的转折</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录总结一下-付出总会有收获"><span class="nav-number">3.</span> <span class="nav-text">记录总结一下 | 付出总会有收获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码-感兴趣的拿走不谢"><span class="nav-number">4.</span> <span class="nav-text">上代码 | 感兴趣的拿走不谢</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Bingo</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

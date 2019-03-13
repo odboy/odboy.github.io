@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言在渗透测试过程中，往往会遇到特别“小气”的目标，稍微碰一下就封IP。这种情况下，我们很自然的想到通过网上大量的免费代理进行IP隐匿。 那么问题来了，难道拿到哪些个代理，每用一次手动换下一个代理？ 这太像火铳的工作方式了，想想就心累了。  so，小弟就来造一台机关枪，突突突突突…  想想就挺带感。 https://github.com/odboy/shadowProxy">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="妖娆的代理工具shadowProxy - 神出鬼没的切换IP地址">
+<meta property="og:url" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/index.html">
+<meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
+<meta property="og:description" content="前言在渗透测试过程中，往往会遇到特别“小气”的目标，稍微碰一下就封IP。这种情况下，我们很自然的想到通过网上大量的免费代理进行IP隐匿。 那么问题来了，难道拿到哪些个代理，每用一次手动换下一个代理？ 这太像火铳的工作方式了，想想就心累了。  so，小弟就来造一台机关枪，突突突突突…  想想就挺带感。 https://github.com/odboy/shadowProxy">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/shadowProxy.png">
+<meta property="og:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image01.jpg">
+<meta property="og:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image02.png">
+<meta property="og:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image03.png">
+<meta property="og:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image04.png">
+<meta property="og:updated_time" content="2019-03-13T06:36:07.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="妖娆的代理工具shadowProxy - 神出鬼没的切换IP地址">
+<meta name="twitter:description" content="前言在渗透测试过程中，往往会遇到特别“小气”的目标，稍微碰一下就封IP。这种情况下，我们很自然的想到通过网上大量的免费代理进行IP隐匿。 那么问题来了，难道拿到哪些个代理，每用一次手动换下一个代理？ 这太像火铳的工作方式了，想想就心累了。  so，小弟就来造一台机关枪，突突突突突…  想想就挺带感。 https://github.com/odboy/shadowProxy">
+<meta name="twitter:image" content="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/shadowProxy.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>妖娆的代理工具shadowProxy - 神出鬼没的切换IP地址 | Mr.Bingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr.Bingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">The world is a narrow bridge, and the most important thing is not to be afraid.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://oddboy.cn/2018/妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Bingo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Bingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">妖娆的代理工具shadowProxy - 神出鬼没的切换IP地址
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-04 15:43:36" itemprop="dateCreated datePublished" datetime="2018-01-04T15:43:36+08:00">2018-01-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 14:36:07" itemprop="dateModified" datetime="2019-03-13T14:36:07+08:00">2019-03-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在渗透测试过程中，往往会遇到特别“小气”的目标，稍微碰一下就封IP。这种情况下，我们很自然的想到通过网上大量的免费代理进行IP隐匿。</p>
+<p>那么问题来了，难道拿到哪些个代理，每用一次手动换下一个代理？ 这太像火铳的工作方式了，想想就心累了。 </p>
+<p>so，小弟就来造一台机关枪，突突突突突…  想想就挺带感。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95L3NoYWRvd1Byb3h5" title="https://github.com/odboy/shadowProxy">https://github.com/odboy/shadowProxy<i class="fa fa-external-link"></i></span></p>
+<a id="more"></a>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><p><img src="妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/shadowProxy.png" alt></p>
+<p></p>
+<h3 id="代理功能"><a href="#代理功能" class="headerlink" title="代理功能"></a>代理功能</h3><p>主要使用python内建的http.server和http.client库实现。<br>http.server相关的代码解读可参考我前一篇文章 <a href="http://oddboy.cn/2017/12/Python源码分析之从SocketServer到SimpleHTTPServer/">Python源码分析之从SocketServer到SimpleHTTPServer</a><br><br>主要代理功能代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_GET</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self.path == <span class="string">'http://shadow.proxy/'</span>:</span><br><span class="line">        self.send_cacert()</span><br><span class="line">        <span class="comment"># print("%s download %s" % (self.client_address, self.cacert))</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    req = self</span><br><span class="line">    content_length = int(req.headers.get(<span class="string">'Content-Length'</span>, <span class="number">0</span>))</span><br><span class="line">    req_body = self.rfile.read(content_length) <span class="keyword">if</span> content_length <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> req.path[<span class="number">0</span>] == <span class="string">'/'</span>:</span><br><span class="line">        <span class="keyword">if</span> isinstance(self.connection, ssl.SSLSocket): <span class="comment"># ssl.SSLSocket or ssl.SSLContext</span></span><br><span class="line">            req.path = <span class="string">"https://%s%s"</span> % (req.headers[<span class="string">'Host'</span>], req.path)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            req.path = <span class="string">"http://%s%s"</span> % (req.headers[<span class="string">'Host'</span>], req.path)</span><br><span class="line"></span><br><span class="line">    u = urlparse(req.path)</span><br><span class="line">    scheme, netloc= u.scheme, u.netloc</span><br><span class="line">    <span class="keyword">assert</span> scheme <span class="keyword">in</span> (<span class="string">"http"</span>, <span class="string">"https"</span>)</span><br><span class="line">    <span class="keyword">if</span> netloc:</span><br><span class="line">        req.headers[<span class="string">'Host'</span>] = netloc</span><br><span class="line">    setattr(req, <span class="string">'headers'</span>, self.filter_headers(req.headers))</span><br><span class="line"></span><br><span class="line">    retryFlag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> retryFlag &lt; <span class="number">10</span> :</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            target = (scheme, netloc)</span><br><span class="line">            <span class="comment"># 输入URL的协议和主机，返回可用的连接HTTP(S)Connection</span></span><br><span class="line">            proxy = proxyCoor.dispatchProxy(target)</span><br><span class="line">            <span class="keyword">if</span> proxy <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                print(<span class="string">"未能获取到可用Proxy...(可能是Proxy耗尽...)"</span>)</span><br><span class="line">                self.send_error(<span class="number">502</span>,<span class="string">"proxy resource RUN OUT!!!"</span>)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            print(<span class="string">"%s --&gt; [ %d ] %s"</span> % (proxy, retryFlag + <span class="number">1</span>, req.path))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> proxy.split(<span class="string">"://"</span>)[<span class="number">0</span>] == <span class="string">"http"</span>:</span><br><span class="line">                conn = http.client.HTTPConnection(proxy.split(<span class="string">"://"</span>)[<span class="number">1</span>], timeout=self.timeout)</span><br><span class="line">            <span class="keyword">elif</span> proxy.split(<span class="string">"://"</span>)[<span class="number">0</span>] == <span class="string">"https"</span>:</span><br><span class="line">                conn = http.client.HTTPSConnection(proxy.split(<span class="string">"://"</span>)[<span class="number">1</span>], timeout=self.timeout)</span><br><span class="line"></span><br><span class="line">            conn.request(self.command, req.path, req_body, dict(req.headers))</span><br><span class="line">            res = conn.getresponse()</span><br><span class="line">            <span class="comment"># res.response_version = 'HTTP/1.1' if res.version == 11 else 'HTTP/1.0'</span></span><br><span class="line">            res_body = res.read()       <span class="comment"># Transfer-Encoding并不需要特殊处理(除了Content-Length外)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            retryFlag += <span class="number">1</span></span><br><span class="line">            <span class="comment"># self.send_error(502)</span></span><br><span class="line">            <span class="comment"># return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'Content-Length'</span> <span class="keyword">not</span> <span class="keyword">in</span> res.headers:</span><br><span class="line">                    res.headers[<span class="string">'Content-Length'</span>] = str(len(res_body))</span><br><span class="line">                setattr(res, <span class="string">'headers'</span>, self.filter_headers(res.headers))</span><br><span class="line">                self.send_response_only(res.status, res.reason)</span><br><span class="line">                <span class="keyword">for</span> keyword <span class="keyword">in</span> res.headers:</span><br><span class="line">                    self.send_header(keyword, res.headers.get(keyword, <span class="string">""</span>))</span><br><span class="line">                self.end_headers()</span><br><span class="line">                self.wfile.write(res_body)</span><br><span class="line">                self.wfile.flush()</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">finally</span>:</span><br><span class="line">                retryFlag = <span class="number">9999</span>  <span class="comment"># 极大值，结束重试。</span></span><br><span class="line">                conn.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他方法重用GET的方法。</span></span><br><span class="line">do_HEAD = do_GET</span><br><span class="line">do_POST = do_GET</span><br><span class="line">do_PUT = do_GET</span><br><span class="line">do_DELETE = do_GET</span><br><span class="line">do_OPTIONS = do_GET</span><br><span class="line">do_TRACE = do_GET</span><br></pre></td></tr></table></figure></p>
+<h3 id="代理协调者"><a href="#代理协调者" class="headerlink" title="代理协调者"></a>代理协调者</h3><p>主要实现：</p>
+<ul>
+<li>导入代理列表</li>
+<li>验证代理的可用性和匿名性</li>
+<li>维护目标站点、代理列表二维表</li>
+<li>根据维护的二维表，反馈可用的代理地址。</li>
+</ul>
+<p>另外，我用的代理列表是从kuaidaili.com上爬取的，但代理的质量比较差，很头大。之前还用过xicidaili，情况也差不多。</p>
+<p>验证公网IP的网站有如下几个：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2lwLmNoaW5hei5jb20vZ2V0aXAuYXNweA==" title="http://ip.chinaz.com/getip.aspx">http://ip.chinaz.com/getip.aspx<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL2lmY29uZmlnLm1lL2lw" title="http://ifconfig.me/ip">http://ifconfig.me/ip<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL2FwaS5pcGlmeS5vcmc=" title="http://api.ipify.org">http://api.ipify.org<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pcC5zZWVpcC5vcmc=" title="https://ip.seeip.org">https://ip.seeip.org<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pZmNvbmZpZy5jby9pcA==" title="https://ifconfig.co/ip">https://ifconfig.co/ip<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9teWV4dGVybmFsaXAuY29tL3Jhdw==" title="https://myexternalip.com/raw">https://myexternalip.com/raw<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93dGZpc215aXAuY29tL3RleHQ=" title="https://wtfismyip.com/text">https://wtfismyip.com/text<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pY2FuaGF6aXAuY29tLw==" title="https://icanhazip.com/">https://icanhazip.com/<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pcHY0Ym90LndoYXRpc215aXBhZGRyZXNzLmNvbS8=" title="https://ipv4bot.whatismyipaddress.com/">https://ipv4bot.whatismyipaddress.com/<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pcDQuc2VlaXAub3Jn" title="https://ip4.seeip.org">https://ip4.seeip.org<i class="fa fa-external-link"></i></span></li>
+</ul>
+<h2 id="测试验证"><a href="#测试验证" class="headerlink" title="测试验证"></a>测试验证</h2><h3 id="验证代码"><a href="#验证代码" class="headerlink" title="验证代码"></a>验证代码</h3><p>透过shadowProxy访问<code>http://ip.chinaz.com/getip.aspx</code>，从而直观查看代理效果。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        r =requests.get(<span class="string">"http://ip.chinaz.com/getip.aspx"</span>,proxies=&#123;<span class="string">"http"</span>:<span class="string">"http://127.0.0.1:8088"</span>&#125;,timeout=<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">            msg = <span class="string">"第 %d 次请求 ✅\t%s"</span>%(i,r.text)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg = <span class="string">"第 %d 次请求 ⭕\t%d"</span>% (i, r.status_code)</span><br><span class="line">            time.sleep(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        print(<span class="string">'\r***********************\n\t用户中断\t\n***********************'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        msg = <span class="string">"第 %d 次请求 ❗\t%s"</span> % (i, e )</span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(msg)</span><br></pre></td></tr></table></figure></p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>动图展示 : <a href="test_shadowProxy.gif">test_shadowProxy.gif</a><br><img src="妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image01.jpg" alt></p>
+<p>枪是好枪，但还是存在一些问题的。</p>
+<ol>
+<li><p><strong>缺弹少药</strong> - 通过工具爬取到的代理很多重复，很多不可用，只有百八十个。</p>
+</li>
+<li><p><strong>弹药质量差</strong> - 获取到的代理，很多无法传输大数据包（中断），小包也不稳定。</p>
+</li>
+<li><p><strong>机枪卡壳</strong> - 由于上述问题，所以工具容错能力/重试功能有待提升。（后续考虑提升的点）</p>
+</li>
+</ol>
+<p><strong>PS：后续代码完善后，可以考虑开源发布。</strong></p>
+<h3 id="2018-01-10-Update"><a href="#2018-01-10-Update" class="headerlink" title="2018-01-10 Update"></a>2018-01-10 Update</h3><p>目前代理加入了自动重试功能，使其能更稳定的进行查询。</p>
+<p>同时，找了个还算不错的proxylist。 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhdGUwL3Byb3h5bGlzdA==" title="https://github.com/fate0/proxylist">https://github.com/fate0/proxylist<i class="fa fa-external-link"></i></span></p>
+<p>目前便可以比较顺畅的使用了：</p>
+<p><img src="妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image02.png" alt></p>
+<h2 id="开源发布"><a href="#开源发布" class="headerlink" title="开源发布"></a>开源发布</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95L3NoYWRvd1Byb3h5" title="https://github.com/odboy/shadowProxy">https://github.com/odboy/shadowProxy<i class="fa fa-external-link"></i></span></p>
+<h3 id="生成-amp-安装证书"><a href="#生成-amp-安装证书" class="headerlink" title="生成&amp;安装证书"></a>生成&amp;安装证书</h3><ul>
+<li><p>生成证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">shadowProxy git:(master) ✗ ll</span><br><span class="line">total 112</span><br><span class="line">-rw-r--r--  1 bingo  staff   573B Jan 10 16:42 PCtest.py</span><br><span class="line">-rw-r--r--  1 bingo  staff   5.9K Jan 10 16:42 ProxyCoordinator.py</span><br><span class="line">-rw-r--r--  1 bingo  staff    14B Jan 10 16:42 README.md</span><br><span class="line">drwxr-xr-x  3 bingo  staff    96B Jan 10 16:42 __pycache__</span><br><span class="line">-rw-r--r--  1 bingo  staff   100B Jan 10 16:42 proxylist-4.txt</span><br><span class="line">-rw-r--r--  1 bingo  staff    19K Jan 10 16:42 proxylist.txt</span><br><span class="line">-rwxr-xr-x  1 bingo  staff   302B Jan 10 16:42 setup_https_intercept.sh</span><br><span class="line">-rw-r--r--  1 bingo  staff    11K Jan 10 16:42 shadowProxy.py</span><br><span class="line"></span><br><span class="line">shadowProxy git:(master) ✗ ./setup_https_intercept.sh   <span class="comment"># 直接运行脚本，生成根证书</span></span><br><span class="line">Generating RSA private key, 2048 bit long modulus</span><br><span class="line">........................................................................................................................................+++</span><br><span class="line">..................................................................+++</span><br><span class="line">e is 65537 (0x10001)</span><br><span class="line">Generating RSA private key, 2048 bit long modulus</span><br><span class="line">.....................................................................................................................................+++</span><br><span class="line">...................+++</span><br><span class="line">e is 65537 (0x10001)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装证书</p>
+</li>
+</ul>
+<p>在浏览器设置代理，指向 <code>http://127.0.0.1:8088</code> , 然后访问 <code>http://shadow.proxy/</code>,即可弹出证书安装。（不同浏览器可能有所不同）<br><img src="妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image03.png" alt><br>安装后，可以访问https网站。</p>
+<h3 id="使用测试"><a href="#使用测试" class="headerlink" title="使用测试"></a>使用测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">➜  shadowProxy git:(master) ✗ python shadowProxy.py -h</span><br><span class="line">        .--.</span><br><span class="line">       |o_o |    ------------------</span><br><span class="line">       |:_/ |   &lt; Author: Mr.Bingo &gt;</span><br><span class="line">      //   \ \   ------------------</span><br><span class="line">     (|     | ) &lt;    oddboy.cn     &gt;</span><br><span class="line">    /<span class="string">'\_   _/`\  ------------------</span></span><br><span class="line"><span class="string">    \___)=(___/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">usage: shadowProxy.py [-h] [--bind BIND] [--port PORT]</span></span><br><span class="line"><span class="string">                      [--log-level &#123;DEBUG,INFO,WARNING,ERROR,CRITICAL&#125;]</span></span><br><span class="line"><span class="string">                      [--proxyListFile PROXYLISTFILE]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">optional arguments:</span></span><br><span class="line"><span class="string">  -h, --help            show this help message and exit</span></span><br><span class="line"><span class="string">  --bind BIND           Default: 0.0.0.0</span></span><br><span class="line"><span class="string">  --port PORT           Default: 8088</span></span><br><span class="line"><span class="string">  --log-level &#123;DEBUG,INFO,WARNING,ERROR,CRITICAL&#125;</span></span><br><span class="line"><span class="string">                        Default: WARNING</span></span><br><span class="line"><span class="string">  --proxyListFile PROXYLISTFILE</span></span><br><span class="line"><span class="string">                        代理列表文件</span></span><br><span class="line"><span class="string">                        </span></span><br><span class="line"><span class="string">➜  shadowProxy git:(master) ✗ python shadowProxy.py</span></span><br><span class="line"><span class="string">        .--.</span></span><br><span class="line"><span class="string">       |o_o |    ------------------</span></span><br><span class="line"><span class="string">       |:_/ |   &lt; Author: Mr.Bingo &gt;</span></span><br><span class="line"><span class="string">      //   \ \   ------------------</span></span><br><span class="line"><span class="string">     (|     | ) &lt;    oddboy.cn     &gt;</span></span><br><span class="line"><span class="string">    /'</span>\_   _/`\  ------------------</span><br><span class="line">    \___)=(___/</span><br><span class="line"></span><br><span class="line">初始化代理池  本地IP :: 36.110.16.74</span><br><span class="line">导入代理池:::	proxylist.txt</span><br><span class="line">成功导入 110 个代理</span><br><span class="line">Serving HTTP on 0.0.0.0 port 8088 (http://0.0.0.0:8088/) ...</span><br></pre></td></tr></table></figure>
+<p>直接访问站点进行测试。<br><img src="妖娆的代理工具shadowProxy-神出鬼没的切换IP地址/image04.png" alt></p>
+<p>由于该工具主要基于网上免费的代理进行IP隐匿的，所以稳定性仍然不够好，所以只建议用于特定的请求包测试。 在使用过程中遇到什么问题，欢迎给我邮件，我会进行修复完善，如果可以，给我的GitHub点颗星星，谢谢！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/Python源码分析之从SocketServer到SimpleHTTPServer/" rel="next" title="Python源码分析之从SocketServer到SimpleHTTPServer">
+                <i class="fa fa-chevron-left"></i> Python源码分析之从SocketServer到SimpleHTTPServer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/Mac搭建STM32编译及调试工具-含led-demo/" rel="prev" title="Mac搭建STM32编译及调试工具(含led-demo)">
+                Mac搭建STM32编译及调试工具(含led-demo) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Bingo</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="GitHub &rarr; https://github.com/odboy"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingo@oddboy.cn" title="E-Mail &rarr; mailto:bingo@oddboy.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9PZGRCb3lDTg==" title="Twitter &rarr; https://twitter.com/OddBoyCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MDE3Mzc5ODQ0" title="Weibo &rarr; https://weibo.com/u/5017379844"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能实现"><span class="nav-number">2.</span> <span class="nav-text">功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代理功能"><span class="nav-number">2.1.</span> <span class="nav-text">代理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理协调者"><span class="nav-number">2.2.</span> <span class="nav-text">代理协调者</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试验证"><span class="nav-number">3.</span> <span class="nav-text">测试验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证代码"><span class="nav-number">3.1.</span> <span class="nav-text">验证代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果展示"><span class="nav-number">3.2.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-01-10-Update"><span class="nav-number">3.3.</span> <span class="nav-text">2018-01-10 Update</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开源发布"><span class="nav-number">4.</span> <span class="nav-text">开源发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成-amp-安装证书"><span class="nav-number">4.1.</span> <span class="nav-text">生成&amp;安装证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用测试"><span class="nav-number">4.2.</span> <span class="nav-text">使用测试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Bingo</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

