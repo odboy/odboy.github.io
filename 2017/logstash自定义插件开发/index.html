@@ -106,12 +106,12 @@
 <meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
 <meta property="og:description" content="本文主要参考官方文档(How to write a Logstash filter plugin)进行实践。 前面因为Logstash是用ruby开发的，所以插件也需要用ruby语言进行开发。相关入门 https://www.ruby-lang.org/en/documentation/quickstart/">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://oddboy.cn/2017/logstash自定义插件开发/logstash自定义插件开发/image02.png">
+<meta property="og:image" content="https://oddboy.cn/2017/logstash自定义插件开发/image02.png">
 <meta property="og:updated_time" content="2019-03-13T06:36:07.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="logstash自定义过滤器插件开发入门">
 <meta name="twitter:description" content="本文主要参考官方文档(How to write a Logstash filter plugin)进行实践。 前面因为Logstash是用ruby开发的，所以插件也需要用ruby语言进行开发。相关入门 https://www.ruby-lang.org/en/documentation/quickstart/">
-<meta name="twitter:image" content="https://oddboy.cn/2017/logstash自定义插件开发/logstash自定义插件开发/image02.png">
+<meta name="twitter:image" content="https://oddboy.cn/2017/logstash自定义插件开发/image02.png">
 
 
 
@@ -496,7 +496,7 @@
 <li><p>实际测试</p>
 <p>  使用命令行传入的简单配置运行Logstash，使用test插件。</p>
   <figure class="highlight plain"><figcaption><span>-e "input &#123; stdin&#123;&#125; &#125; filter &#123; test &#123;&#125; &#125; output &#123;stdout &#123; codec </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](logstash自定义插件开发/image01.png)</span><br><span class="line"></span><br><span class="line">传入message参数：</span><br><span class="line">```bin/logstash -e &quot;input &#123; stdin&#123;&#125; &#125; filter &#123; test &#123;message =&gt; &apos;changing the message parameter by Mr.Bingo ^_^&apos;&#125; &#125; output &#123;stdout &#123; codec =&gt; rubydebug &#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
-<p>  <img src="logstash自定义插件开发/image02.png" alt></p>
+<p>  <img src="/2017/logstash自定义插件开发/image02.png" alt></p>
 </li>
 </ul>
 <h2 id="后面"><a href="#后面" class="headerlink" title="后面"></a>后面</h2><p>终于，完成了自定义插件的示例开发与使用。官方文档上还有开源方法，鉴于目前的菜逼水平，完全也没必要看。也许有一天想开源个插件，到时候再来看吧！</p>
@@ -620,7 +620,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -691,7 +691,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

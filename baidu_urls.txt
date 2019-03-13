@@ -1,3 +1,4 @@
+https://oddboy.cn/2019/CISSP之速战速决/
 https://oddboy.cn/2018/Docker快速部署pure-ftp/
 https://oddboy.cn/2018/aria2安装及使用/
 https://oddboy.cn/2018/CVRF-Common-Vulnerability-Reporting-Framework/

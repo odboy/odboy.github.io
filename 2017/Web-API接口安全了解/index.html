@@ -106,24 +106,24 @@
 <meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
 <meta property="og:description" content="2017版OWASP top 10 将API安全纳入其中，足以说明API被广泛使用且安全问题严重。自己尝试整理一下，但限于本人搬砖经验还不足、水平有限，本文只能算是抛砖引玉，希望大伙不吝赐教。  了解Web Service（API）Web Service是一种跨编程语言和跨操作系统平台的远程调用技术。目前被广泛运用于移动端APP、物联网IoT、WEB应用等场景。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot01.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot02.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot03.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot04.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot21.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot24.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot22.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot23.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot31.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot32.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot41.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot42.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot50.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot01.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot02.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot03.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot04.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot21.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot24.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot22.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot23.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot31.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot32.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot41.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot42.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot50.png">
 <meta property="og:updated_time" content="2019-03-13T06:36:07.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web API接口安全了解">
 <meta name="twitter:description" content="2017版OWASP top 10 将API安全纳入其中，足以说明API被广泛使用且安全问题严重。自己尝试整理一下，但限于本人搬砖经验还不足、水平有限，本文只能算是抛砖引玉，希望大伙不吝赐教。  了解Web Service（API）Web Service是一种跨编程语言和跨操作系统平台的远程调用技术。目前被广泛运用于移动端APP、物联网IoT、WEB应用等场景。">
-<meta name="twitter:image" content="https://oddboy.cn/2017/Web-API接口安全了解/Web-API接口安全了解/screenshot01.png">
+<meta name="twitter:image" content="https://oddboy.cn/2017/Web-API接口安全了解/screenshot01.png">
 
 
 
@@ -455,25 +455,25 @@ PS: REST风格的接口既可以使用JSON，也可以使用XML，但由于JSON�
 </code></pre><p>8.其它考虑</p>
 <pre><code>会话认证（token是否正确使用）
 安全配置（前述攻击照成系统/应用等信息泄露）
-</code></pre><h1 id="攻击演示"><a href="#攻击演示" class="headerlink" title="攻击演示"></a>攻击演示</h1><h2 id="1-DVWS-WSDL-Enumeration"><a href="#1-DVWS-WSDL-Enumeration" class="headerlink" title="1. DVWS | WSDL Enumeration"></a>1. DVWS | WSDL Enumeration</h2><p>前端页面<br><img src="Web-API接口安全了解/screenshot01.png" alt></p>
-<p>源码中暴露wsdl文件<br><img src="Web-API接口安全了解/screenshot02.png" alt></p>
-<p>wsdl文件中可以查看到四种方法<br><img src="Web-API接口安全了解/screenshot03.png" alt></p>
+</code></pre><h1 id="攻击演示"><a href="#攻击演示" class="headerlink" title="攻击演示"></a>攻击演示</h1><h2 id="1-DVWS-WSDL-Enumeration"><a href="#1-DVWS-WSDL-Enumeration" class="headerlink" title="1. DVWS | WSDL Enumeration"></a>1. DVWS | WSDL Enumeration</h2><p>前端页面<br><img src="/2017/Web-API接口安全了解/screenshot01.png" alt></p>
+<p>源码中暴露wsdl文件<br><img src="/2017/Web-API接口安全了解/screenshot02.png" alt></p>
+<p>wsdl文件中可以查看到四种方法<br><img src="/2017/Web-API接口安全了解/screenshot03.png" alt></p>
 <p>使用READY!API（SOAPUI升级版）可以直观的看到4种方法并进行接口测试</p>
-<p>尝试使用check_user_information方法，尝试填入username（实际测试中可能需要结合爆破方式），接口返回了相关数据，从而导致数据泄露。<br><img src="Web-API接口安全了解/screenshot04.png" alt></p>
+<p>尝试使用check_user_information方法，尝试填入username（实际测试中可能需要结合爆破方式），接口返回了相关数据，从而导致数据泄露。<br><img src="/2017/Web-API接口安全了解/screenshot04.png" alt></p>
 <h2 id="2-DVWS-XML-External-Entity-Processing"><a href="#2-DVWS-XML-External-Entity-Processing" class="headerlink" title="2. DVWS | XML External Entity Processing"></a>2. DVWS | XML External Entity Processing</h2><p>提交正常请求:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;name&gt;Mr.Bingo&lt;/name&gt;</span><br></pre></td></tr></table></figure></p>
-<p><img src="Web-API接口安全了解/screenshot21.png" alt><br>提交payload:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt; &lt;!DOCTYPE bingo [  &lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;]&gt;&lt;name&gt;&amp;xxe;&lt;/name&gt;</span><br></pre></td></tr></table></figure></p>
-<p><img src="Web-API接口安全了解/screenshot24.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot21.png" alt><br>提交payload:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt; &lt;!DOCTYPE bingo [  &lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;]&gt;&lt;name&gt;&amp;xxe;&lt;/name&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot24.png" alt></p>
 <p>额外测试：</p>
-<p><img src="Web-API接口安全了解/screenshot22.png" alt><br><img src="Web-API接口安全了解/screenshot23.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot22.png" alt><br><img src="/2017/Web-API接口安全了解/screenshot23.png" alt></p>
 <h2 id="3-DVWS-Server-Side-Request-Forgery"><a href="#3-DVWS-Server-Side-Request-Forgery" class="headerlink" title="3. DVWS | Server Side Request Forgery"></a>3. DVWS | Server Side Request Forgery</h2><p>正常数据请求</p>
-<p><img src="Web-API接口安全了解/screenshot31.png" alt><br>篡改请求URL</p>
-<p><img src="Web-API接口安全了解/screenshot32.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot31.png" alt><br>篡改请求URL</p>
+<p><img src="/2017/Web-API接口安全了解/screenshot32.png" alt></p>
 <h2 id="4-DVWS-REST-API-SQL-Injection"><a href="#4-DVWS-REST-API-SQL-Injection" class="headerlink" title="4. DVWS | REST API SQL Injection"></a>4. DVWS | REST API SQL Injection</h2><p>正常请求资源：</p>
-<p><img src="Web-API接口安全了解/screenshot41.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot41.png" alt></p>
 <p>SQL注入：</p>
-<p><img src="Web-API接口安全了解/screenshot42.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot42.png" alt></p>
 <h2 id="5-bWAPP-SQL-Injection-Blind-WS-SOAP"><a href="#5-bWAPP-SQL-Injection-Blind-WS-SOAP" class="headerlink" title="5. bWAPP | SQL Injection - Blind (WS/SOAP)"></a>5. bWAPP | SQL Injection - Blind (WS/SOAP)</h2><p>由于在前端屏蔽了后端所采用的API接口功能，故而贴出部分源码以供参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(isset($_REQUEST[&quot;title&quot;]))</span><br><span class="line">&#123;   </span><br><span class="line">    // Includes the NuSOAP library</span><br><span class="line">    require_once(&quot;soap/nusoap.php&quot;);</span><br><span class="line"></span><br><span class="line">    // Creates an instance of the soap_client class</span><br><span class="line">    $client = new nusoap_client(&quot;http://localhost/bWAPP/ws_soap.php&quot;);</span><br><span class="line"></span><br><span class="line">    // Calls the SOAP function</span><br><span class="line">    $tickets_stock = $client-&gt;call(&quot;get_tickets_stock&quot;, array(&quot;title&quot; =&gt; sqli($_REQUEST[&quot;title&quot;])));</span><br><span class="line"></span><br><span class="line">    echo &quot;We have &lt;b&gt;&quot; . $tickets_stock . &quot;&lt;/b&gt; movie tickets available in our stock.&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p><img src="Web-API接口安全了解/screenshot50.png" alt></p>
+<p><img src="/2017/Web-API接口安全了解/screenshot50.png" alt></p>
 <blockquote>
 <p>  当前个人对API接口测试的理解尚比较粗浅。涉及到fuzz、加解密及其他复杂的场景尚且无法拿出好的案例及测试平台。后续有机会再行补充，另外，希望有货的大佬们能多多分享。</p>
 </blockquote>
@@ -619,7 +619,7 @@ PS: REST风格的接口既可以使用JSON，也可以使用XML，但由于JSON�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -690,7 +690,9 @@ PS: REST风格的接口既可以使用JSON，也可以使用XML，但由于JSON�
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

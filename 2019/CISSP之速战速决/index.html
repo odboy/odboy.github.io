@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="我是去年六七月份决定考CISSP的，在今年过完春节后的一个月集中学习，3月12号考试通过。总的来讲，我觉得有效学习时间总共360小时是绰绰有余的，如果学习比较集中连续的话，时间可以缩减到250小时。  看书书我用的是《CISSP官方学习指南第7版》，但我想《All In One》也没啥区别。重点在于书得看至少三遍：  第一遍：不求甚解 - 估摸着40-50小时我第一遍看的时候，感觉挺多东西都不明">
+<meta name="keywords" content="CISSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CISSP之速战速决">
+<meta property="og:url" content="https://oddboy.cn/2019/CISSP之速战速决/index.html">
+<meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
+<meta property="og:description" content="我是去年六七月份决定考CISSP的，在今年过完春节后的一个月集中学习，3月12号考试通过。总的来讲，我觉得有效学习时间总共360小时是绰绰有余的，如果学习比较集中连续的话，时间可以缩减到250小时。  看书书我用的是《CISSP官方学习指南第7版》，但我想《All In One》也没啥区别。重点在于书得看至少三遍：  第一遍：不求甚解 - 估摸着40-50小时我第一遍看的时候，感觉挺多东西都不明">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://oddboy.cn/2019/CISSP之速战速决/111.jpg">
+<meta property="og:updated_time" content="2019-03-13T07:21:35.045Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CISSP之速战速决">
+<meta name="twitter:description" content="我是去年六七月份决定考CISSP的，在今年过完春节后的一个月集中学习，3月12号考试通过。总的来讲，我觉得有效学习时间总共360小时是绰绰有余的，如果学习比较集中连续的话，时间可以缩减到250小时。  看书书我用的是《CISSP官方学习指南第7版》，但我想《All In One》也没啥区别。重点在于书得看至少三遍：  第一遍：不求甚解 - 估摸着40-50小时我第一遍看的时候，感觉挺多东西都不明">
+<meta name="twitter:image" content="https://oddboy.cn/2019/CISSP之速战速决/111.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://oddboy.cn/2019/CISSP之速战速决/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CISSP之速战速决 | Mr.Bingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr.Bingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">The world is a narrow bridge, and the most important thing is not to be afraid.</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://oddboy.cn/2019/CISSP之速战速决/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Bingo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Bingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CISSP之速战速决
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-13 15:17:11 / Modified: 15:21:35" itemprop="dateCreated datePublished" datetime="2019-03-13T15:17:11+08:00">2019-03-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>我是去年六七月份决定考CISSP的，在今年过完春节后的一个月集中学习，3月12号考试通过。总的来讲，我觉得有效学习时间总共360小时是绰绰有余的，如果学习比较集中连续的话，时间可以缩减到250小时。</p>
+</blockquote>
+<h2 id="看书"><a href="#看书" class="headerlink" title="看书"></a>看书</h2><p>书我用的是《CISSP官方学习指南第7版》，但我想《All In One》也没啥区别。重点在于书得看<strong>至少三遍</strong>：</p>
+<ul>
+<li><p>第一遍：不求甚解 - 估摸着40-50小时<br>我第一遍看的时候，感觉挺多东西都不明白，稀里糊涂的。不过没有太深究，按着一天看多少内容的预计，囫囵吞枣过一遍，书上自带的练习题都没碰。个人由于工作方面的原因，书看了一大半后就半年没碰，春节前十来天在 <code>Pearson VUE</code> 预约了3月12号的考试，然后趁着春节前几天完成了这一步。</p>
+</li>
+<li><p>第二遍：细嚼慢咽 - 半个月时间大概80-120小时<br>过完春节后，我开始看第二遍书，除了个别废话基本每个字都看，对于重点的地方勾勾画画(一来辅助看书进程，二来为第三遍看书做准备)，单元练习题给做了，附带的练习册也做了。原则上，把涉及到的知识点都理解到位，实际上我自己在这个过程中也有一些没太明白的地方，或者感觉挺复杂的地方。总的来讲，看完第二遍之后大部分的知识点多多少少还是有点感觉了。</p>
+</li>
+<li><p>第三遍：关注重点 - 20小时<br>我在汇安全上的模考结果不理想，当时有点慌，本来死马当活马医，临近考试的两天，参照着每章节后的“考试要点”把书上勾画的东西过了一遍。过完一遍的结果就是：不慌了。感觉自己没有新学到太多，但心里感觉有点谱了，这算是考前心态没崩的原因吧。</p>
+</li>
+</ul>
+<h2 id="做题"><a href="#做题" class="headerlink" title="做题"></a>做题</h2><p>做题主要是为了熟悉题目的感觉，印证书上学到的知识点，确定遗漏点。最开始我以为考试会出现不少原题什么的，但实际上出现原题很少。</p>
+<ul>
+<li><p>书本自带练习题<br>第二遍看书过程中做题。</p>
+</li>
+<li><p>官方练习册 - 30小时<br>8大CBK，在第二遍看书过程中，每完成一个CBK，把相应的练习册上题做完。结束后，再将附带的两套模拟题做完。</p>
+</li>
+<li><p>汇安全(汇哲题库) - 15小时<br>我只做了上面的三套模拟题，各CBK的题没时间做了。 最后就是汇哲的一天模拟考。</p>
+</li>
+</ul>
+<blockquote>
+<p>练习题里面有些答案可能是不对的，但考试的时候并不太遇到这样的题目。</p>
+</blockquote>
+<h2 id="培训班"><a href="#培训班" class="headerlink" title="培训班"></a>培训班</h2><p>关于培训只有一点，强烈建议在至少看完第一遍书之后再去听课，我还没怎么看书就去听的，基本听不明白，更get不到老师讲的重点。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><p>思维导图<br>有老师建议自己用思维导图梳理各知识模块，我觉得如果时间足够的话，可以试着这样做。但确实太耗时间，而且很难弄。 有些知识点还得费劲去考虑怎么分类啥的。 我看汇哲提供的思维导图pdf，看完了第一个CBK后就看不下去了。</p>
+</li>
+<li><p>书上的图表都挺重要<br>书上的图、表、流程图什么的最好都理解并记住，挺容易出题目的。</p>
+</li>
+<li><p>法律法规不考<br>我考试过程中貌似没遇到一道关于法律法规的，只有一道关于(ISC)2道德的。</p>
+</li>
+<li><p>考试时间绰绰有余<br>考试360分钟，每道题仔细做都是足够的，所以不用急，把题整明白。 另外，我每做完100道题，休息了一次。 在150道题的时候，明显感觉脑子不转了，一道题反复看几遍才看明白意思，提前做好思想准备，不要有心理负担。</p>
+</li>
+<li><p>检查<br>做题过程中，可以给题目做标记，最后检查。检查过程中，我改了三五道题吧，不敢瞎改。</p>
+</li>
+<li><p>考试当天<br>带好干粮和水，身份证 + 其他一个证件(信用卡 / 驾照 / 护照)</p>
+</li>
+</ul>
+<h2 id="这才是真相-手动滑稽"><a href="#这才是真相-手动滑稽" class="headerlink" title="这才是真相 (手动滑稽)"></a>这才是真相 (手动滑稽)</h2><p><img src="/2019/CISSP之速战速决/111.jpg" alt="IMAGE"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CISSP/" rel="tag"># CISSP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/Docker快速部署pure-ftp/" rel="next" title="Docker快速部署pure-ftp">
+                <i class="fa fa-chevron-left"></i> Docker快速部署pure-ftp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Bingo</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="GitHub &rarr; https://github.com/odboy"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingo@oddboy.cn" title="E-Mail &rarr; mailto:bingo@oddboy.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9PZGRCb3lDTg==" title="Twitter &rarr; https://twitter.com/OddBoyCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdS81MDE3Mzc5ODQ0" title="Weibo &rarr; https://weibo.com/u/5017379844"><i class="fa fa-fw fa-weibo"></i>Weibo</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#看书"><span class="nav-number">1.</span> <span class="nav-text">看书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做题"><span class="nav-number">2.</span> <span class="nav-text">做题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#培训班"><span class="nav-number">3.</span> <span class="nav-text">培训班</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这才是真相-手动滑稽"><span class="nav-number">5.</span> <span class="nav-text">这才是真相 (手动滑稽)</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Bingo</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

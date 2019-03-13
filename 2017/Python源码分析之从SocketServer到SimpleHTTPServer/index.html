@@ -106,13 +106,13 @@
 <meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
 <meta property="og:description" content="从底层开始慢慢瞅，看看SimpleHTTPServer到底有多Simple？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/Python源码分析之从SocketServer到SimpleHTTPServer/server.png">
-<meta property="og:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/Python源码分析之从SocketServer到SimpleHTTPServer/socketserver.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/server.png">
+<meta property="og:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/socketserver.png">
 <meta property="og:updated_time" content="2019-03-13T06:36:07.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python源码分析之从SocketServer到SimpleHTTPServer">
 <meta name="twitter:description" content="从底层开始慢慢瞅，看看SimpleHTTPServer到底有多Simple？">
-<meta name="twitter:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/Python源码分析之从SocketServer到SimpleHTTPServer/server.png">
+<meta name="twitter:image" content="https://oddboy.cn/2017/Python源码分析之从SocketServer到SimpleHTTPServer/server.png">
 
 
 
@@ -404,10 +404,10 @@
         <p><strong>从底层开始慢慢瞅，看看SimpleHTTPServer到底有多Simple？</strong></p>
 <a id="more"></a>
 <p>本文涉及到的各个类的继承关系:</p>
-<p><img src="Python源码分析之从SocketServer到SimpleHTTPServer/server.png" alt="server.png"></p>
+<p><img src="/2017/Python源码分析之从SocketServer到SimpleHTTPServer/server.png" alt="server.png"></p>
 <h1 id="SocketServer-网络服务框架"><a href="#SocketServer-网络服务框架" class="headerlink" title="SocketServer 网络服务框架"></a>SocketServer 网络服务框架</h1><p>Python把网络服务抽象成两个主要的类，一个是Server类，用于处理连接相关的网络操作，另外一个则是RequestHandler类，用于处理数据相关的操作。并且提供两个MixIn 类，用于扩展 Server，实现多进程或多线程。在构建网络服务的时候同时需要 “Server” 和 “RequestHandler”（RequestHandler的实例对象在Server内配合 Server工作）。</p>
 <p>下图是socketserver中的类继承图，看起来很复杂，但我们重点关注其中TCP的部分就好了。 所以重点在于：BaseServer / TCPServer / ThreadingMixIn / ThreadingTCPServer 以及 BaseRequestHandler / StreamRequestHandler 。</p>
-<p><img src="Python源码分析之从SocketServer到SimpleHTTPServer/socketserver.png" alt="server.png"></p>
+<p><img src="/2017/Python源码分析之从SocketServer到SimpleHTTPServer/socketserver.png" alt="server.png"></p>
 <h2 id="SocketServer-–-gt-BaseServer"><a href="#SocketServer-–-gt-BaseServer" class="headerlink" title="SocketServer –&gt; BaseServer"></a>SocketServer –&gt; BaseServer</h2><p>BaseServer 通过<code>__init__</code>初始化，对外提供<code>serve_forever</code>和<code>handler_request</code>方法。</p>
 <h3 id="SocketServer-–-gt-BaseServer-–-gt-init"><a href="#SocketServer-–-gt-BaseServer-–-gt-init" class="headerlink" title="SocketServer –&gt; BaseServer –&gt; init()"></a>SocketServer –&gt; BaseServer –&gt; <strong>init</strong>()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, server_address, RequestHandlerClass)</span>:</span></span><br><span class="line">        <span class="string">"""Constructor.  May be extended, do not override."""</span></span><br><span class="line">        self.server_address = server_address</span><br><span class="line">        self.RequestHandlerClass = RequestHandlerClass</span><br><span class="line">        self.__is_shut_down = threading.Event()</span><br><span class="line">        self.__shutdown_request = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <p><code>__init__</code>源码很简单。主要作用是创建server对象，并初始化server地址和处理请求的class。server_address是一个包含主机和端口的tuple。</p>
@@ -597,7 +597,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -668,7 +668,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
