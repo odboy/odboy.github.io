@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,25 +44,27 @@
 
 
 
-
-
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -72,8 +74,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '7.0.1',
+    scheme: 'Gemini',
+    version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
@@ -117,7 +119,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://oddboy.cn/2018/Mac搭建STM32编译及调试工具-含led-demo/">
 
 
@@ -235,6 +238,23 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -255,9 +275,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -272,20 +289,14 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -376,6 +387,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/Mac搭建STM32编译及调试工具-含led-demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/Mac搭建STM32编译及调试工具-含led-demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -406,9 +430,9 @@
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows上有IAR、Keil等强大的IDE，但在Mac上却什么都没有。 可能使用Eclipse+插件的形式就算是最好的选择了，只是个人对Eclipse不太感冒。经过一番搜寻，最终在以 编辑器 + gcc-arm-none-eabi + openOCD的模式完成了<strong>星星点灯</strong>。</p>
 <h2 id="编译工具"><a href="#编译工具" class="headerlink" title="编译工具"></a>编译工具</h2><p>工具地址 ： <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXJtLmNvbS9vcGVuLXNvdXJjZS9nbnUtdG9vbGNoYWluL2dudS1ybQ==" title="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm">GNU Arm Embedded Toolchain<i class="fa fa-external-link"></i></span></p>
-<p>直接下载Mac版本（当前版本为：gcc-arm-none-eabi-7-2017-q4-major-mac.tar.bz2），解压缩到一个目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">➜  gcc-arm-none-eabi <span class="built_in">pwd</span></span><br><span class="line">/Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi</span><br><span class="line">➜  gcc-arm-none-eabi tree -L 2</span><br><span class="line">.</span><br><span class="line">├── arm-none-eabi</span><br><span class="line">│   ├── bin</span><br><span class="line">│   ├── include</span><br><span class="line">│   ├── lib</span><br><span class="line">│   └── share</span><br><span class="line">├── bin</span><br><span class="line">│   ├── arm-none-eabi-addr2line</span><br><span class="line">│   ├── arm-none-eabi-ar</span><br><span class="line">│   ├── arm-none-eabi-as</span><br><span class="line">│   ├── arm-none-eabi-c++</span><br><span class="line">│   ├── arm-none-eabi-c++filt</span><br><span class="line">│   ├── arm-none-eabi-cpp</span><br><span class="line">│   ├── arm-none-eabi-elfedit</span><br><span class="line">│   ├── arm-none-eabi-g++</span><br><span class="line">│   ├── arm-none-eabi-gcc</span><br><span class="line">│   ├── arm-none-eabi-gcc-7.2.1</span><br><span class="line">│   ├── arm-none-eabi-gcc-ar</span><br><span class="line">│   ├── arm-none-eabi-gcc-nm</span><br><span class="line">│   ├── arm-none-eabi-gcc-ranlib</span><br><span class="line">│   ├── arm-none-eabi-gcov</span><br><span class="line">│   ├── arm-none-eabi-gcov-dump</span><br><span class="line">│   ├── arm-none-eabi-gcov-tool</span><br><span class="line">│   ├── arm-none-eabi-gdb</span><br><span class="line">│   ├── arm-none-eabi-gdb-py</span><br><span class="line">│   ├── arm-none-eabi-gprof</span><br><span class="line">│   ├── arm-none-eabi-ld</span><br><span class="line">│   ├── arm-none-eabi-ld.bfd</span><br><span class="line">│   ├── arm-none-eabi-nm</span><br><span class="line">│   ├── arm-none-eabi-objcopy</span><br><span class="line">│   ├── arm-none-eabi-objdump</span><br><span class="line">│   ├── arm-none-eabi-ranlib</span><br><span class="line">│   ├── arm-none-eabi-readelf</span><br><span class="line">│   ├── arm-none-eabi-size</span><br><span class="line">│   ├── arm-none-eabi-strings</span><br><span class="line">│   └── arm-none-eabi-strip</span><br><span class="line">├── lib</span><br><span class="line">│   ├── gcc</span><br><span class="line">│   ├── libcc1.0.so</span><br><span class="line">│   └── libcc1.so -&gt; libcc1.0.so</span><br><span class="line">└── share</span><br><span class="line">    ├── doc</span><br><span class="line">    └── gcc-arm-none-eabi</span><br><span class="line"></span><br><span class="line">11 directories, 31 files</span><br></pre></td></tr></table></figure></p>
-<p>为了便于使用，将bin目录添加到系统PATH中，即添加如下指令到.zshrc文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/bin:$PATH</span><br></pre></td></tr></table></figure></p>
-<p>检验安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ arm-none-eabi-gcc --version</span><br><span class="line">arm-none-eabi-gcc (GNU Tools <span class="keyword">for</span> Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]</span><br><span class="line">Copyright (C) 2017 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the <span class="built_in">source</span> <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></p>
+<p>直接下载Mac版本（当前版本为：gcc-arm-none-eabi-7-2017-q4-major-mac.tar.bz2），解压缩到一个目录。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜  gcc-arm-none-eabi <span class="built_in">pwd</span></span><br><span class="line">/Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi</span><br><span class="line">➜  gcc-arm-none-eabi tree -L 2</span><br><span class="line">.</span><br><span class="line">├── arm-none-eabi</span><br><span class="line">│   ├── bin</span><br><span class="line">│   ├── include</span><br><span class="line">│   ├── lib</span><br><span class="line">│   └── share</span><br><span class="line">├── bin</span><br><span class="line">│   ├── arm-none-eabi-addr2line</span><br><span class="line">│   ├── arm-none-eabi-ar</span><br><span class="line">│   ├── arm-none-eabi-as</span><br><span class="line">│   ├── arm-none-eabi-c++</span><br><span class="line">│   ├── arm-none-eabi-c++filt</span><br><span class="line">│   ├── arm-none-eabi-cpp</span><br><span class="line">│   ├── arm-none-eabi-elfedit</span><br><span class="line">│   ├── arm-none-eabi-g++</span><br><span class="line">│   ├── arm-none-eabi-gcc</span><br><span class="line">│   ├── arm-none-eabi-gcc-7.2.1</span><br><span class="line">│   ├── arm-none-eabi-gcc-ar</span><br><span class="line">│   ├── arm-none-eabi-gcc-nm</span><br><span class="line">│   ├── arm-none-eabi-gcc-ranlib</span><br><span class="line">│   ├── arm-none-eabi-gcov</span><br><span class="line">│   ├── arm-none-eabi-gcov-dump</span><br><span class="line">│   ├── arm-none-eabi-gcov-tool</span><br><span class="line">│   ├── arm-none-eabi-gdb</span><br><span class="line">│   ├── arm-none-eabi-gdb-py</span><br><span class="line">│   ├── arm-none-eabi-gprof</span><br><span class="line">│   ├── arm-none-eabi-ld</span><br><span class="line">│   ├── arm-none-eabi-ld.bfd</span><br><span class="line">│   ├── arm-none-eabi-nm</span><br><span class="line">│   ├── arm-none-eabi-objcopy</span><br><span class="line">│   ├── arm-none-eabi-objdump</span><br><span class="line">│   ├── arm-none-eabi-ranlib</span><br><span class="line">│   ├── arm-none-eabi-readelf</span><br><span class="line">│   ├── arm-none-eabi-size</span><br><span class="line">│   ├── arm-none-eabi-strings</span><br><span class="line">│   └── arm-none-eabi-strip</span><br><span class="line">├── lib</span><br><span class="line">│   ├── gcc</span><br><span class="line">│   ├── libcc1.0.so</span><br><span class="line">│   └── libcc1.so -&gt; libcc1.0.so</span><br><span class="line">└── share</span><br><span class="line">    ├── doc</span><br><span class="line">    └── gcc-arm-none-eabi</span><br><span class="line"></span><br><span class="line">11 directories, 31 files</span><br></pre></td></tr></table></figure></p>
+<p>为了便于使用，将bin目录添加到系统PATH中，即添加如下指令到.zshrc文件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=/Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/bin:$PATH</span><br></pre></td></tr></table></figure></p>
+<p>检验安装<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜  ~ arm-none-eabi-gcc --version</span><br><span class="line">arm-none-eabi-gcc (GNU Tools <span class="keyword">for</span> Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]</span><br><span class="line">Copyright (C) 2017 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the <span class="built_in">source</span> <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure></p>
 <p>至此，编译工具安装完成。</p>
 <h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>鉴于我手头的JTAG调试工具是J-Link,所以有两个工具可选.</p>
 <ul>
@@ -427,12 +451,12 @@
 </ul>
 <p>按照INSTALL文件中的<code>./configure &amp;&amp; make &amp;&amp; make install</code> 是没办法成功的。进一步查看冗长的说明，<code>./configure</code>必须带参数才行。</p>
 <p><code>./configure --enable-maintainer-mode --enable-jlink</code> 至少需要带上<code>--enable-jlink</code>。</p>
-<p>成功的时候，结果如下，至少得看到<code>SEGGER J-Link Programmer yes</code>才行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">OpenOCD configuration summary</span><br><span class="line">--------------------------------------------------</span><br><span class="line">MPSSE mode of FTDI based devices        yes (auto)</span><br><span class="line">ST-Link JTAG Programmer                 yes (auto)</span><br><span class="line">TI ICDI JTAG Programmer                 yes (auto)</span><br><span class="line">Keil ULINK JTAG Programmer              yes (auto)</span><br><span class="line">Altera USB-Blaster II Compatible        yes (auto)</span><br><span class="line">Versaloon-Link JTAG Programmer          yes (auto)</span><br><span class="line">OSBDM (JTAG only) Programmer            yes (auto)</span><br><span class="line">eStick/opendous JTAG Programmer         yes (auto)</span><br><span class="line">Andes JTAG Programmer                   yes (auto)</span><br><span class="line">USBProg JTAG Programmer                 yes (auto)</span><br><span class="line">Raisonance RLink JTAG Programmer        yes (auto)</span><br><span class="line">Olimex ARM-JTAG-EW Programmer           yes (auto)</span><br><span class="line">CMSIS-DAP Compliant Debugger            yes (auto)</span><br><span class="line">Altera USB-Blaster Compatible           yes (auto)</span><br><span class="line">ASIX Presto Adapter                     yes (auto)</span><br><span class="line">OpenJTAG Adapter                        yes (auto)</span><br><span class="line">SEGGER J-Link Programmer                yes</span><br></pre></td></tr></table></figure></p>
+<p>成功的时候，结果如下，至少得看到<code>SEGGER J-Link Programmer yes</code>才行。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OpenOCD configuration summary</span><br><span class="line">--------------------------------------------------</span><br><span class="line">MPSSE mode of FTDI based devices        yes (auto)</span><br><span class="line">ST-Link JTAG Programmer                 yes (auto)</span><br><span class="line">TI ICDI JTAG Programmer                 yes (auto)</span><br><span class="line">Keil ULINK JTAG Programmer              yes (auto)</span><br><span class="line">Altera USB-Blaster II Compatible        yes (auto)</span><br><span class="line">Versaloon-Link JTAG Programmer          yes (auto)</span><br><span class="line">OSBDM (JTAG only) Programmer            yes (auto)</span><br><span class="line">eStick/opendous JTAG Programmer         yes (auto)</span><br><span class="line">Andes JTAG Programmer                   yes (auto)</span><br><span class="line">USBProg JTAG Programmer                 yes (auto)</span><br><span class="line">Raisonance RLink JTAG Programmer        yes (auto)</span><br><span class="line">Olimex ARM-JTAG-EW Programmer           yes (auto)</span><br><span class="line">CMSIS-DAP Compliant Debugger            yes (auto)</span><br><span class="line">Altera USB-Blaster Compatible           yes (auto)</span><br><span class="line">ASIX Presto Adapter                     yes (auto)</span><br><span class="line">OpenJTAG Adapter                        yes (auto)</span><br><span class="line">SEGGER J-Link Programmer                yes</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>make</code>报错<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">openocd-0.10.0 make</span><br><span class="line">Makefile:4252: warning: overriding commands <span class="keyword">for</span> target `check-recursive<span class="string">'</span></span><br><span class="line"><span class="string">Makefile:3665: warning: ignoring old commands for target `check-recursive'</span></span><br><span class="line"> <span class="built_in">cd</span> . &amp;&amp; /bin/sh /Users/bingo/EmbeddedDev/toolchain/openocd-0.10.0/missing automake-1.15 --gnu</span><br><span class="line">configure.ac:16: error: version mismatch.  This is Automake 1.15.1,</span><br><span class="line">configure.ac:16: but the definition used by this AM_INIT_AUTOMAKE</span><br><span class="line">configure.ac:16: comes from Automake 1.15.  You should recreate</span><br><span class="line">configure.ac:16: aclocal.m4 with aclocal and run automake again.</span><br><span class="line">Makefile.am:46: warning: wildcard $(srcdir: non-POSIX variable name</span><br><span class="line">Makefile.am:46: (probably a GNU make extension)</span><br><span class="line">WARNING: <span class="string">'automake-1.15'</span> is probably too old.</span><br><span class="line">         You should only need it <span class="keyword">if</span> you modified <span class="string">'Makefile.am'</span> or</span><br><span class="line">         <span class="string">'configure.ac'</span> or m4 files included by <span class="string">'configure.ac'</span>.</span><br><span class="line">         The <span class="string">'automake'</span> program is part of the GNU Automake package:</span><br><span class="line">         &lt;http://www.gnu.org/software/automake&gt;</span><br><span class="line">         It also requires GNU Autoconf, GNU m4 and Perl <span class="keyword">in</span> order to run:</span><br><span class="line">         &lt;http://www.gnu.org/software/autoconf&gt;</span><br><span class="line">         &lt;http://www.gnu.org/software/m4/&gt;</span><br><span class="line">         &lt;http://www.perl.org/&gt;</span><br><span class="line">make: *** [Makefile.in] Error 1</span><br></pre></td></tr></table></figure>
+<li><code>make</code>报错<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openocd-0.10.0 make</span><br><span class="line">Makefile:4252: warning: overriding commands <span class="keyword">for</span> target `check-recursive<span class="string">'</span></span><br><span class="line"><span class="string">Makefile:3665: warning: ignoring old commands for target `check-recursive'</span></span><br><span class="line"> <span class="built_in">cd</span> . &amp;&amp; /bin/sh /Users/bingo/EmbeddedDev/toolchain/openocd-0.10.0/missing automake-1.15 --gnu</span><br><span class="line">configure.ac:16: error: version mismatch.  This is Automake 1.15.1,</span><br><span class="line">configure.ac:16: but the definition used by this AM_INIT_AUTOMAKE</span><br><span class="line">configure.ac:16: comes from Automake 1.15.  You should recreate</span><br><span class="line">configure.ac:16: aclocal.m4 with aclocal and run automake again.</span><br><span class="line">Makefile.am:46: warning: wildcard $(srcdir: non-POSIX variable name</span><br><span class="line">Makefile.am:46: (probably a GNU make extension)</span><br><span class="line">WARNING: <span class="string">'automake-1.15'</span> is probably too old.</span><br><span class="line">         You should only need it <span class="keyword">if</span> you modified <span class="string">'Makefile.am'</span> or</span><br><span class="line">         <span class="string">'configure.ac'</span> or m4 files included by <span class="string">'configure.ac'</span>.</span><br><span class="line">         The <span class="string">'automake'</span> program is part of the GNU Automake package:</span><br><span class="line">         &lt;http://www.gnu.org/software/automake&gt;</span><br><span class="line">         It also requires GNU Autoconf, GNU m4 and Perl <span class="keyword">in</span> order to run:</span><br><span class="line">         &lt;http://www.gnu.org/software/autoconf&gt;</span><br><span class="line">         &lt;http://www.gnu.org/software/m4/&gt;</span><br><span class="line">         &lt;http://www.perl.org/&gt;</span><br><span class="line">make: *** [Makefile.in] Error 1</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>也许我降级automake的版本可以通过，不过灵机一动，试了试:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install openocd</span><br></pre></td></tr></table></figure></p>
+<p>也许我降级automake的版本可以通过，不过灵机一动，试了试:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install openocd</span><br></pre></td></tr></table></figure></p>
 <p>结果困了许久的问题，一下子就解决了。 想抽自己巴掌，，， 果然homebrew才是简单正确的姿势。</p>
 <p>除了用命令行直接安装以外，还可以考虑从<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dudS1tY3UtZWNsaXBzZS9vcGVub2NkL3JlbGVhc2Vz" title="https://github.com/gnu-mcu-eclipse/openocd/releases">https://github.com/gnu-mcu-eclipse/openocd/releases<i class="fa fa-external-link"></i></span>下载非官方的安装包。 没试过，但应该没问题。</p>
 <h3 id="openOCD使用"><a href="#openOCD使用" class="headerlink" title="openOCD使用"></a>openOCD使用</h3><ul>
@@ -440,12 +464,12 @@
 </ul>
 <p>带上调试器和目标芯片相关的cfg文件即可。</p>
 <p><code>interface</code>和<code>target</code>目录位于<code>/usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/</code>下，里面存放了支持的Debuger和Chip。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg</span><br><span class="line">Open On-Chip Debugger 0.10.0</span><br><span class="line">Licensed under GNU GPL v2</span><br><span class="line">For bug reports, <span class="built_in">read</span></span><br><span class="line">	http://openocd.org/doc/doxygen/bugs.html</span><br><span class="line">Info : auto-selecting first available session transport <span class="string">"jtag"</span>. To override use <span class="string">'transport select &lt;transport&gt;'</span>.</span><br><span class="line">adapter speed: 1000 kHz</span><br><span class="line">adapter_nsrst_delay: 100</span><br><span class="line">jtag_ntrst_delay: 100</span><br><span class="line">none separate</span><br><span class="line">cortex_m reset_config sysresetreq</span><br><span class="line">Info : No device selected, using first device.</span><br><span class="line">Info : J-Link ARM V8 compiled Nov 28 2014 13:44:46</span><br><span class="line">Info : Hardware version: 8.00</span><br><span class="line">Info : VTarget = 3.325 V</span><br><span class="line">Info : clock speed 1000 kHz</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints</span><br></pre></td></tr></table></figure>
-<p>如上显示表示连接正常，系统后台开启了4444的端口。使用telnet连接到4444端口后便可以进行交互。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ telnet localhost 4444</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is <span class="string">'^]'</span>.</span><br><span class="line">Open On-Chip Debugger</span><br><span class="line">&gt; <span class="built_in">help</span>      </span><br><span class="line"><span class="comment"># 查看支持的命令，超多，此处不列出。</span></span><br><span class="line">&gt; halt      <span class="comment"># 挂起目标芯片</span></span><br><span class="line">target halted due to debug-request, current mode: Thread</span><br><span class="line">xPSR: 0x21000000 pc: 0x08008dca msp: 0x2000ffe8</span><br><span class="line">&gt; flash write_image erase stm32_LED.hex     <span class="comment"># 烧录flash</span></span><br><span class="line">auto erase enabled</span><br><span class="line">device id = 0x10036414</span><br><span class="line">flash size = 512kbytes</span><br><span class="line">Padding image section 0 with 1410 bytes</span><br><span class="line">wrote 40960 bytes from file stm32_LED.hex <span class="keyword">in</span> 1.682081s (23.780 KiB/s)</span><br><span class="line">&gt; reset     <span class="comment"># 复位</span></span><br><span class="line">JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">&gt; <span class="built_in">exit</span>      <span class="comment"># 退出连接</span></span><br><span class="line">Connection closed by foreign host.</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg</span><br><span class="line">Open On-Chip Debugger 0.10.0</span><br><span class="line">Licensed under GNU GPL v2</span><br><span class="line">For bug reports, <span class="built_in">read</span></span><br><span class="line">	http://openocd.org/doc/doxygen/bugs.html</span><br><span class="line">Info : auto-selecting first available session transport <span class="string">"jtag"</span>. To override use <span class="string">'transport select &lt;transport&gt;'</span>.</span><br><span class="line">adapter speed: 1000 kHz</span><br><span class="line">adapter_nsrst_delay: 100</span><br><span class="line">jtag_ntrst_delay: 100</span><br><span class="line">none separate</span><br><span class="line">cortex_m reset_config sysresetreq</span><br><span class="line">Info : No device selected, using first device.</span><br><span class="line">Info : J-Link ARM V8 compiled Nov 28 2014 13:44:46</span><br><span class="line">Info : Hardware version: 8.00</span><br><span class="line">Info : VTarget = 3.325 V</span><br><span class="line">Info : clock speed 1000 kHz</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints</span><br></pre></td></tr></table></figure>
+<p>如上显示表示连接正常，系统后台开启了4444的端口。使用telnet连接到4444端口后便可以进行交互。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜  ~ telnet localhost 4444</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is <span class="string">'^]'</span>.</span><br><span class="line">Open On-Chip Debugger</span><br><span class="line">&gt; <span class="built_in">help</span>      </span><br><span class="line"><span class="comment"># 查看支持的命令，超多，此处不列出。</span></span><br><span class="line">&gt; halt      <span class="comment"># 挂起目标芯片</span></span><br><span class="line">target halted due to debug-request, current mode: Thread</span><br><span class="line">xPSR: 0x21000000 pc: 0x08008dca msp: 0x2000ffe8</span><br><span class="line">&gt; flash write_image erase stm32_LED.hex     <span class="comment"># 烧录flash</span></span><br><span class="line">auto erase enabled</span><br><span class="line">device id = 0x10036414</span><br><span class="line">flash size = 512kbytes</span><br><span class="line">Padding image section 0 with 1410 bytes</span><br><span class="line">wrote 40960 bytes from file stm32_LED.hex <span class="keyword">in</span> 1.682081s (23.780 KiB/s)</span><br><span class="line">&gt; reset     <span class="comment"># 复位</span></span><br><span class="line">JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">&gt; <span class="built_in">exit</span>      <span class="comment"># 退出连接</span></span><br><span class="line">Connection closed by foreign host.</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>命令模式</li>
 </ul>
-<p>把交互模式中执行过的命令依次添加到命令选项中即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase ./stm32_LED.hex"</span> -c reset -c shutdown</span><br></pre></td></tr></table></figure></p>
+<p>把交互模式中执行过的命令依次添加到命令选项中即可。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase ./stm32_LED.hex"</span> -c reset -c shutdown</span><br></pre></td></tr></table></figure></p>
 <h3 id="J-Link固件烧录"><a href="#J-Link固件烧录" class="headerlink" title="J-Link固件烧录"></a>J-Link固件烧录</h3><blockquote>
 <p>  原本我J-Link的好好的，但为了解决J-Link Commander校验克隆板的问题，按照网上的教程给清空了(教程很多，自行搜索)，然而最后也没卵用。期间多次重写烧录J-Link固件。PS：我的J-Link版本是V8，内部芯片为：AT91SAM7S64</p>
 </blockquote>
@@ -462,17 +486,17 @@
 <ul>
 <li>烧录固件</li>
 </ul>
-<p>使用BOSSA的界面版工具挺好用的，但不知怎么回事（疑似在选择设备的时候，选中了蓝牙），就闪退，后来一直闪退。 最后只能使用命令行进行刷如固件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ ll /dev/tty.*       <span class="comment"># 找到设备</span></span><br><span class="line">crw-rw-rw-  1 root  wheel   21,   0 Jan 16 04:17 /dev/tty.Bluetooth-Incoming-Port</span><br><span class="line">crw-rw-rw-  1 root  wheel   21,   0 Jan 16 04:17 /dev/tty.usbmodem1411  <span class="comment"># j-link设备</span></span><br><span class="line"></span><br><span class="line">➜ ~ bossac -u -e -w -v -b jlink-v8cracksn.bin -p tty.usbmodem1411</span><br></pre></td></tr></table></figure></p>
+<p>使用BOSSA的界面版工具挺好用的，但不知怎么回事（疑似在选择设备的时候，选中了蓝牙），就闪退，后来一直闪退。 最后只能使用命令行进行刷如固件。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜ ~ ll /dev/tty.*       <span class="comment"># 找到设备</span></span><br><span class="line">crw-rw-rw-  1 root  wheel   21,   0 Jan 16 04:17 /dev/tty.Bluetooth-Incoming-Port</span><br><span class="line">crw-rw-rw-  1 root  wheel   21,   0 Jan 16 04:17 /dev/tty.usbmodem1411  <span class="comment"># j-link设备</span></span><br><span class="line"></span><br><span class="line">➜ ~ bossac -u -e -w -v -b jlink-v8cracksn.bin -p tty.usbmodem1411</span><br></pre></td></tr></table></figure></p>
 <p>之后安装网上的说法，在JLinkExe中执行<code>exec setsn=20180116</code>(随便数值)来写入sn,然而还是不行。</p>
 <p>最后我重新打开JLinkExe接受了固件升级确认。</p>
 <p>如此虽然没解决任何问题，但还好J-Link并没被我搞成砖头。 </p>
 <h2 id="星星点灯demo"><a href="#星星点灯demo" class="headerlink" title="星星点灯demo"></a>星星点灯demo</h2><p>stm32相关的资料可以到<span class="exturl" data-url="aHR0cDovL3d3dy5zdG1jdS5vcmc=" title="http://www.stmcu.org">http://www.stmcu.org<i class="fa fa-external-link"></i></span>查找并下载，比st官网方便。</p>
 <p>最关键的是下载 <span class="exturl" data-url="aHR0cDovL3d3dy5zdG1jdS5vcmcvZG9jdW1lbnQvZGV0YWlsL2luZGV4L2lkLTIxMzE2MA==" title="http://www.stmcu.org/document/detail/index/id-213160">stsw-stm32054 - 标准外围库<i class="fa fa-external-link"></i></span>，这是目前最新的固件库了，尽管里面很多内容还是2011年的。</p>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>新建一个项目目录，并将固件中的文件导入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">➜  LED tree</span><br><span class="line">.</span><br><span class="line">├── CMSIS</span><br><span class="line">│   ├── core_cm3.c</span><br><span class="line">│   ├── core_cm3.h</span><br><span class="line">│   ├── stm32f10x.h</span><br><span class="line">│   ├── system_stm32f10x.c</span><br><span class="line">│   └── system_stm32f10x.h</span><br><span class="line">├── FWLib</span><br><span class="line">│   ├── inc</span><br><span class="line">│   │   ├── misc.h</span><br><span class="line">│   │   ├── stm32f10x_gpio.h</span><br><span class="line">│   │   └── ....  <span class="comment"># 省略</span></span><br><span class="line">│   └── src</span><br><span class="line">│       ├── misc.c</span><br><span class="line">│       ├── stm32f10x_gpio.c</span><br><span class="line">│       └── ....  <span class="comment"># 省略</span></span><br><span class="line">├── Makefile</span><br><span class="line">├── Script</span><br><span class="line">│   └── stm32f10e_flash.ld</span><br><span class="line">├── Startup</span><br><span class="line">│   └── startup_stm32f10x_hd.s</span><br><span class="line">└── User</span><br><span class="line">    ├── main.c</span><br><span class="line">    ├── stm32f10x_conf.h</span><br><span class="line">    ├── stm32f10x_it.c</span><br><span class="line">    └── stm32f10x_it.h</span><br></pre></td></tr></table></figure></p>
-<p>main.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line">GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n =n * <span class="number">1000000</span>;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);</span><br><span class="line"></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">  GPIO_Init(GPIOC, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">	GPIO_ResetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">	delay(<span class="number">1</span>);</span><br><span class="line">	GPIO_SetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">	delay(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>新建一个项目目录，并将固件中的文件导入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜  LED tree</span><br><span class="line">.</span><br><span class="line">├── CMSIS</span><br><span class="line">│   ├── core_cm3.c</span><br><span class="line">│   ├── core_cm3.h</span><br><span class="line">│   ├── stm32f10x.h</span><br><span class="line">│   ├── system_stm32f10x.c</span><br><span class="line">│   └── system_stm32f10x.h</span><br><span class="line">├── FWLib</span><br><span class="line">│   ├── inc</span><br><span class="line">│   │   ├── misc.h</span><br><span class="line">│   │   ├── stm32f10x_gpio.h</span><br><span class="line">│   │   └── ....  <span class="comment"># 省略</span></span><br><span class="line">│   └── src</span><br><span class="line">│       ├── misc.c</span><br><span class="line">│       ├── stm32f10x_gpio.c</span><br><span class="line">│       └── ....  <span class="comment"># 省略</span></span><br><span class="line">├── Makefile</span><br><span class="line">├── Script</span><br><span class="line">│   └── stm32f10e_flash.ld</span><br><span class="line">├── Startup</span><br><span class="line">│   └── startup_stm32f10x_hd.s</span><br><span class="line">└── User</span><br><span class="line">    ├── main.c</span><br><span class="line">    ├── stm32f10x_conf.h</span><br><span class="line">    ├── stm32f10x_it.c</span><br><span class="line">    └── stm32f10x_it.h</span><br></pre></td></tr></table></figure></p>
+<p>main.c<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line">GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n =n * <span class="number">1000000</span>;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);</span><br><span class="line"></span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">  GPIO_Init(GPIOC, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">	GPIO_ResetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">	delay(<span class="number">1</span>);</span><br><span class="line">	GPIO_SetBits(GPIOC,GPIO_Pin_13);</span><br><span class="line">	delay(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="编译-amp-makefile"><a href="#编译-amp-makefile" class="headerlink" title="编译 &amp; makefile"></a>编译 &amp; makefile</h3><p>以前从来都是在IDE中一键完成的工作，现在需要手工来做，简直了。。。。</p>
 <p>编译文件必然用到Makefile，网上最火爆的资料 <span class="exturl" data-url="aHR0cHM6Ly9zZWlzbWFuLmdpdGh1Yi5pby9ob3ctdG8td3JpdGUtbWFrZWZpbGUvaW5kZXguaHRtbA==" title="https://seisman.github.io/how-to-write-makefile/index.html">跟我一起写Makefile<i class="fa fa-external-link"></i></span>。 多多少少必须得看看，不然绝对懵逼的。</p>
-<p>经过好一番折腾，终于写出了Makefile<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成的文件名&lt;项目名&gt;</span></span><br><span class="line">PROJECT                  = stm32_LED</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义编译工具</span></span><br><span class="line"><span class="keyword">export</span> CC             = arm-none-eabi-gcc</span><br><span class="line"><span class="keyword">export</span> AS             = arm-none-eabi-as</span><br><span class="line"><span class="keyword">export</span> LD             = arm-none-eabi-ld</span><br><span class="line"><span class="keyword">export</span> AR             = arm-none-eabi-ar</span><br><span class="line"><span class="keyword">export</span> OBJCP          = arm-none-eabi-objcopy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件格式和文件名</span></span><br><span class="line">TARGET                  := <span class="variable">$(PROJECT)</span></span><br><span class="line">TARGET_ELF              := <span class="variable">$(TARGET)</span>.elf</span><br><span class="line">TARGET_BIN              := <span class="variable">$(TARGET)</span>.bin</span><br><span class="line">TARGET_HEX              := <span class="variable">$(TARGET)</span>.hex</span><br><span class="line">OBJCPFLAGS_ELF_TO_BIN    = -Obinary</span><br><span class="line">OBJCPFLAGS_ELF_TO_HEX    = -Oihex</span><br><span class="line">OBJCPFLAGS_BIN_TO_HEX    = -Ibinary -Oihex</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义路径</span></span><br><span class="line">TOP         = .</span><br><span class="line">INC_DIR     = 	-I <span class="variable">$(TOP)</span>/CMSIS -I <span class="variable">$(TOP)</span>/Startup -I <span class="variable">$(TOP)</span>/FWLib/inc -I <span class="variable">$(TOP)</span>/User</span><br><span class="line"></span><br><span class="line">CCFLAGS	= -Wall -g -mcpu=cortex-m3 -mthumb -D STM32F10X_HD -D USE_STDPERIPH_DRIVER <span class="variable">$(INC_DIR)</span> -O0 -std=gnu11  <span class="comment"># -W </span></span><br><span class="line">ASFLAGS = -W -g -mcpu=cortex-m3 -mthumb	<span class="comment"># —Wall会产生大量信息</span></span><br><span class="line">C_SRC	= <span class="variable">$(<span class="built_in">shell</span> find . -name '*.c')</span>	    <span class="comment"># 如果这样报core_m3.c编译错误的话，改用下一句。具体问题，后文说明。</span></span><br><span class="line"><span class="comment">#C_SRC	= $(shell find User FWLib/src -name '*.c')</span></span><br><span class="line"></span><br><span class="line">ASM_SRC	= <span class="variable">$(TOP)</span>/Startup/startup_stm32f10x_hd.S   <span class="comment"># 注意：此处.S大写。</span></span><br><span class="line">LDSCRIPT= <span class="variable">$(TOP)</span>/Script/stm32f10e_flash.ld</span><br><span class="line">LDFLAGS+= -T <span class="variable">$(LDSCRIPT)</span></span><br><span class="line">LDFLAGS+= -L /Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/arm-none-eabi/lib/thumb</span><br><span class="line">LDFLAGS+= -L /Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/7.2.1/thumb</span><br><span class="line"></span><br><span class="line">C_OBJ	= $(C_SRC:%.c=%.o)</span><br><span class="line">ASM_OBJ = $(ASM_SRC:%.S=%.o)</span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: clean all update</span></span><br><span class="line"></span><br><span class="line"><span class="section">all:<span class="variable">$(TARGET)</span>.hex <span class="variable">$(TARGET)</span>.bin</span></span><br><span class="line">	@echo <span class="string">"\n**************************编译完成**************************\n"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.hex:<span class="variable">$(TARGET)</span>.elf</span><br><span class="line">	<span class="variable">$(OBJCP)</span> -Oihex <span class="variable">$&lt;</span> <span class="variable">$@</span> </span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.bin:<span class="variable">$(TARGET)</span>.elf</span><br><span class="line">	<span class="variable">$(OBJCP)</span> -Obinary <span class="variable">$&lt;</span> <span class="variable">$@</span> </span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.elf:<span class="variable">$(C_OBJ)</span> <span class="variable">$(ASM_OBJ)</span></span><br><span class="line">	<span class="variable">$(LD)</span> <span class="variable">$^</span> <span class="variable">$(LDFLAGS)</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(C_OBJ)</span>:%.o:%.c</span><br><span class="line"><span class="comment">#	@echo "编译.c文件"</span></span><br><span class="line"><span class="comment">#	@echo $(C_SRC)</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CCFLAGS)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(ASM_OBJ)</span>:%.o:%.s</span><br><span class="line"><span class="comment">#	@echo "编译.s文件"</span></span><br><span class="line"><span class="comment">#	@echo $(ASM_SRC)</span></span><br><span class="line">	<span class="variable">$(AS)</span> <span class="variable">$(ASFLAGS)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span> 	</span><br><span class="line">	</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f <span class="variable">$(C_OBJ)</span> <span class="variable">$(ASM_OBJ)</span></span><br><span class="line">	@echo <span class="string">"Clean done"</span></span><br><span class="line">	</span><br><span class="line"><span class="section">update:<span class="variable">$(TARGET)</span>.hex</span></span><br><span class="line">	openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase <span class="variable">$(TOP)</span>/<span class="variable">$(TARGET)</span>.hex"</span> -c reset -c shutdown</span><br><span class="line">	@echo <span class="string">"\n**************************\n\t程序下载完成\n**************************\n"</span></span><br></pre></td></tr></table></figure></p>
+<p>经过好一番折腾，终于写出了Makefile<br><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成的文件名&lt;项目名&gt;</span></span><br><span class="line">PROJECT                  = stm32_LED</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义编译工具</span></span><br><span class="line"><span class="keyword">export</span> CC             = arm-none-eabi-gcc</span><br><span class="line"><span class="keyword">export</span> AS             = arm-none-eabi-as</span><br><span class="line"><span class="keyword">export</span> LD             = arm-none-eabi-ld</span><br><span class="line"><span class="keyword">export</span> AR             = arm-none-eabi-ar</span><br><span class="line"><span class="keyword">export</span> OBJCP          = arm-none-eabi-objcopy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件格式和文件名</span></span><br><span class="line">TARGET                  := <span class="variable">$(PROJECT)</span></span><br><span class="line">TARGET_ELF              := <span class="variable">$(TARGET)</span>.elf</span><br><span class="line">TARGET_BIN              := <span class="variable">$(TARGET)</span>.bin</span><br><span class="line">TARGET_HEX              := <span class="variable">$(TARGET)</span>.hex</span><br><span class="line">OBJCPFLAGS_ELF_TO_BIN    = -Obinary</span><br><span class="line">OBJCPFLAGS_ELF_TO_HEX    = -Oihex</span><br><span class="line">OBJCPFLAGS_BIN_TO_HEX    = -Ibinary -Oihex</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义路径</span></span><br><span class="line">TOP         = .</span><br><span class="line">INC_DIR     = 	-I <span class="variable">$(TOP)</span>/CMSIS -I <span class="variable">$(TOP)</span>/Startup -I <span class="variable">$(TOP)</span>/FWLib/inc -I <span class="variable">$(TOP)</span>/User</span><br><span class="line"></span><br><span class="line">CCFLAGS	= -Wall -g -mcpu=cortex-m3 -mthumb -D STM32F10X_HD -D USE_STDPERIPH_DRIVER <span class="variable">$(INC_DIR)</span> -O0 -std=gnu11  <span class="comment"># -W </span></span><br><span class="line">ASFLAGS = -W -g -mcpu=cortex-m3 -mthumb	<span class="comment"># —Wall会产生大量信息</span></span><br><span class="line">C_SRC	= <span class="variable">$(<span class="built_in">shell</span> find . -name '*.c')</span>	    <span class="comment"># 如果这样报core_m3.c编译错误的话，改用下一句。具体问题，后文说明。</span></span><br><span class="line"><span class="comment">#C_SRC	= $(shell find User FWLib/src -name '*.c')</span></span><br><span class="line"></span><br><span class="line">ASM_SRC	= <span class="variable">$(TOP)</span>/Startup/startup_stm32f10x_hd.S   <span class="comment"># 注意：此处.S大写。</span></span><br><span class="line">LDSCRIPT= <span class="variable">$(TOP)</span>/Script/stm32f10e_flash.ld</span><br><span class="line">LDFLAGS+= -T <span class="variable">$(LDSCRIPT)</span></span><br><span class="line">LDFLAGS+= -L /Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/arm-none-eabi/lib/thumb</span><br><span class="line">LDFLAGS+= -L /Users/bingo/EmbeddedDev/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/7.2.1/thumb</span><br><span class="line"></span><br><span class="line">C_OBJ	= $(C_SRC:%.c=%.o)</span><br><span class="line">ASM_OBJ = $(ASM_SRC:%.S=%.o)</span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: clean all update</span></span><br><span class="line"></span><br><span class="line"><span class="section">all:<span class="variable">$(TARGET)</span>.hex <span class="variable">$(TARGET)</span>.bin</span></span><br><span class="line">	@echo <span class="string">"\n**************************编译完成**************************\n"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.hex:<span class="variable">$(TARGET)</span>.elf</span><br><span class="line">	<span class="variable">$(OBJCP)</span> -Oihex <span class="variable">$&lt;</span> <span class="variable">$@</span> </span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.bin:<span class="variable">$(TARGET)</span>.elf</span><br><span class="line">	<span class="variable">$(OBJCP)</span> -Obinary <span class="variable">$&lt;</span> <span class="variable">$@</span> </span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>.elf:<span class="variable">$(C_OBJ)</span> <span class="variable">$(ASM_OBJ)</span></span><br><span class="line">	<span class="variable">$(LD)</span> <span class="variable">$^</span> <span class="variable">$(LDFLAGS)</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(C_OBJ)</span>:%.o:%.c</span><br><span class="line"><span class="comment">#	@echo "编译.c文件"</span></span><br><span class="line"><span class="comment">#	@echo $(C_SRC)</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CCFLAGS)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(ASM_OBJ)</span>:%.o:%.s</span><br><span class="line"><span class="comment">#	@echo "编译.s文件"</span></span><br><span class="line"><span class="comment">#	@echo $(ASM_SRC)</span></span><br><span class="line">	<span class="variable">$(AS)</span> <span class="variable">$(ASFLAGS)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span> 	</span><br><span class="line">	</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f <span class="variable">$(C_OBJ)</span> <span class="variable">$(ASM_OBJ)</span></span><br><span class="line">	@echo <span class="string">"Clean done"</span></span><br><span class="line">	</span><br><span class="line"><span class="section">update:<span class="variable">$(TARGET)</span>.hex</span></span><br><span class="line">	openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase <span class="variable">$(TOP)</span>/<span class="variable">$(TARGET)</span>.hex"</span> -c reset -c shutdown</span><br><span class="line">	@echo <span class="string">"\n**************************\n\t程序下载完成\n**************************\n"</span></span><br></pre></td></tr></table></figure></p>
 <p>两个大坑：</p>
 <ul>
 <li>startup_stm32f10x_hd.s汇编失败<br><br>汇编<code>startup_stm32f10x_hd.s</code>文件时，总是提示 <code>Error: junk at end of line, first unrecognized character is *</code> 之类的错误。</li>
@@ -484,16 +508,16 @@
 <ul>
 <li>core_m3.c 编译失败</li>
 </ul>
-<p>错误提示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arm-none-eabi-gcc -Wall -g -mcpu=cortex-m3 -mthumb -D STM32F10X_HD -D USE_STDPERIPH_DRIVER -I ./CMSIS -I ./Startup -I ./FWLib/inc -I ./User -O0 -std=gnu11 -c CMSIS/core_cm3.c -o CMSIS/core_cm3.o</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s: Assembler messages:</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s:894: Error: registers may not be the same -- `strexb r3,r2,[r3]&apos;</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s:947: Error: registers may not be the same -- `strexh r3,r2,[r3]&apos;</span><br><span class="line">make: *** [CMSIS/core_cm3.o] Error 1</span><br></pre></td></tr></table></figure></p>
+<p>错误提示如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arm-none-eabi-gcc -Wall -g -mcpu=cortex-m3 -mthumb -D STM32F10X_HD -D USE_STDPERIPH_DRIVER -I ./CMSIS -I ./Startup -I ./FWLib/inc -I ./User -O0 -std=gnu11 -c CMSIS/core_cm3.c -o CMSIS/core_cm3.o</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s: Assembler messages:</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s:894: Error: registers may not be the same -- `strexb r3,r2,[r3]&apos;</span><br><span class="line">/var/folders/kp/4lz3l_7j64dc_lzvdsfzdg500000gn/T//cccfwCep.s:947: Error: registers may not be the same -- `strexh r3,r2,[r3]&apos;</span><br><span class="line">make: *** [CMSIS/core_cm3.o] Error 1</span><br></pre></td></tr></table></figure></p>
 <p>两个解决办法：</p>
 <ul>
 <li><p>注释core_m3.c文件中的两个相关函数：<code>uint32_t __STREXB(uint8_t value, uint8_t *addr)</code> 及 <code>uint32_t __STREXH(uint16_t value, uint16_t *addr)</code> ，或者直接不编译core_m3.c文件。  因为本身这两个函数就不太能用到。</p>
 </li>
 <li><p>按照大咖的指示修改core_m3.c文件。 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vdGltYnJvbS8xOTQyMjgw" title="https://gist.github.com/timbrom/1942280">https://gist.github.com/timbrom/1942280<i class="fa fa-external-link"></i></span></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"><span class="addition">+   __ASM volatile ("strexb %0, %2, [%1]" : "=&amp;r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"><span class="addition">+   __ASM volatile ("strexh %0, %2, [%1]" : "=&amp;r" (result) : "r" (addr), "r" (value) );</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">-   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"><span class="addition">+   __ASM volatile ("strexb %0, %2, [%1]" : "=&amp;r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );</span></span><br><span class="line"><span class="addition">+   __ASM volatile ("strexh %0, %2, [%1]" : "=&amp;r" (result) : "r" (addr), "r" (value) );</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>make 一下，贼顺溜。。。<br>make update一下，编译烧录一键完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">➜  LED make update</span><br><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase ./stm32_LED.hex"</span> -c reset -c shutdown</span><br><span class="line">Open On-Chip Debugger 0.10.0</span><br><span class="line">Licensed under GNU GPL v2</span><br><span class="line">For bug reports, <span class="built_in">read</span></span><br><span class="line">	http://openocd.org/doc/doxygen/bugs.html</span><br><span class="line">Info : auto-selecting first available session transport <span class="string">"jtag"</span>. To override use <span class="string">'transport select &lt;transport&gt;'</span>.</span><br><span class="line">adapter speed: 1000 kHz</span><br><span class="line">adapter_nsrst_delay: 100</span><br><span class="line">jtag_ntrst_delay: 100</span><br><span class="line">none separate</span><br><span class="line">cortex_m reset_config sysresetreq</span><br><span class="line">Info : No device selected, using first device.</span><br><span class="line">Info : J-Link ARM V8 compiled Nov 28 2014 13:44:46</span><br><span class="line">Info : Hardware version: 8.00</span><br><span class="line">Info : VTarget = 3.325 V</span><br><span class="line">Info : clock speed 1000 kHz</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints</span><br><span class="line">target halted due to debug-request, current mode: Thread</span><br><span class="line">xPSR: 0x21000000 pc: 0x08008dc8 msp: 0x2000ffe8</span><br><span class="line">auto erase enabled</span><br><span class="line">Info : device id = 0x10036414</span><br><span class="line">Info : flash size = 512kbytes</span><br><span class="line">Info : Padding image section 0 with 1410 bytes</span><br><span class="line">wrote 40960 bytes from file ./stm32_LED.hex <span class="keyword">in</span> 1.688355s (23.692 KiB/s)</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">shutdown <span class="built_in">command</span> invoked</span><br><span class="line"></span><br><span class="line">**************************</span><br><span class="line">	程序下载完成</span><br><span class="line">**************************</span><br></pre></td></tr></table></figure></p>
+<p>make 一下，贼顺溜。。。<br>make update一下，编译烧录一键完成。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">➜  LED make update</span><br><span class="line">openocd -f interface/jlink.cfg -f target/stm32f1x.cfg -c init -c halt -c <span class="string">"flash write_image erase ./stm32_LED.hex"</span> -c reset -c shutdown</span><br><span class="line">Open On-Chip Debugger 0.10.0</span><br><span class="line">Licensed under GNU GPL v2</span><br><span class="line">For bug reports, <span class="built_in">read</span></span><br><span class="line">	http://openocd.org/doc/doxygen/bugs.html</span><br><span class="line">Info : auto-selecting first available session transport <span class="string">"jtag"</span>. To override use <span class="string">'transport select &lt;transport&gt;'</span>.</span><br><span class="line">adapter speed: 1000 kHz</span><br><span class="line">adapter_nsrst_delay: 100</span><br><span class="line">jtag_ntrst_delay: 100</span><br><span class="line">none separate</span><br><span class="line">cortex_m reset_config sysresetreq</span><br><span class="line">Info : No device selected, using first device.</span><br><span class="line">Info : J-Link ARM V8 compiled Nov 28 2014 13:44:46</span><br><span class="line">Info : Hardware version: 8.00</span><br><span class="line">Info : VTarget = 3.325 V</span><br><span class="line">Info : clock speed 1000 kHz</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints</span><br><span class="line">target halted due to debug-request, current mode: Thread</span><br><span class="line">xPSR: 0x21000000 pc: 0x08008dc8 msp: 0x2000ffe8</span><br><span class="line">auto erase enabled</span><br><span class="line">Info : device id = 0x10036414</span><br><span class="line">Info : flash size = 512kbytes</span><br><span class="line">Info : Padding image section 0 with 1410 bytes</span><br><span class="line">wrote 40960 bytes from file ./stm32_LED.hex <span class="keyword">in</span> 1.688355s (23.692 KiB/s)</span><br><span class="line">Info : JTAG tap: stm32f1x.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)</span><br><span class="line">Info : JTAG tap: stm32f1x.bs tap/device found: 0x06414041 (mfg: 0x020 (STMicroelectronics), part: 0x6414, ver: 0x0)</span><br><span class="line">shutdown <span class="built_in">command</span> invoked</span><br><span class="line"></span><br><span class="line">**************************</span><br><span class="line">	程序下载完成</span><br><span class="line">**************************</span><br></pre></td></tr></table></figure></p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，折腾完毕！<br><br>虽然我不太喜欢eclipse,但不可否认，在Mac平台下进行arm开发，那可能是最好的平台了，还是可以考虑下的。</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9nbnUtbWN1LWVjbGlwc2UuZ2l0aHViLmlv" title="https://gnu-mcu-eclipse.github.io">https://gnu-mcu-eclipse.github.io<i class="fa fa-external-link"></i></span></p>
 
@@ -571,6 +595,13 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -617,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -629,6 +660,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -692,7 +727,7 @@
                     
                     <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -797,7 +832,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -889,52 +924,76 @@
   
 
 
-  <script src="/js/src/utils.js?v=7.0.1"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
   
 
 
-  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+  <script src="/js/affix.js?v=7.1.1"></script>
 
-
-  
-
-  
-  <script src="/js/src/exturl.js?v=7.0.1"></script>
-
-
-  
-
-  
-
-
-  
-
-
-  
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
 
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.1"></script>
+
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://blog-jihoat8tps.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oddboy.cn/2018/Mac搭建STM32编译及调试工具-含led-demo/";
+    this.page.identifier = "2018/Mac搭建STM32编译及调试工具-含led-demo/";
+    this.page.title = 'Mac搭建STM32编译及调试工具(含led-demo)';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-jihoat8tps.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
 
   
 
@@ -945,6 +1004,18 @@
   
 
   
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,25 +44,27 @@
 
 
 
-
-
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -72,8 +74,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '7.0.1',
+    scheme: 'Gemini',
+    version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
@@ -98,24 +100,25 @@
 
 
 
-  <meta name="description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤1234567import argparse">
+  <meta name="description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤import argparse                     # 导入模板p">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python argparse模块详解">
 <meta property="og:url" content="https://oddboy.cn/2017/Python-argparse模块详解/index.html">
 <meta property="og:site_name" content="Mr.Bingo&#39;s Blog">
-<meta property="og:description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤1234567import argparse">
+<meta property="og:description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤import argparse                     # 导入模板p">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-13T06:36:07.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python argparse模块详解">
-<meta name="twitter:description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤1234567import argparse">
+<meta name="twitter:description" content="argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。   https://docs.python.org/3/library/argparse.html  使用步骤import argparse                     # 导入模板p">
 
 
 
 
 
-
+  
+  
   <link rel="canonical" href="https://oddboy.cn/2017/Python-argparse模块详解/">
 
 
@@ -233,6 +236,23 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -253,9 +273,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -270,20 +287,14 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -374,6 +385,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/Python-argparse模块详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/Python-argparse模块详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -401,7 +425,7 @@
         <blockquote>
 <p>   argparse是python用于解析命令行参数和选项的标准模块，用于代替已经过时的optparse模块。<br>   官方文档中讲到的，本文基本都提到了，但只是简要记录，如果需要深入理解，可查看原文。<br>   <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWw=" title="https://docs.python.org/3/library/argparse.html">https://docs.python.org/3/library/argparse.html<i class="fa fa-external-link"></i></span></p>
 </blockquote>
-<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import argparse                     # 导入模板</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser()  # 创建parser</span><br><span class="line"></span><br><span class="line">parser.add_argument()               # 添加参数</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()          # 参数解析</span><br></pre></td></tr></table></figure>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import argparse                     # 导入模板</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser()  # 创建parser</span><br><span class="line"></span><br><span class="line">parser.add_argument()               # 添加参数</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()          # 参数解析</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="ArgumentParser对象"><a href="#ArgumentParser对象" class="headerlink" title="ArgumentParser对象"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjYXJndW1lbnRwYXJzZXItb2JqZWN0cw==" title="https://docs.python.org/3/library/argparse.html#argumentparser-objects">ArgumentParser对象<i class="fa fa-external-link"></i></span></h2><pre><code>class argparse.ArgumentParser(
     prog=None,                  # 设定程序名称 (defaul: sys.argv[0])
@@ -454,28 +478,28 @@
 </li>
 </ul>
 <h2 id="parse-args-方法"><a href="#parse-args-方法" class="headerlink" title="parse_args()方法"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjdGhlLXBhcnNlLWFyZ3MtbWV0aG9k" title="https://docs.python.org/3/library/argparse.html#the-parse-args-method">parse_args()方法<i class="fa fa-external-link"></i></span></h2><pre><code>ArgumentParser.parse_args(args=None, namespace=None)
-</code></pre><p>一般情况下，我们直接使用如下命令就可以了：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># args=None, 程序将sys.argv作为参数代入</span></span><br><span class="line">args = parse.parse_args()              </span><br><span class="line"></span><br><span class="line"><span class="comment"># 给args赋值，跳过sys.argv，主要用于测试工作，避免每次运行都输入冗长的参数。</span></span><br><span class="line">args = parser.parse_args([<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># namespace=custom_class，将属性分配到一个已经存在的对象中。</span></span><br><span class="line">parser.parse_args(args=[<span class="string">'--foo'</span>, <span class="string">'BAR'</span>], namespace=custom_class99)</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>一般情况下，我们直接使用如下命令就可以了：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># args=None, 程序将sys.argv作为参数代入</span></span><br><span class="line">args = parse.parse_args()              </span><br><span class="line"></span><br><span class="line"><span class="comment"># 给args赋值，跳过sys.argv，主要用于测试工作，避免每次运行都输入冗长的参数。</span></span><br><span class="line">args = parser.parse_args([<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># namespace=custom_class，将属性分配到一个已经存在的对象中。</span></span><br><span class="line">parser.parse_args(args=[<span class="string">'--foo'</span>, <span class="string">'BAR'</span>], namespace=custom_class99)</span><br></pre></td></tr></table></figure></p>
 <h2 id="其它工具"><a href="#其它工具" class="headerlink" title="其它工具"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjb3RoZXItdXRpbGl0aWVz" title="https://docs.python.org/3/library/argparse.html#other-utilities">其它工具<i class="fa fa-external-link"></i></span></h2><ul>
 <li><h3 id="子命令"><a href="#子命令" class="headerlink" title="子命令"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjc3ViLWNvbW1hbmRz" title="https://docs.python.org/3/library/argparse.html#sub-commands">子命令<i class="fa fa-external-link"></i></span></h3><p>  很多程序把它的功能分到几个子程序中，比如：pip install , pip download , pip uninstall 等. 通过这种方式，可以很方便处理不同程序的参数。</p>
 <p>  ArgumentParser.<strong>add_subparsers</strong>([title][, description][, prog][, parser_class][, action][, option_string][, dest][, help][, metavar])</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparsers = parser.add_subparsers(dest=<span class="string">'subparser_name'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser1 = subparsers.add_parser(<span class="string">'1'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser1.add_argument(<span class="string">'-x'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser2 = subparsers.add_parser(<span class="string">'2'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser2.add_argument(<span class="string">'y'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'2'</span>, <span class="string">'frobble'</span>])</span><br><span class="line">Namespace(subparser_name=<span class="string">'2'</span>, y=<span class="string">'frobble'</span>)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparsers = parser.add_subparsers(dest=<span class="string">'subparser_name'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser1 = subparsers.add_parser(<span class="string">'1'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser1.add_argument(<span class="string">'-x'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser2 = subparsers.add_parser(<span class="string">'2'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>subparser2.add_argument(<span class="string">'y'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'2'</span>, <span class="string">'frobble'</span>])</span><br><span class="line">Namespace(subparser_name=<span class="string">'2'</span>, y=<span class="string">'frobble'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="文件类型对象"><a href="#文件类型对象" class="headerlink" title="文件类型对象"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjZmlsZXR5cGUtb2JqZWN0cw==" title="https://docs.python.org/3/library/argparse.html#filetype-objects">文件类型对象<i class="fa fa-external-link"></i></span></h3><p>  add_argument()中的FileType的参数”工厂”。</p>
 <p>  class argparse.<strong>FileType</strong>(mode=’r’, bufsize=-1, encoding=None, errors=None)</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--raw'</span>, type=argparse.FileType(<span class="string">'wb'</span>, <span class="number">0</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'out'</span>, type=argparse.FileType(<span class="string">'w'</span>, encoding=<span class="string">'UTF-8'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'--raw'</span>, <span class="string">'raw.dat'</span>, <span class="string">'file.txt'</span>])</span><br><span class="line">Namespace(out=&lt;_io.TextIOWrapper name=<span class="string">'file.txt'</span> mode=<span class="string">'w'</span> encoding=<span class="string">'UTF-8'</span>&gt;, raw=&lt;_io.FileIO name=<span class="string">'raw.dat'</span> mode=<span class="string">'wb'</span>&gt;)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--raw'</span>, type=argparse.FileType(<span class="string">'wb'</span>, <span class="number">0</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'out'</span>, type=argparse.FileType(<span class="string">'w'</span>, encoding=<span class="string">'UTF-8'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'--raw'</span>, <span class="string">'raw.dat'</span>, <span class="string">'file.txt'</span>])</span><br><span class="line">Namespace(out=&lt;_io.TextIOWrapper name=<span class="string">'file.txt'</span> mode=<span class="string">'w'</span> encoding=<span class="string">'UTF-8'</span>&gt;, raw=&lt;_io.FileIO name=<span class="string">'raw.dat'</span> mode=<span class="string">'wb'</span>&gt;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="参数分组"><a href="#参数分组" class="headerlink" title="参数分组"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjYXJndW1lbnQtZ3JvdXBz" title="https://docs.python.org/3/library/argparse.html#argument-groups">参数分组<i class="fa fa-external-link"></i></span></h3><p>  在Usage信息中的参数分组，如pip -h可以看到”Commands”,”General Options”分组。</p>
 <p>  ArgumentParser.<strong>add_argument_group</strong>(title=None, description=None)</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser(prog=<span class="string">'testPROG'</span>, add_help=<span class="literal">False</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group1 = parser.add_argument_group(<span class="string">'group1'</span>, <span class="string">'group1 description'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group1.add_argument(<span class="string">'foo'</span>, help=<span class="string">'foo help'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group2 = parser.add_argument_group(<span class="string">'group2'</span>, <span class="string">'group2 description'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group2.add_argument(<span class="string">'--bar'</span>, help=<span class="string">'bar help'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.print_help()</span><br><span class="line"></span><br><span class="line">usage: testPROG [--bar BAR] foo</span><br><span class="line"></span><br><span class="line">group1:</span><br><span class="line">group1 description</span><br><span class="line"></span><br><span class="line">foo    foo help</span><br><span class="line"></span><br><span class="line">group2:</span><br><span class="line">group2 description</span><br><span class="line"></span><br><span class="line">--bar BAR  bar help</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser(prog=<span class="string">'testPROG'</span>, add_help=<span class="literal">False</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group1 = parser.add_argument_group(<span class="string">'group1'</span>, <span class="string">'group1 description'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group1.add_argument(<span class="string">'foo'</span>, help=<span class="string">'foo help'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group2 = parser.add_argument_group(<span class="string">'group2'</span>, <span class="string">'group2 description'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group2.add_argument(<span class="string">'--bar'</span>, help=<span class="string">'bar help'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.print_help()</span><br><span class="line"></span><br><span class="line">usage: testPROG [--bar BAR] foo</span><br><span class="line"></span><br><span class="line">group1:</span><br><span class="line">group1 description</span><br><span class="line"></span><br><span class="line">foo    foo help</span><br><span class="line"></span><br><span class="line">group2:</span><br><span class="line">group2 description</span><br><span class="line"></span><br><span class="line">--bar BAR  bar help</span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjbXV0dWFsLWV4Y2x1c2lvbg==" title="https://docs.python.org/3/library/argparse.html#mutual-exclusion">互斥<i class="fa fa-external-link"></i></span></h3><p>  参数互斥！</p>
 <p>  ArgumentParser.<strong>add_mutually_exclusive_group</strong>(required=False)</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser(prog=<span class="string">'PROG'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group = parser.add_mutually_exclusive_group(required=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group.add_argument(<span class="string">'--foo'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group.add_argument(<span class="string">'--bar'</span>, action=<span class="string">'store_false'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([])</span><br><span class="line">usage: PROG [-h] (--foo | --bar)</span><br><span class="line">PROG: error: one of the arguments --foo --bar <span class="keyword">is</span> required</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser(prog=<span class="string">'PROG'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group = parser.add_mutually_exclusive_group(required=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group.add_argument(<span class="string">'--foo'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>group.add_argument(<span class="string">'--bar'</span>, action=<span class="string">'store_false'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([])</span><br><span class="line">usage: PROG [-h] (--foo | --bar)</span><br><span class="line">PROG: error: one of the arguments --foo --bar <span class="keyword">is</span> required</span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="解析器默认配置"><a href="#解析器默认配置" class="headerlink" title="解析器默认配置"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjcGFyc2VyLWRlZmF1bHRz" title="https://docs.python.org/3/library/argparse.html#parser-defaults">解析器默认配置<i class="fa fa-external-link"></i></span></h3><p>  在解析器级别给参数设置默认值(优先级高于在add_argument方法中的设置)，也可以获取默认值。</p>
 <p>  ArgumentParser.<strong>set_defaults</strong>(**kwargs)       # 设置默认值</p>
 <p>  ArgumentParser.<strong>get_default</strong>(dest)            # 获取默认值</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'foo'</span>, type=int)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.set_defaults(bar=<span class="number">42</span>, baz=<span class="string">'badger'</span>)   <span class="comment"># 不审查是否在命令行中声明，故而bar，baz可以直接添加</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'736'</span>])</span><br><span class="line">Namespace(bar=<span class="number">42</span>, baz=<span class="string">'badger'</span>, foo=<span class="number">736</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, default=<span class="string">'bar'</span>) <span class="comment"># 解析器级别默认值总是覆盖参数级别默认值</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.set_defaults(foo=<span class="string">'spam'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([])</span><br><span class="line">Namespace(foo=<span class="string">'spam'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, default=<span class="string">'badger'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.get_default(<span class="string">'foo'</span>)                   <span class="comment"># 获取默认值</span></span><br><span class="line"><span class="string">'badger'</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'foo'</span>, type=int)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.set_defaults(bar=<span class="number">42</span>, baz=<span class="string">'badger'</span>)   <span class="comment"># 不审查是否在命令行中声明，故而bar，baz可以直接添加</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([<span class="string">'736'</span>])</span><br><span class="line">Namespace(bar=<span class="number">42</span>, baz=<span class="string">'badger'</span>, foo=<span class="number">736</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, default=<span class="string">'bar'</span>) <span class="comment"># 解析器级别默认值总是覆盖参数级别默认值</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.set_defaults(foo=<span class="string">'spam'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_args([])</span><br><span class="line">Namespace(foo=<span class="string">'spam'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, default=<span class="string">'badger'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.get_default(<span class="string">'foo'</span>)                   <span class="comment"># 获取默认值</span></span><br><span class="line"><span class="string">'badger'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="打印帮忙"><a href="#打印帮忙" class="headerlink" title="打印帮忙"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjcHJpbnRpbmctaGVscA==" title="https://docs.python.org/3/library/argparse.html#printing-help">打印帮忙<i class="fa fa-external-link"></i></span></h3><p>  用于打印帮助信息。</p>
 <p>  ArgumentParser.<strong>print_usage</strong>(file=None)</p>
@@ -485,7 +509,7 @@
 </li>
 <li><h3 id="部分解析"><a href="#部分解析" class="headerlink" title="部分解析"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjcGFydGlhbC1wYXJzaW5n" title="https://docs.python.org/3/library/argparse.html#partial-parsing">部分解析<i class="fa fa-external-link"></i></span></h3><p>  有些脚本只解析部分参数，放过其余的参数以便传递给其它脚本或程序。 这种情况下使用 parse_known_args() 。跟parse_args()用法一样，但当参数过多的情况下并不会报错，而是将多余的参数放到一个新的tuple中。</p>
 <p>  ArgumentParser.<strong>parse_known_args</strong>(args=None, namespace=None)</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'bar'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_known_args([<span class="string">'--foo'</span>, <span class="string">'--badger'</span>, <span class="string">'BAR'</span>, <span class="string">'spam'</span>])</span><br><span class="line">(Namespace(bar=<span class="string">'BAR'</span>, foo=<span class="literal">True</span>), [<span class="string">'--badger'</span>, <span class="string">'spam'</span>])     <span class="comment"># ['--badger', 'spam']即为多余的参数。</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser = argparse.ArgumentParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'--foo'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.add_argument(<span class="string">'bar'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parser.parse_known_args([<span class="string">'--foo'</span>, <span class="string">'--badger'</span>, <span class="string">'BAR'</span>, <span class="string">'spam'</span>])</span><br><span class="line">(Namespace(bar=<span class="string">'BAR'</span>, foo=<span class="literal">True</span>), [<span class="string">'--badger'</span>, <span class="string">'spam'</span>])     <span class="comment"># ['--badger', 'spam']即为多余的参数。</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="自定义文件解析"><a href="#自定义文件解析" class="headerlink" title="自定义文件解析"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjY3VzdG9taXppbmctZmlsZS1wYXJzaW5n" title="https://docs.python.org/3/library/argparse.html#customizing-file-parsing">自定义文件解析<i class="fa fa-external-link"></i></span></h3></li>
 <li><h3 id="退出方法"><a href="#退出方法" class="headerlink" title="退出方法"></a><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy9saWJyYXJ5L2FyZ3BhcnNlLmh0bWwjZXhpdGluZy1tZXRob2Rz" title="https://docs.python.org/3/library/argparse.html#exiting-methods">退出方法<i class="fa fa-external-link"></i></span></h3></li>
@@ -572,6 +596,13 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -618,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -630,6 +661,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -693,7 +728,7 @@
                     
                     <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -798,7 +833,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -890,52 +925,76 @@
   
 
 
-  <script src="/js/src/utils.js?v=7.0.1"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
   
 
 
-  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+  <script src="/js/affix.js?v=7.1.1"></script>
 
-
-  
-
-  
-  <script src="/js/src/exturl.js?v=7.0.1"></script>
-
-
-  
-
-  
-
-
-  
-
-
-  
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
 
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.1"></script>
+
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://blog-jihoat8tps.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oddboy.cn/2017/Python-argparse模块详解/";
+    this.page.identifier = "2017/Python-argparse模块详解/";
+    this.page.title = 'Python argparse模块详解';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-jihoat8tps.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
 
   
 
@@ -946,6 +1005,18 @@
   
 
   
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

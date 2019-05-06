@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,25 +44,27 @@
 
 
 
-
-
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -72,8 +74,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '7.0.1',
+    scheme: 'Gemini',
+    version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
@@ -116,7 +118,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://oddboy.cn/2017/Nmap-cheat-sheet/">
 
 
@@ -234,6 +237,23 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -254,9 +274,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -271,20 +288,14 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -375,6 +386,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/Nmap-cheat-sheet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/Nmap-cheat-sheet/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -413,13 +437,13 @@
 <p>  而这四项功能之间，又存在大致的依赖关系（通常情况下的顺序关系，但特殊应用另外考虑），首先需要进行主机发现，随后确定端口状况，然后确定端口上运行具体应用程序与版本信息，然后可以进行操作系统的侦测。而在四项基本功能的基础上，Nmap提供防火墙与IDS（IntrusionDetection System,入侵检测系统）的规避技巧，可以综合应用到四个基本功能的各个阶段；另外Nmap提供强大的NSE（Nmap Scripting Language）脚本引擎功能，脚本可以对基本功能进行补充和扩展。</p>
 </li>
 </ul>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap oddboy.cn 192.168.0,1,4-7.2-255 10.1.1.0/24    <span class="comment"># 多主机地址扫描</span></span><br><span class="line">nmap -A -T4 host        </span><br><span class="line"><span class="comment"># -A 对主机进行完整全面的扫描(主机发现、端口扫描、应用程序与版本侦测、操作系统侦测及调用默认NSE脚本扫描)</span></span><br><span class="line"><span class="comment"># -T4 指定扫描时序，总共6个级别(0-5),级别越高，速度越快，但容易被防火墙检测屏蔽。</span></span><br></pre></td></tr></table></figure>
-<h2 id="常规使用"><a href="#常规使用" class="headerlink" title="常规使用"></a>常规使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nmap IP/Hostname                    <span class="comment"># 最基本的使用情况</span></span><br><span class="line">nmap host1 host2 host3 etc...       <span class="comment"># 扫描多主机</span></span><br><span class="line">nmap 192.168.0.1-192.168.1.254      <span class="comment"># 扫描IP地址段</span></span><br><span class="line">nmap 192.168.0.1/23                 <span class="comment"># CIDR格式的网络地址段（与上一条命令等同）</span></span><br><span class="line">nmap -iL list.txt                   <span class="comment"># 扫描目标主机列表</span></span><br><span class="line">nmap -Pn host                       <span class="comment"># 假定目标存活</span></span><br></pre></td></tr></table></figure>
-<h2 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A host                        <span class="comment"># ？？？？？？？</span></span><br></pre></td></tr></table></figure>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap oddboy.cn 192.168.0,1,4-7.2-255 10.1.1.0/24    <span class="comment"># 多主机地址扫描</span></span><br><span class="line">nmap -A -T4 host        </span><br><span class="line"><span class="comment"># -A 对主机进行完整全面的扫描(主机发现、端口扫描、应用程序与版本侦测、操作系统侦测及调用默认NSE脚本扫描)</span></span><br><span class="line"><span class="comment"># -T4 指定扫描时序，总共6个级别(0-5),级别越高，速度越快，但容易被防火墙检测屏蔽。</span></span><br></pre></td></tr></table></figure>
+<h2 id="常规使用"><a href="#常规使用" class="headerlink" title="常规使用"></a>常规使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap IP/Hostname                    <span class="comment"># 最基本的使用情况</span></span><br><span class="line">nmap host1 host2 host3 etc...       <span class="comment"># 扫描多主机</span></span><br><span class="line">nmap 192.168.0.1-192.168.1.254      <span class="comment"># 扫描IP地址段</span></span><br><span class="line">nmap 192.168.0.1/23                 <span class="comment"># CIDR格式的网络地址段（与上一条命令等同）</span></span><br><span class="line">nmap -iL list.txt                   <span class="comment"># 扫描目标主机列表</span></span><br><span class="line">nmap -Pn host                       <span class="comment"># 假定目标存活</span></span><br></pre></td></tr></table></figure>
+<h2 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap -A host                        <span class="comment"># ？？？？？？？</span></span><br></pre></td></tr></table></figure>
 <hr>
 <hr>
 <hr>
-<h2 id="渗透测试中不常用-我反正没用过"><a href="#渗透测试中不常用-我反正没用过" class="headerlink" title="渗透测试中不常用(我反正没用过)"></a>渗透测试中不常用(我反正没用过)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.0/24 --exclude 192.168.1.11  <span class="comment"># 排除一些主机</span></span><br><span class="line">nmap -iR 100                        <span class="comment"># 随机扫描互联网上100个主机</span></span><br><span class="line">nmap -Sp                            <span class="comment"># 只ping扫描，</span></span><br><span class="line">nmap -PS                            <span class="comment"># TCP SYN scan (TCP SYN ping)</span></span><br><span class="line">nmap -PA                            <span class="comment"># TCP ACK scan ping</span></span><br><span class="line">nmap -PU                            <span class="comment"># UDP scan  ping</span></span><br><span class="line">nmap -PY                            <span class="comment"># ??? SCTP scan ping</span></span><br><span class="line">nmap -PE/PP/PM                      <span class="comment"># ??? ICMP echo/timestamp/netmask request discovery probes  什么鬼？</span></span><br><span class="line">nmap -PO [protocol] host            <span class="comment"># 指定协议ping</span></span><br><span class="line">nmap -PR                            <span class="comment"># ??? ARP ping </span></span><br><span class="line">nmap --traceroute                   <span class="comment"># traceroute 功能 探测网络路径</span></span><br><span class="line">nmap -n/-R                          <span class="comment"># Never do DNS resolution/Always resolve [default: sometimes]</span></span><br><span class="line">nmap --dns-servers serv1,serv2,,,   <span class="comment"># 指定DNS</span></span><br><span class="line">nmap --system-dns                   <span class="comment"># 使用系统DNS</span></span><br><span class="line">nmap -sL IPs                        <span class="comment"># 列出IPs的反向DNS结果</span></span><br><span class="line">nmap</span><br></pre></td></tr></table></figure>
+<h2 id="渗透测试中不常用-我反正没用过"><a href="#渗透测试中不常用-我反正没用过" class="headerlink" title="渗透测试中不常用(我反正没用过)"></a>渗透测试中不常用(我反正没用过)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap 192.168.1.0/24 --exclude 192.168.1.11  <span class="comment"># 排除一些主机</span></span><br><span class="line">nmap -iR 100                        <span class="comment"># 随机扫描互联网上100个主机</span></span><br><span class="line">nmap -Sp                            <span class="comment"># 只ping扫描，</span></span><br><span class="line">nmap -PS                            <span class="comment"># TCP SYN scan (TCP SYN ping)</span></span><br><span class="line">nmap -PA                            <span class="comment"># TCP ACK scan ping</span></span><br><span class="line">nmap -PU                            <span class="comment"># UDP scan  ping</span></span><br><span class="line">nmap -PY                            <span class="comment"># ??? SCTP scan ping</span></span><br><span class="line">nmap -PE/PP/PM                      <span class="comment"># ??? ICMP echo/timestamp/netmask request discovery probes  什么鬼？</span></span><br><span class="line">nmap -PO [protocol] host            <span class="comment"># 指定协议ping</span></span><br><span class="line">nmap -PR                            <span class="comment"># ??? ARP ping </span></span><br><span class="line">nmap --traceroute                   <span class="comment"># traceroute 功能 探测网络路径</span></span><br><span class="line">nmap -n/-R                          <span class="comment"># Never do DNS resolution/Always resolve [default: sometimes]</span></span><br><span class="line">nmap --dns-servers serv1,serv2,,,   <span class="comment"># 指定DNS</span></span><br><span class="line">nmap --system-dns                   <span class="comment"># 使用系统DNS</span></span><br><span class="line">nmap -sL IPs                        <span class="comment"># 列出IPs的反向DNS结果</span></span><br><span class="line">nmap</span><br></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><span class="exturl" data-url="aHR0cDovL3Jlc291cmNlcy5pbmZvc2VjaW5zdGl0dXRlLmNvbS9ubWFwLWNoZWF0LXNoZWV0Lw==" title="http://resources.infosecinstitute.com/nmap-cheat-sheet/">Introduction to Nmap<i class="fa fa-external-link"></i></span></p>
 <p><span class="exturl" data-url="aHR0cDovL3d3dy5mcmVlYnVmLmNvbS9hcnRpY2xlcy9uZXR3b3JrLzMyMzAyLmh0bWw=" title="http://www.freebuf.com/articles/network/32302.html">Nmap从探测到漏洞利用备忘录 – Nmap简介(一)<i class="fa fa-external-link"></i></span></p>
 <h2 id="零散知识"><a href="#零散知识" class="headerlink" title="#零散知识"></a>#零散知识</h2><h4 id="Nmap脚本引擎-NSE"><a href="#Nmap脚本引擎-NSE" class="headerlink" title="Nmap脚本引擎(NSE)"></a>Nmap脚本引擎(NSE)</h4><pre><code>- 网络探测
@@ -504,6 +528,13 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -550,7 +581,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -562,6 +593,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -625,7 +660,7 @@
                     
                     <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -730,7 +765,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -822,52 +857,76 @@
   
 
 
-  <script src="/js/src/utils.js?v=7.0.1"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
   
 
 
-  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+  <script src="/js/affix.js?v=7.1.1"></script>
 
-
-  
-
-  
-  <script src="/js/src/exturl.js?v=7.0.1"></script>
-
-
-  
-
-  
-
-
-  
-
-
-  
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
 
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.1"></script>
+
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://blog-jihoat8tps.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oddboy.cn/2017/Nmap-cheat-sheet/";
+    this.page.identifier = "2017/Nmap-cheat-sheet/";
+    this.page.title = 'Nmap cheat sheet';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-jihoat8tps.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
 
   
 
@@ -878,6 +937,18 @@
   
 
   
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

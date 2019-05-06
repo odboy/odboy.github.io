@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,25 +44,27 @@
 
 
 
-
-
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -72,8 +74,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '7.0.1',
+    scheme: 'Gemini',
+    version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
@@ -125,7 +127,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://oddboy.cn/2017/邂逅WAF系列之ModSecurity部署及使用/">
 
 
@@ -243,6 +246,23 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -263,9 +283,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -280,20 +297,14 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -384,6 +395,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/邂逅WAF系列之ModSecurity部署及使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/邂逅WAF系列之ModSecurity部署及使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -412,67 +436,67 @@
 <p>ModSecurity是一个开源的，跨平台的Web应用程序防火墙（WAF）模块，被称为WAF的“瑞士军刀”，它使网络应用程序维护者能够获得HTTP(S)流量的可见性，并提供强大的规则和API来实现高级保护。</p>
 <p>在这篇文章中，我们在运行WordPress的Apache上配置ModSecurity，并进行效果检验。</p>
 <a id="more"></a>
-<h2 id="安装测试网站"><a href="#安装测试网站" class="headerlink" title="安装测试网站"></a>安装测试网站</h2><h3 id="1-安装LAMP环境"><a href="#1-安装LAMP环境" class="headerlink" title="1.安装LAMP环境"></a>1.安装LAMP环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install apache2</span><br><span class="line">$ apt-get install php</span><br><span class="line">$ apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">$ apache2 -v</span><br><span class="line">$ mysqld -V</span><br><span class="line">$ php -V</span><br><span class="line"></span><br><span class="line">$ service apache2 status/start/stop/restart</span><br><span class="line">$ service msyql status/start/stop/restart</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install libapache2-mod-php php-mysql</span><br><span class="line">$ service apache2 restart</span><br><span class="line">$ service mysql restart</span><br></pre></td></tr></table></figure>
+<h2 id="安装测试网站"><a href="#安装测试网站" class="headerlink" title="安装测试网站"></a>安装测试网站</h2><h3 id="1-安装LAMP环境"><a href="#1-安装LAMP环境" class="headerlink" title="1.安装LAMP环境"></a>1.安装LAMP环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ apt-get install apache2</span><br><span class="line">$ apt-get install php</span><br><span class="line">$ apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">$ apache2 -v</span><br><span class="line">$ mysqld -V</span><br><span class="line">$ php -V</span><br><span class="line"></span><br><span class="line">$ service apache2 status/start/stop/restart</span><br><span class="line">$ service msyql status/start/stop/restart</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install libapache2-mod-php php-mysql</span><br><span class="line">$ service apache2 restart</span><br><span class="line">$ service mysql restart</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>坑0x01:<strong>您的PHP似乎没有安装运行WordPress所必需的MySQL扩展。</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">因为之前Ubuntu中使用PPA安装了多版本PHP，具体是什么导致问题的不太清楚，但通过下面命令，将PHP版本切换到7.1后就正常了。</span><br><span class="line">Apache:-</span><br><span class="line">$ sudo a2dismod php5.6</span><br><span class="line">$ sudo a2enmod php7.1</span><br><span class="line">$ sudo service apache2 restart</span><br><span class="line">CLI:-</span><br><span class="line">$ update-alternatives --set php /usr/bin/php7.1</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">因为之前Ubuntu中使用PPA安装了多版本PHP，具体是什么导致问题的不太清楚，但通过下面命令，将PHP版本切换到7.1后就正常了。</span><br><span class="line">Apache:-</span><br><span class="line">$ sudo a2dismod php5.6</span><br><span class="line">$ sudo a2enmod php7.1</span><br><span class="line">$ sudo service apache2 restart</span><br><span class="line">CLI:-</span><br><span class="line">$ update-alternatives --set php /usr/bin/php7.1</span><br></pre></td></tr></table></figure>
 <p>  <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLzIwMTcvMDcvUEhQ5aSa54mI5pys5a6J6KOF5LiO5YiH5o2iJTI4VWJ1bnR1LTE2LTA0LUxUUyUyOS8=" title="http://localhost:4000/2017/07/PHP多版本安装与切换%28Ubuntu-16-04-LTS%29/">PHP多版本-传送门<i class="fa fa-external-link"></i></span></p>
 </li>
 <li><p>坑0x02: MySQL数据库无法进入<br>不记得什么时候用过MySQL数据库的，应该没有设置过密码。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -uroot</span><br><span class="line"><span class="comment">#ERROR 1698 (28000): Access denied for user 'root'@'localhost'</span></span><br><span class="line"><span class="comment"># ↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line">$ mysqld --initialize</span><br><span class="line">    mysqld: Cant create directory <span class="string">'/var/lib/mysql/'</span> (Errcode: 13 - Permission denied)</span><br><span class="line"></span><br><span class="line">$ sudo chown mysql:mysql /var/lib/mysql</span><br><span class="line">$ sudo chown mysql:mysql /var/lib/mysql-files</span><br><span class="line"></span><br><span class="line">$ mysqld --initialize</span><br><span class="line">$ vim /var/<span class="built_in">log</span>/mysql/error.log</span><br><span class="line"><span class="comment"># 2017-12-07T07:16:49.383938Z 1 [Note] A temporary password is generated for root@localhost: gdk7uo+l-!S7</span></span><br><span class="line"></span><br><span class="line">$ systemctl start mysql  <span class="comment"># 或者 service service mysql start</span></span><br><span class="line">$ mysql -uroot -p <span class="comment"># 密码为：gdk7uo+l-!S7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入后修改root密码</span></span><br><span class="line">$ alter user <span class="string">'root'</span>@<span class="string">'localhost'</span> identified by <span class="string">'myNewPass'</span>;</span><br><span class="line"><span class="comment"># 退出后重新登录</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql -uroot</span><br><span class="line"><span class="comment">#ERROR 1698 (28000): Access denied for user 'root'@'localhost'</span></span><br><span class="line"><span class="comment"># ↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line">$ mysqld --initialize</span><br><span class="line">    mysqld: Cant create directory <span class="string">'/var/lib/mysql/'</span> (Errcode: 13 - Permission denied)</span><br><span class="line"></span><br><span class="line">$ sudo chown mysql:mysql /var/lib/mysql</span><br><span class="line">$ sudo chown mysql:mysql /var/lib/mysql-files</span><br><span class="line"></span><br><span class="line">$ mysqld --initialize</span><br><span class="line">$ vim /var/<span class="built_in">log</span>/mysql/error.log</span><br><span class="line"><span class="comment"># 2017-12-07T07:16:49.383938Z 1 [Note] A temporary password is generated for root@localhost: gdk7uo+l-!S7</span></span><br><span class="line"></span><br><span class="line">$ systemctl start mysql  <span class="comment"># 或者 service service mysql start</span></span><br><span class="line">$ mysql -uroot -p <span class="comment"># 密码为：gdk7uo+l-!S7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入后修改root密码</span></span><br><span class="line">$ alter user <span class="string">'root'</span>@<span class="string">'localhost'</span> identified by <span class="string">'myNewPass'</span>;</span><br><span class="line"><span class="comment"># 退出后重新登录</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-安装WordPress"><a href="#2-安装WordPress" class="headerlink" title="2. 安装WordPress"></a>2. 安装WordPress</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -uroot -p     </span><br><span class="line">$ create user bingo identified by &apos;myPass&apos;; # 进行用户</span><br><span class="line">$ create database wordpress;</span><br><span class="line">$ grant all privileges on wordpress.* to bingo@localhost identified by &quot;myPass&quot;;</span><br><span class="line">$ flush privileges;</span><br><span class="line"></span><br><span class="line">$ show databases;</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装WordPress"><a href="#2-安装WordPress" class="headerlink" title="2. 安装WordPress"></a>2. 安装WordPress</h3><pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysql -uroot -p     </span><br><span class="line">$ create user bingo identified by &apos;myPass&apos;; # 进行用户</span><br><span class="line">$ create database wordpress;</span><br><span class="line">$ grant all privileges on wordpress.* to bingo@localhost identified by &quot;myPass&quot;;</span><br><span class="line">$ flush privileges;</span><br><span class="line"></span><br><span class="line">$ show databases;</span><br></pre></td></tr></table></figure>
 </code></pre><p>将WordPress安装包解压到/var/www/wordpress，并修改<code>/etc/apache2/sites-enabled/000-default.conf</code>文件中的DocumentRoot, 将/var/www/html修改为/var/www/wordpress 。<br>按照引导，顺利安装完成。<br><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image01.png" alt></p>
-<h2 id="安装配置ModSecurity-for-Apache"><a href="#安装配置ModSecurity-for-Apache" class="headerlink" title="安装配置ModSecurity for Apache"></a>安装配置ModSecurity for Apache</h2><h3 id="1-安装ModSecurity"><a href="#1-安装ModSecurity" class="headerlink" title="1. 安装ModSecurity"></a>1. 安装ModSecurity</h3><p>Modsecurity在Debian/Ubuntu源中可用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install libapache2-modsecurity</span><br></pre></td></tr></table></figure></p>
-<p>验证是否加载了mod_security模块:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apachectl -M | grep --color security</span><br></pre></td></tr></table></figure></p>
-<p>看到一个名为security2_module (shared)的模块，表示模块已加载。或者使用下面命令验证版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-cache show libapache2-modsecurity</span><br></pre></td></tr></table></figure></p>
-<p>Modsecurity的安装包含必须重命名的推荐配置文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mv /etc/modsecurity/modsecurity.conf&#123;-recommended,&#125;</span><br></pre></td></tr></table></figure></p>
-<p>重新加载Apache:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service apache2 reload</span><br></pre></td></tr></table></figure></p>
-<p>ModSecurity的新日志文件将在/var/log/apache2/modsec_audit.log的Apache日志目录中创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ll /var/log/apache2/modsec_audit.log</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装配置ModSecurity-for-Apache"><a href="#安装配置ModSecurity-for-Apache" class="headerlink" title="安装配置ModSecurity for Apache"></a>安装配置ModSecurity for Apache</h2><h3 id="1-安装ModSecurity"><a href="#1-安装ModSecurity" class="headerlink" title="1. 安装ModSecurity"></a>1. 安装ModSecurity</h3><p>Modsecurity在Debian/Ubuntu源中可用：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ apt-get install libapache2-modsecurity</span><br></pre></td></tr></table></figure></p>
+<p>验证是否加载了mod_security模块:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ apachectl -M | grep --color security</span><br></pre></td></tr></table></figure></p>
+<p>看到一个名为security2_module (shared)的模块，表示模块已加载。或者使用下面命令验证版本。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ apt-cache show libapache2-modsecurity</span><br></pre></td></tr></table></figure></p>
+<p>Modsecurity的安装包含必须重命名的推荐配置文件：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mv /etc/modsecurity/modsecurity.conf&#123;-recommended,&#125;</span><br></pre></td></tr></table></figure></p>
+<p>重新加载Apache:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ service apache2 reload</span><br></pre></td></tr></table></figure></p>
+<p>ModSecurity的新日志文件将在/var/log/apache2/modsec_audit.log的Apache日志目录中创建<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ll /var/log/apache2/modsec_audit.log</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-配置ModSecurity"><a href="#2-配置ModSecurity" class="headerlink" title="2. 配置ModSecurity"></a>2. 配置ModSecurity</h3><ul>
 <li><h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><p>  默认的ModSecurity配置文件设置为DetectionOnly ，根据规则匹配记录请求，不会阻塞任何东西。 这可以通过编辑modsecurity.conf文件和修改SecRuleEngine指令来改变。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo sed -i“s / SecRuleEngine DetectionOnly / SecRuleEngine On /”/etc/modsecurity/modsecurity.conf</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo sed -i“s / SecRuleEngine DetectionOnly / SecRuleEngine On /”/etc/modsecurity/modsecurity.conf</span><br></pre></td></tr></table></figure>
 <p>  SecResponseBodyAccess指令配置响应主体是否被缓冲（即通过ModSecurity读取）。 这只有在需要数据泄漏检测和保护时才是必要的。 因此，将其留在将消耗一定资源，也增加日志文件的大小，所以我们将关闭它。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo sed -i“s / SecResponseBodyAccess On / SecResponseBodyAccess Off /”/etc/modsecurity/modsecurity.conf</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo sed -i“s / SecResponseBodyAccess On / SecResponseBodyAccess Off /”/etc/modsecurity/modsecurity.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="可选配置"><a href="#可选配置" class="headerlink" title="可选配置"></a>可选配置</h4><p>  还有其他的指令可以通过编辑/etc/modsecurity/modsecurity.conf来定制。 </p>
 <p>  <code>SecRequestBodyLimit</code>和<code>SecRequestBodyNoFilesLimit</code>指令会限制可以POST到Web应用程序的最大数据量。</p>
 <p>  <code>SecRequestBodyLimit</code>指令指定最大的POST数据大小。 如果客户端发送的数据量较大，则服务器将响应413 Request Entity Too Large错误。 如果Web应用程序没有任何文件上传，这个值可以大大减少。<br>  配置文件中指定的预配置值为13107200字节（12.5MB）</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SecRequestBodyLimit 13107200</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SecRequestBodyLimit 13107200</span><br></pre></td></tr></table></figure>
 <p>  <code>SecRequestBodyNoFilesLimit</code>限制POST数据量除掉文件上传部分。这个值应尽可能低，以减少有人发送大尺寸的请求主体时拒绝服务（DoS）攻击的可能性。 配置文件中的预配置值为131072字节（128KB）。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SecRequestBodyInMemoryLimit 131072</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SecRequestBodyInMemoryLimit 131072</span><br></pre></td></tr></table></figure>
 <p>  SecRequestBodyInMemoryLimit` 这个指令关乎服务器性能，它指定多少“请求主体”数据（POST数据）保存在内存（RAM）中，而其余的部分放在硬盘中（就像swapping）。如果使用的是固态硬盘，影响不大。如果有足够的RAM可用，可以配置一个更合适的值。该指令的预配置值是128KB。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SecRequestBodyInMemoryLimit 131072</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SecRequestBodyInMemoryLimit 131072</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="3-规则设置"><a href="#3-规则设置" class="headerlink" title="3. 规则设置"></a>3. 规则设置</h3><p>在这一步中，我们将设置一些ModSecurity规则。</p>
 <ul>
 <li><h4 id="启动CRS"><a href="#启动CRS" class="headerlink" title="启动CRS"></a>启动CRS</h4><p>  为了方便起见，ModSecurity已经安装了很多规则。 这些被称为CRS（Core Rule Set），位于/usr/share/modsecurity-crs目录中。 要加载这些规则，我们需要配置Apache来读取这些目录中的.conf文件，所以打开security2.conf文件进行编辑。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/apache2/mods-enabled/security2.conf</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/apache2/mods-enabled/security2.conf</span><br></pre></td></tr></table></figure>
 <p>  在<code>&lt;IfModule security2_module&gt; &lt;/IfModule&gt;</code>添加以下指令:</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IncludeOptional /etc/modsecurity/*.conf </span><br><span class="line"><span class="comment">#IncludeOptional /usr/share/modsecurity-crs/*.conf</span></span><br><span class="line">IncludeOptional /usr/share/modsecurity-crs/activated_rules/*.conf</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">IncludeOptional /etc/modsecurity/*.conf </span><br><span class="line"><span class="comment">#IncludeOptional /usr/share/modsecurity-crs/*.conf</span></span><br><span class="line">IncludeOptional /usr/share/modsecurity-crs/activated_rules/*.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="目录-域排除-可选"><a href="#目录-域排除-可选" class="headerlink" title="目录/域排除(可选)"></a>目录/域排除(可选)</h4><p>  有时，如果运行某个应用程序（如phpMyAdmin），则排除特定目录或域名是有意义的，因为ModSecurity将阻止SQL查询。排除CMS(如：WordPress）管理后台也是不错的选择。</p>
 <p>  要在VirtualHost中禁用ModSecurity，请将以下指令放置在其虚拟主机文件的<code>&lt;VirtualHost&gt;[...]&lt;/VirtualHost&gt;</code>块中。</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span> SecRuleEngine Off <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span> SecRuleEngine Off <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>  排除特定目录（如：/var/www/wordpress/wp-admin):</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">Directory</span> "/<span class="attr">var</span>/<span class="attr">www</span>/<span class="attr">wp-admin</span>"&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span> </span><br><span class="line">        SecRuleEngine Off </span><br><span class="line">    <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">Directory</span> "/<span class="attr">var</span>/<span class="attr">www</span>/<span class="attr">wp-admin</span>"&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span> </span><br><span class="line">        SecRuleEngine Off </span><br><span class="line">    <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>  如果您不想在目录中完全禁用ModSecurity，请使用SecRuleRemoveById指令通过指定其ID来排除特定的规则或规则链。</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">LocationMatch</span> "/<span class="attr">wp-admin</span>/<span class="attr">update.php</span>"&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span></span><br><span class="line">        SecRuleRemoveById 981173</span><br><span class="line">    <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LocationMatch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">LocationMatch</span> "/<span class="attr">wp-admin</span>/<span class="attr">update.php</span>"&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">security2_module</span>&gt;</span></span><br><span class="line">        SecRuleRemoveById 981173</span><br><span class="line">    <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LocationMatch</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-规则激活"><a href="#4-规则激活" class="headerlink" title="4. 规则激活"></a>4. 规则激活</h3><p>接下来，我们将激活规则文件。所需的规则文件应该被link到activated_rules目录，这与Apache mods-enabled目录类似。 切换到activated_rules目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/share/modsecurity-crs/activated_rules/</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-规则激活"><a href="#4-规则激活" class="headerlink" title="4. 规则激活"></a>4. 规则激活</h3><p>接下来，我们将激活规则文件。所需的规则文件应该被link到activated_rules目录，这与Apache mods-enabled目录类似。 切换到activated_rules目录。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /usr/share/modsecurity-crs/activated_rules/</span><br></pre></td></tr></table></figure></p>
 <p>该目录中的README文件描述了symlinks的创建方法。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s ../modsecurity_crs_10_setup.conf ./</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span> f <span class="keyword">in</span> `ls ../base_rules/` ; <span class="keyword">do</span> sudo ln -s ../base_rules/<span class="variable">$f</span> ./<span class="variable">$f</span> ; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span> f <span class="keyword">in</span> `ls ../optional_rules/ | grep comment_spam` ; <span class="keyword">do</span> sudo ln -s ../optional_rules/<span class="variable">$f</span> ./<span class="variable">$f</span> ; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ ls -l ./</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo ln -s ../modsecurity_crs_10_setup.conf ./</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span> f <span class="keyword">in</span> `ls ../base_rules/` ; <span class="keyword">do</span> sudo ln -s ../base_rules/<span class="variable">$f</span> ./<span class="variable">$f</span> ; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span> f <span class="keyword">in</span> `ls ../optional_rules/ | grep comment_spam` ; <span class="keyword">do</span> sudo ln -s ../optional_rules/<span class="variable">$f</span> ./<span class="variable">$f</span> ; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ ls -l ./</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image02.png" alt></p>
-<p>重启Apache2以使规则生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart apache2</span><br></pre></td></tr></table></figure></p>
+<p>重启Apache2以使规则生效<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ systemctl restart apache2</span><br></pre></td></tr></table></figure></p>
 <p>运行效果：<br><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image03.png" alt><br>从运行日志可以看出，无法正常访问的原因是，命中了modsecurity_crs_21_protocol_anomalies.conf中的规则。</p>
 <p>从activated_rules目录中移除modsecurity_crs_21_protocol_anomalies.conf后<br><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image04.png" alt><br>仍有一个访问被拦截，原因是”POST request missing Content-Length Header.”</p>
 <p>移除modsecurity_crs_20_protocol_violations.conf规则后，访问页面无日志产生。</p>
 <p>尝试访问  <a href="#">http://10.1.1.3/?s=wordpress%’ or ‘’=’</a></p>
 <p><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image05.png" alt><br>被成功拦截。</p>
-<h3 id="5-升级CRS到最新版本"><a href="#5-升级CRS到最新版本" class="headerlink" title="5. 升级CRS到最新版本"></a>5. 升级CRS到最新版本</h3><p>上一个节中使用的ModSecurity自带CRS，其版本为2.2.9，而目前最新的CRS已经为3.0.2版本，所以手动更新CRS还是有必要的。<br>官方主页 ： <span class="exturl" data-url="aHR0cHM6Ly9tb2RzZWN1cml0eS5vcmcvY3JzLw==" title="https://modsecurity.org/crs/">https://modsecurity.org/crs/<i class="fa fa-external-link"></i></span><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/share/</span><br><span class="line">$ git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git</span><br><span class="line">$ cd owasp-modsecurity-crs</span><br><span class="line">$ vim INSTALL</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-升级CRS到最新版本"><a href="#5-升级CRS到最新版本" class="headerlink" title="5. 升级CRS到最新版本"></a>5. 升级CRS到最新版本</h3><p>上一个节中使用的ModSecurity自带CRS，其版本为2.2.9，而目前最新的CRS已经为3.0.2版本，所以手动更新CRS还是有必要的。<br>官方主页 ： <span class="exturl" data-url="aHR0cHM6Ly9tb2RzZWN1cml0eS5vcmcvY3JzLw==" title="https://modsecurity.org/crs/">https://modsecurity.org/crs/<i class="fa fa-external-link"></i></span><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /usr/share/</span><br><span class="line">$ git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git</span><br><span class="line">$ cd owasp-modsecurity-crs</span><br><span class="line">$ vim INSTALL</span><br></pre></td></tr></table></figure></p>
 <p>参考 <span class="exturl" data-url="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1NwaWRlckxhYnMvb3dhc3AtbW9kc2VjdXJpdHktY3JzL3YzLjAvbWFzdGVyL0lOU1RBTEw=" title="https://raw.githubusercontent.com/SpiderLabs/owasp-modsecurity-crs/v3.0/master/INSTALL">INSTALL<i class="fa fa-external-link"></i></span> 文件进行安装</p>
 <ul>
 <li><p>将<code>crs-setup.conf.example</code>复制到<code>crs-setup.conf</code></p>
@@ -484,13 +508,13 @@
 <li><p>修改 <code>mods-enabled/security2.conf</code> 文件中 <code>&lt;IfModule security2_module&gt; &lt;/IfModule&gt;</code> 配置</p>
 </li>
 <li><p>重启Apache</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp crs-setup.conf.example crs-setup.conf</span><br><span class="line"></span><br><span class="line">$ sudo cp rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf</span><br><span class="line">$ sudo cp rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf</span><br><span class="line"></span><br><span class="line">$ sudo vim /etc/apache2/mods-enabled/security2.conf</span><br><span class="line"><span class="comment"># &gt;&gt;&gt;&gt;&gt;&gt;</span></span><br><span class="line">    <span class="comment"># IncludeOPtional 与 Include 作用一致</span></span><br><span class="line">    IncludeOptional /etc/modsecurity/*.conf</span><br><span class="line">    Include /usr/share/owasp-modsecurity-crs/crs-setup.conf</span><br><span class="line">    IncludeOptional /usr/share/owasp-modsecurity-crs/rules/*.conf</span><br><span class="line"><span class="comment"># &lt;&lt;&lt;&lt;&lt;&lt;</span></span><br><span class="line">$ sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo cp crs-setup.conf.example crs-setup.conf</span><br><span class="line"></span><br><span class="line">$ sudo cp rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf</span><br><span class="line">$ sudo cp rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf</span><br><span class="line"></span><br><span class="line">$ sudo vim /etc/apache2/mods-enabled/security2.conf</span><br><span class="line"><span class="comment"># &gt;&gt;&gt;&gt;&gt;&gt;</span></span><br><span class="line">    <span class="comment"># IncludeOPtional 与 Include 作用一致</span></span><br><span class="line">    IncludeOptional /etc/modsecurity/*.conf</span><br><span class="line">    Include /usr/share/owasp-modsecurity-crs/crs-setup.conf</span><br><span class="line">    IncludeOptional /usr/share/owasp-modsecurity-crs/rules/*.conf</span><br><span class="line"><span class="comment"># &lt;&lt;&lt;&lt;&lt;&lt;</span></span><br><span class="line">$ sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>提交攻击性访问<br><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image06.png" alt></p>
 <p>成功拦截！</p>
 <h2 id="给DVWA武装上ModSecurity"><a href="#给DVWA武装上ModSecurity" class="headerlink" title="给DVWA武装上ModSecurity"></a>给DVWA武装上ModSecurity</h2><p>DVWA是一款基于php&amp;mysql编写的用于常规WEB漏洞检测的脆弱web应用,其中包含了一些常见的WEB漏洞。今天，我们试试让DVWA武装上ModSecurity，看看在网络攻击中能够坚挺？</p>
-<h3 id="1-部署DVWA"><a href="#1-部署DVWA" class="headerlink" title="1. 部署DVWA"></a>1. 部署DVWA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载并解压DVWA</span></span><br><span class="line">$ wget https://github.com/ethicalhack3r/DVWA/archive/master.zip</span><br><span class="line">$ unzip master.zip -d /var/www/    <span class="comment"># DVWA-master</span></span><br><span class="line">$ cp /var/www/DVWA-master /var/www/DVWA-ignoreModSec    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改Apache配置</span></span><br><span class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-available</span><br><span class="line">$ sudo vim /etc/apache2/sites-enabled/000-default.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改DocumentRoot</span></span><br><span class="line">    DocumentRoot /var/www/DVWA-master</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line">$ sudo vim /etc/apache2/port.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   添加8080端口</span></span><br><span class="line">    Listen 80</span><br><span class="line">    Listen 8080</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ cp /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/001-dvwa8080.conf</span><br><span class="line">$ sudo ln -sf /etc/apache2/sites-available/001-dvwa8080.conf /etc/apache2/sites-enabled/001-dvwa8080.conf</span><br><span class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-enabled/</span><br><span class="line">$ vim 001-dvwa8080.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改 *:80 为 *:8080   在此域名中关闭ModSecurity</span></span><br><span class="line">    &lt;VirtualHost *:8080&gt;</span><br><span class="line">        DocumentRoot /var/www/DVWA-ignoreModSec</span><br><span class="line">        &lt;IfModule security2_module&gt;</span><br><span class="line">                SecRuleEngine Off</span><br><span class="line">        &lt;/IfModule&gt;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ service apache2 restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># MySQL配置</span></span><br><span class="line">$ mysql -uroot -p</span><br><span class="line">    mysql&gt; create database dvwa;    <span class="comment"># dvwa数据库，用于被ModSecurity保护的DVWA实例</span></span><br><span class="line">    mysql&gt; create user bingo identified by <span class="string">'myPass'</span>; </span><br><span class="line">    mysql&gt; grant all privileges on dvwa.* to bingo@localhost identified by <span class="string">"myPass"</span>;    </span><br><span class="line">    mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line">    mysql&gt; create database dvwa-vuln;   <span class="comment"># dvwa_vuln数据库，用于暴露的DVWA实例</span></span><br><span class="line">    mysql&gt; grant all privileges on dvwa_vuln.* to bingo@localhost identified by <span class="string">"myPass"</span>;</span><br><span class="line">    mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置DVWA</span></span><br><span class="line">$ <span class="built_in">cd</span> /var/www/DVWA-master</span><br><span class="line">$ cp config/config.inc.php.dist config/config.inc.php</span><br><span class="line">$ vim config/config.inc.php</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改数据库配置及DVWA安全级别</span></span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ]     = <span class="string">'bingo'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'myPass'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'default_security_level'</span> ] = <span class="string">'low'</span>;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> /var/www/DVWA-ignoreModSec</span><br><span class="line">$ cp config/config.inc.php.dist config/config.inc.php</span><br><span class="line">$ vim config/config.inc.php</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改数据库配置及DVWA安全级别</span></span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa_vuln'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ]     = <span class="string">'bingo'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'myPass'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'default_security_level'</span> ] = <span class="string">'low'</span>;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-部署DVWA"><a href="#1-部署DVWA" class="headerlink" title="1. 部署DVWA"></a>1. 部署DVWA</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载并解压DVWA</span></span><br><span class="line">$ wget https://github.com/ethicalhack3r/DVWA/archive/master.zip</span><br><span class="line">$ unzip master.zip -d /var/www/    <span class="comment"># DVWA-master</span></span><br><span class="line">$ cp /var/www/DVWA-master /var/www/DVWA-ignoreModSec    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改Apache配置</span></span><br><span class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-available</span><br><span class="line">$ sudo vim /etc/apache2/sites-enabled/000-default.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改DocumentRoot</span></span><br><span class="line">    DocumentRoot /var/www/DVWA-master</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line">$ sudo vim /etc/apache2/port.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   添加8080端口</span></span><br><span class="line">    Listen 80</span><br><span class="line">    Listen 8080</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ cp /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/001-dvwa8080.conf</span><br><span class="line">$ sudo ln -sf /etc/apache2/sites-available/001-dvwa8080.conf /etc/apache2/sites-enabled/001-dvwa8080.conf</span><br><span class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-enabled/</span><br><span class="line">$ vim 001-dvwa8080.conf</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改 *:80 为 *:8080   在此域名中关闭ModSecurity</span></span><br><span class="line">    &lt;VirtualHost *:8080&gt;</span><br><span class="line">        DocumentRoot /var/www/DVWA-ignoreModSec</span><br><span class="line">        &lt;IfModule security2_module&gt;</span><br><span class="line">                SecRuleEngine Off</span><br><span class="line">        &lt;/IfModule&gt;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ service apache2 restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># MySQL配置</span></span><br><span class="line">$ mysql -uroot -p</span><br><span class="line">    mysql&gt; create database dvwa;    <span class="comment"># dvwa数据库，用于被ModSecurity保护的DVWA实例</span></span><br><span class="line">    mysql&gt; create user bingo identified by <span class="string">'myPass'</span>; </span><br><span class="line">    mysql&gt; grant all privileges on dvwa.* to bingo@localhost identified by <span class="string">"myPass"</span>;    </span><br><span class="line">    mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line">    mysql&gt; create database dvwa-vuln;   <span class="comment"># dvwa_vuln数据库，用于暴露的DVWA实例</span></span><br><span class="line">    mysql&gt; grant all privileges on dvwa_vuln.* to bingo@localhost identified by <span class="string">"myPass"</span>;</span><br><span class="line">    mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置DVWA</span></span><br><span class="line">$ <span class="built_in">cd</span> /var/www/DVWA-master</span><br><span class="line">$ cp config/config.inc.php.dist config/config.inc.php</span><br><span class="line">$ vim config/config.inc.php</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改数据库配置及DVWA安全级别</span></span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ]     = <span class="string">'bingo'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'myPass'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'default_security_level'</span> ] = <span class="string">'low'</span>;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> /var/www/DVWA-ignoreModSec</span><br><span class="line">$ cp config/config.inc.php.dist config/config.inc.php</span><br><span class="line">$ vim config/config.inc.php</span><br><span class="line">    <span class="comment"># &gt;&gt;&gt;   修改数据库配置及DVWA安全级别</span></span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_server'</span> ]   = <span class="string">'127.0.0.1'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_database'</span> ] = <span class="string">'dvwa_vuln'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_user'</span> ]     = <span class="string">'bingo'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'db_password'</span> ] = <span class="string">'myPass'</span>;</span><br><span class="line">    <span class="variable">$_DVWA</span>[ <span class="string">'default_security_level'</span> ] = <span class="string">'low'</span>;</span><br><span class="line">    <span class="comment"># &lt;&lt;&lt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-对比测试"><a href="#2-对比测试" class="headerlink" title="2. 对比测试"></a>2. 对比测试</h3><p>两套DVWA同时运行，80和8080端口，80端口被ModSecurity保护，而ModSecurity则没有。</p>
 <ul>
 <li><p>SQL注入：<br><img src="/2017/邂逅WAF系列之ModSecurity部署及使用/image11.png" alt></p>
@@ -585,6 +609,13 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -631,7 +662,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -643,6 +674,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -706,7 +741,7 @@
                     
                     <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -811,7 +846,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -903,52 +938,76 @@
   
 
 
-  <script src="/js/src/utils.js?v=7.0.1"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
   
 
 
-  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+  <script src="/js/affix.js?v=7.1.1"></script>
 
-
-  
-
-  
-  <script src="/js/src/exturl.js?v=7.0.1"></script>
-
-
-  
-
-  
-
-
-  
-
-
-  
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
 
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.1"></script>
+
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://blog-jihoat8tps.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oddboy.cn/2017/邂逅WAF系列之ModSecurity部署及使用/";
+    this.page.identifier = "2017/邂逅WAF系列之ModSecurity部署及使用/";
+    this.page.title = '邂逅WAF系列之ModSecurity部署及使用';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-jihoat8tps.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
 
   
 
@@ -959,6 +1018,18 @@
   
 
   
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

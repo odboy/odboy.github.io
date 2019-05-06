@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,25 +44,27 @@
 
 
 
-
-
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -72,8 +74,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '7.0.1',
+    scheme: 'Gemini',
+    version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
@@ -114,7 +116,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://oddboy.cn/2017/hello-world/">
 
 
@@ -232,6 +235,23 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -252,9 +272,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -269,20 +286,14 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -373,6 +384,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -405,18 +429,18 @@
 </code></pre></blockquote>
 <h2 id="搭建hexo静态博客"><a href="#搭建hexo静态博客" class="headerlink" title="搭建hexo静态博客"></a>搭建hexo静态博客</h2><p>Hexo官方文档 :: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3M=" title="https://hexo.io/zh-cn/docs">https://hexo.io/zh-cn/docs<i class="fa fa-external-link"></i></span></p>
 <a id="more"></a>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ wget -C https://nodejs.org/dist/v6.10.2/node-v6.10.2.pkg      <span class="comment"># 下载Node.js安装包</span></span><br><span class="line">$ open node-v6.10.2.pkg      <span class="comment"># 傻瓜式安装</span></span><br><span class="line">$ brew install git           <span class="comment"># 安装git</span></span><br><span class="line">$ npm install -g hexo-cli    <span class="comment"># 安全hexo</span></span><br><span class="line">$ hexo init &lt;folder&gt;         <span class="comment"># 从hexo官网下载初始化文件</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;                </span><br><span class="line">$ npm install                <span class="comment"># 安装站点文件</span></span><br><span class="line"></span><br><span class="line">$ hexo server                <span class="comment"># 启动服务器。默认情况下，访问网址为： http://localhost:4000/</span></span><br><span class="line"></span><br><span class="line">$ hexo new [layout] &lt;title&gt;  <span class="comment"># 新建一个post</span></span><br><span class="line">$ hexo generate              <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;    <span class="comment"># layout默认为 post，可以在 _config.yml 的 default_layout 参数指定。</span></span><br><span class="line">                               <span class="comment"># Hexo 有三种默认布局：post、page 和 draft。</span></span><br><span class="line"></span><br><span class="line">$ hexo new draft &lt;title0&gt;       <span class="comment"># 新建一份草稿</span></span><br><span class="line">$ hexo publish [layout] &lt;title0&gt;   <span class="comment"># 将draft移动到post</span></span><br><span class="line">$ hexo generate                 <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save      <span class="comment"># 安装hexo-deployer-git以实现git部署</span></span><br><span class="line"></span><br><span class="line">$ vim _config.yml</span><br><span class="line">--------------[file content]</span><br><span class="line">    deploy:</span><br><span class="line">      <span class="built_in">type</span>: git</span><br><span class="line">      repo: &lt;repository url&gt;    <span class="comment"># 库（Repository）地址</span></span><br><span class="line">      branch: [branch]          <span class="comment"># 分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</span></span><br><span class="line">      message: [message]        <span class="comment"># 自定义提交信息 (默认为 Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;)</span></span><br><span class="line">--------------[file content]</span><br><span class="line">$ hexo deploy     <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -C https://nodejs.org/dist/v6.10.2/node-v6.10.2.pkg      <span class="comment"># 下载Node.js安装包</span></span><br><span class="line">$ open node-v6.10.2.pkg      <span class="comment"># 傻瓜式安装</span></span><br><span class="line">$ brew install git           <span class="comment"># 安装git</span></span><br><span class="line">$ npm install -g hexo-cli    <span class="comment"># 安全hexo</span></span><br><span class="line">$ hexo init &lt;folder&gt;         <span class="comment"># 从hexo官网下载初始化文件</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;                </span><br><span class="line">$ npm install                <span class="comment"># 安装站点文件</span></span><br><span class="line"></span><br><span class="line">$ hexo server                <span class="comment"># 启动服务器。默认情况下，访问网址为： http://localhost:4000/</span></span><br><span class="line"></span><br><span class="line">$ hexo new [layout] &lt;title&gt;  <span class="comment"># 新建一个post</span></span><br><span class="line">$ hexo generate              <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;    <span class="comment"># layout默认为 post，可以在 _config.yml 的 default_layout 参数指定。</span></span><br><span class="line">                               <span class="comment"># Hexo 有三种默认布局：post、page 和 draft。</span></span><br><span class="line"></span><br><span class="line">$ hexo new draft &lt;title0&gt;       <span class="comment"># 新建一份草稿</span></span><br><span class="line">$ hexo publish [layout] &lt;title0&gt;   <span class="comment"># 将draft移动到post</span></span><br><span class="line">$ hexo generate                 <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save      <span class="comment"># 安装hexo-deployer-git以实现git部署</span></span><br><span class="line"></span><br><span class="line">$ vim _config.yml</span><br><span class="line">--------------[file content]</span><br><span class="line">    deploy:</span><br><span class="line">      <span class="built_in">type</span>: git</span><br><span class="line">      repo: &lt;repository url&gt;    <span class="comment"># 库（Repository）地址</span></span><br><span class="line">      branch: [branch]          <span class="comment"># 分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</span></span><br><span class="line">      message: [message]        <span class="comment"># 自定义提交信息 (默认为 Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;)</span></span><br><span class="line">--------------[file content]</span><br><span class="line">$ hexo deploy     <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
 <h2 id="Github-配置"><a href="#Github-配置" class="headerlink" title="Github 配置"></a>Github 配置</h2><h3 id="新建用于存放pages的repo"><a href="#新建用于存放pages的repo" class="headerlink" title="新建用于存放pages的repo"></a>新建用于存放pages的repo</h3><p>在GitHub上建一个repository（库），任意命名。<br>如果是没有个人域名，最好以 [github账号].github.io 命名，后续这个二级域名便指向这个库的GitHub pages。<br>如果有个人域名，可以任意命名，在setting中可以自行设置域名。然后将个人域名DNS解析指向GitHub.io的IP(192.30.252.153,192.30.252.154)。</p>
 <h3 id="新建SSH-Keys"><a href="#新建SSH-Keys" class="headerlink" title="新建SSH Keys"></a>新建SSH Keys</h3><p>我使用SSH连接GitHub。 <span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmdpdGh1Yi5jb20vYXJ0aWNsZXMvY29ubmVjdGluZy10by1naXRodWItd2l0aC1zc2gv" title="https://help.github.com/articles/connecting-to-github-with-ssh/">官方文档<i class="fa fa-external-link"></i></span></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh     <span class="comment"># 查看是否有 id_rsa 和 id_rsa.pub 文件</span></span><br><span class="line"><span class="comment"># 如果不存在或者想要生成新的密钥对，可使用下面命令</span></span><br><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"user@oddboy.cn"</span></span><br><span class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub    <span class="comment"># 很强势的一个命令，将文件内容直接复制到剪贴板。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al ~/.ssh     <span class="comment"># 查看是否有 id_rsa 和 id_rsa.pub 文件</span></span><br><span class="line"><span class="comment"># 如果不存在或者想要生成新的密钥对，可使用下面命令</span></span><br><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"user@oddboy.cn"</span></span><br><span class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub    <span class="comment"># 很强势的一个命令，将文件内容直接复制到剪贴板。</span></span><br></pre></td></tr></table></figure>
 <p>在GitHub的Personal setting –&gt; SSH and GPG keys点击“New SSH key”, 粘贴好公钥即可。</p>
 <p>如此, hexo depoly就可以用了。</p>
 <h3 id="新建用于存放hexo博客源码的repo"><a href="#新建用于存放hexo博客源码的repo" class="headerlink" title="新建用于存放hexo博客源码的repo"></a>新建用于存放hexo博客源码的repo</h3><p>hexo deploy上传的只是生成的静态页面，博客的原始数据仍然存在于本地。为了安全起见，我们需要另外建一个库，用于博客源码。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git init    <span class="comment"># git本地目录初始化</span></span><br><span class="line">$ git remote add origin git@github.com:odboy/hexoBlog-src.git   <span class="comment"># 配置远程git库</span></span><br><span class="line">$ git add .   </span><br><span class="line">$ git commit -m <span class="string">"comment信息"</span></span><br><span class="line">$ git status      <span class="comment"># 查看分支情况</span></span><br><span class="line">$ git push -u origin master   <span class="comment"># 推送到master分支</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改主题-–-spfk"><a href="#修改主题-–-spfk" class="headerlink" title="修改主题 – spfk"></a>修改主题 – <span class="exturl" data-url="aHR0cDovL2x1dW1hbi5naXRodWIuaW8vMjAxNS8xMi8yNy9IZXhvL0hleG9UaGVtZS8=" title="http://luuman.github.io/2015/12/27/Hexo/HexoTheme/">spfk<i class="fa fa-external-link"></i></span></h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/Documents/hexoBlog</span><br><span class="line">$ git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br><span class="line">$ cd themes/spfk</span><br><span class="line">$ git pull      # 主题update</span><br><span class="line">$ vim _config.yml</span><br><span class="line">--------------------</span><br><span class="line">      # Extensions</span><br><span class="line">      ## Plugins: https://hexo.io/plugins/</span><br><span class="line">      ## Themes: https://hexo.io/themes/</span><br><span class="line">      theme: spfk</span><br><span class="line">--------------------</span><br></pre></td></tr></table></figure>
-<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvZGVGYWxsaW5nL2hleG8tYXNzZXQtaW1hZ2U=" title="https://github.com/CodeFalling/hexo-asset-image">图片辅助工具hexo-asset-image<i class="fa fa-external-link"></i></span><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init    <span class="comment"># git本地目录初始化</span></span><br><span class="line">$ git remote add origin git@github.com:odboy/hexoBlog-src.git   <span class="comment"># 配置远程git库</span></span><br><span class="line">$ git add .   </span><br><span class="line">$ git commit -m <span class="string">"comment信息"</span></span><br><span class="line">$ git status      <span class="comment"># 查看分支情况</span></span><br><span class="line">$ git push -u origin master   <span class="comment"># 推送到master分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改主题-–-spfk"><a href="#修改主题-–-spfk" class="headerlink" title="修改主题 – spfk"></a>修改主题 – <span class="exturl" data-url="aHR0cDovL2x1dW1hbi5naXRodWIuaW8vMjAxNS8xMi8yNy9IZXhvL0hleG9UaGVtZS8=" title="http://luuman.github.io/2015/12/27/Hexo/HexoTheme/">spfk<i class="fa fa-external-link"></i></span></h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd ~/Documents/hexoBlog</span><br><span class="line">$ git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br><span class="line">$ cd themes/spfk</span><br><span class="line">$ git pull      # 主题update</span><br><span class="line">$ vim _config.yml</span><br><span class="line">--------------------</span><br><span class="line">      # Extensions</span><br><span class="line">      ## Plugins: https://hexo.io/plugins/</span><br><span class="line">      ## Themes: https://hexo.io/themes/</span><br><span class="line">      theme: spfk</span><br><span class="line">--------------------</span><br></pre></td></tr></table></figure>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvZGVGYWxsaW5nL2hleG8tYXNzZXQtaW1hZ2U=" title="https://github.com/CodeFalling/hexo-asset-image">图片辅助工具hexo-asset-image<i class="fa fa-external-link"></i></span><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -478,6 +502,13 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -524,7 +555,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -536,6 +567,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -599,7 +634,7 @@
                     
                     <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -704,7 +739,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5taWl0YmVpYW4uZ292LmNu">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">京ICP备18031815号 </span>&copy; 2017 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -796,52 +831,76 @@
   
 
 
-  <script src="/js/src/utils.js?v=7.0.1"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
   
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
   
 
 
-  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+  <script src="/js/affix.js?v=7.1.1"></script>
 
-
-  
-
-  
-  <script src="/js/src/exturl.js?v=7.0.1"></script>
-
-
-  
-
-  
-
-
-  
-
-
-  
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
 
 
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.1"></script>
+
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://blog-jihoat8tps.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oddboy.cn/2017/hello-world/";
+    this.page.identifier = "2017/hello-world/";
+    this.page.title = 'The begin of blog';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-jihoat8tps.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
 
   
 
@@ -852,6 +911,18 @@
   
 
   
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 
