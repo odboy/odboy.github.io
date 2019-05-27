@@ -1,3 +1,5 @@
+https://oddboy.cn/2019/反垃圾邮件技术及可能存在的问题-SPF-DKIM-DMARC/
+https://oddboy.cn/2019/SMTP安全相关问题/
 https://oddboy.cn/2019/Opengrok安装-on-mac/
 https://oddboy.cn/2019/CISSP之速战速决/
 https://oddboy.cn/2018/Docker快速部署pure-ftp/
