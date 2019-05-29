@@ -109,7 +109,7 @@
 <meta property="og:description" content="关于CDN下查找真实IP的办法，网上一堆文章，但是实际情况是，替代hosts进行尝试并不是一个现实可行的办法，故而这种小工具就由我来写写，望大佬们指教。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://oddboy.cn/2019/CDN下寻觅真实IP/image01.png">
-<meta property="og:updated_time" content="2019-05-29T05:57:31.537Z">
+<meta property="og:updated_time" content="2019-05-29T06:11:30.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CDN下寻觅真实IP">
 <meta name="twitter:description" content="关于CDN下查找真实IP的办法，网上一堆文章，但是实际情况是，替代hosts进行尝试并不是一个现实可行的办法，故而这种小工具就由我来写写，望大佬们指教。">
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="Created: 2019-05-29 12:49:50 / Modified: 13:57:31" itemprop="dateCreated datePublished" datetime="2019-05-29T12:49:50+08:00">2019-05-29</time>
+              <time title="Created: 2019-05-29 12:49:50 / Modified: 14:11:30" itemprop="dateCreated datePublished" datetime="2019-05-29T12:49:50+08:00">2019-05-29</time>
             
 
             
@@ -424,7 +424,8 @@
 <li><p>通过SPF记录，确定IP，若无SPF，可查看邮件头中的IP地址。</p>
 </li>
 </ul>
-<h1 id="使用脚本验证"><a href="#使用脚本验证" class="headerlink" title="使用脚本验证"></a>使用脚本验证</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">✗ python3 findrealIP.py -h</span><br><span class="line">        .--.</span><br><span class="line">       |o_o |    ------------------</span><br><span class="line">       |:_/ |   &lt;      Mr.Bingo     &gt;</span><br><span class="line">      //   \ \   ------------------</span><br><span class="line">     (|     | ) &lt; https://oddboy.cn &gt;</span><br><span class="line">    /&apos;\_   _/`\  ------------------</span><br><span class="line">    \___)=(___/</span><br><span class="line"></span><br><span class="line">usage: findrealIP.py [-h] [--protocol PROTOCOL] --domain DOMAIN [--port PORT]</span><br><span class="line">                     [--path PATH] (-i IP | -I IPS) [-t THREAD]</span><br><span class="line">                     [--identifystring IDENTIFYSTRING]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  --protocol PROTOCOL   HTTP or HTTPS, default: HTTP</span><br><span class="line">  --domain DOMAIN       Target Domain, eg: www.oddboy.cn</span><br><span class="line">  --port PORT           Service Port, eg: 80</span><br><span class="line">  --path PATH           Target Path, eg: / or /WebRoot, default: /</span><br><span class="line">  -i IP                 Signal IP, eg: 8.8.8.8 or 8.8.8.8/24</span><br><span class="line">  -I IPS                IP list file</span><br><span class="line">  -t THREAD             Thread Count, default: 1</span><br><span class="line">  --identifystring IDENTIFYSTRING</span><br><span class="line">                        Use Identify String to Ident The True Target</span><br></pre></td></tr></table></figure>
+<h1 id="使用脚本验证"><a href="#使用脚本验证" class="headerlink" title="使用脚本验证"></a>使用脚本验证</h1><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29kYm95L2ZpbmRyZWFsaXA=" title="https://github.com/odboy/findrealip">https://github.com/odboy/findrealip<i class="fa fa-external-link"></i></span></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">✗ python3 findrealIP.py -h</span><br><span class="line">        .--.</span><br><span class="line">       |o_o |    ------------------</span><br><span class="line">       |:_/ |   &lt;      Mr.Bingo     &gt;</span><br><span class="line">      //   \ \   ------------------</span><br><span class="line">     (|     | ) &lt; https://oddboy.cn &gt;</span><br><span class="line">    /&apos;\_   _/`\  ------------------</span><br><span class="line">    \___)=(___/</span><br><span class="line"></span><br><span class="line">usage: findrealIP.py [-h] [--protocol PROTOCOL] --domain DOMAIN [--port PORT]</span><br><span class="line">                     [--path PATH] (-i IP | -I IPS) [-t THREAD]</span><br><span class="line">                     [--identifystring IDENTIFYSTRING]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  --protocol PROTOCOL   HTTP or HTTPS, default: HTTP</span><br><span class="line">  --domain DOMAIN       Target Domain, eg: www.oddboy.cn</span><br><span class="line">  --port PORT           Service Port, eg: 80</span><br><span class="line">  --path PATH           Target Path, eg: / or /WebRoot, default: /</span><br><span class="line">  -i IP                 Signal IP, eg: 8.8.8.8 or 8.8.8.8/24</span><br><span class="line">  -I IPS                IP list file</span><br><span class="line">  -t THREAD             Thread Count, default: 1</span><br><span class="line">  --identifystring IDENTIFYSTRING</span><br><span class="line">                        Use Identify String to Ident The True Target</span><br></pre></td></tr></table></figure>
 <p>示例如下：</p>
 <p><img src="/2019/CDN下寻觅真实IP/image01.png" alt></p>
 
